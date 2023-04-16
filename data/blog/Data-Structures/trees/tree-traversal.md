@@ -218,7 +218,7 @@ If you have **few nodes to keep track of** (think a small tree), then you should
 | Many branches in the tree.                         | Few branches in the tree.                            |
 | But results in a lot of **memory use**             | Doesn't use much memory, but can be slow.            |
 
-![when to use BFS](https://github.com/Cwarcup/notes/blob/main/images/whentoDFS.png?raw=true)
+![when to use BFS](https://github.com/bos-hieu/notes/blob/main/images/whentoDFS.png?raw=true)
 
 > Use when each node has many children, and you want to visit all of them.
 

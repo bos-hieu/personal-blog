@@ -1,8 +1,10 @@
-# cwarcup.com by Curtis Warcup
+# boshieu.vercel.app by Bos Hieu
 
-This repository is the home to my personal [website](https://www.cwarcup.com/). This website is intended for personal use, and functions as a method of storing/organizing notes and projects.
+This repository is the home to my personal [website](https://boshieu.vercel.app). This website is intended for personal use, and functions as a method of storing/organizing notes and projects.
 
-The site is forked from the incredible [Tailwind-Nextjs-Starter-Blog](https://github.com/timlrx/tailwind-nextjs-starter-blog) by [Tim Lrx](https://github.com/timlrx).
+The site is forked from the incredible [Cwarcup's personal blog](https://github.com/bos-hieu/personal-blog) while I was exploring the fantastic [Tailwind-Nextjs-Starter-Blog](https://github.com/timlrx/tailwind-nextjs-starter-blog) by [Tim Lrx](https://github.com/timlrx).
+
+It is also inspired by [Victor Sabara's](https://victorsabare.vercel.app/) excellent blog.
 
 Check out the starter documentation or fork this project and start building your own blog!
 

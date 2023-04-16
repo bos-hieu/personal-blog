@@ -9,7 +9,7 @@ summary: After finishing a project, it was time to start a new one. But where do
 
 # The Journey
 
-After weeks of working on my [last project](https://github.com/Cwarcup/ctt-front-end), I wanted to maintain momentum and start working on a new project as soon as possible. I had a few ideas in mind, but I wasn't sure which one to start with. I wanted to build something that would be useful to me, but also something that I could share with others.
+After weeks of working on my [last project](https://github.com/bos-hieu/ctt-front-end), I wanted to maintain momentum and start working on a new project as soon as possible. I had a few ideas in mind, but I wasn't sure which one to start with. I wanted to build something that would be useful to me, but also something that I could share with others.
 
 I didn't want to build another Todo or Weather app. That isn't inspiring to me. But sometimes I start to think big, maybe too big, and I get overwhelmed. I need to start small and build up.
 

@@ -1,28 +1,28 @@
 const siteMetadata = {
-  title: 'cwarcup - Curtis Warcup',
-  author: 'Curtis Warcup',
-  headerTitle: 'Curtis Warcup - Web Developer',
+  title: 'boshieu - Bos Hieu',
+  author: 'Bos Hieu',
+  headerTitle: 'Bos Hieu - Backend Developer',
   description:
-    'Personal blog and web development notes created by Curtis Warcup. Also contains projects and personal interests.',
+    'Personal blog and web development notes created by Bos Hieu. Also contains projects and personal interests.',
   language: 'en-us',
   theme: 'dark', // system, dark or light
-  siteUrl: 'https://cwarcup.com',
-  siteRepo: 'https://github.com/Cwarcup/personal-blog',
+  siteUrl: 'https://boshieu.vercel.app',
+  siteRepo: 'https://github.com/bos-hieu/personal-blog',
   siteLogo: '/static/images/logo.png',
-  image: '/static/images/avatar.jpg',
+  image: '/static/images/avatar.jpeg',
   socialBanner: '/static/images/twitter-card.png',
-  email: 'curtis.gwarcup@gmail.com',
-  github: 'https://github.com/Cwarcup',
-  twitter: 'https://twitter.com/curtiswarcup',
-  facebook: 'https://www.facebook.com/curtis.wwwwww',
-  youtube: 'https://youtube.com',
-  linkedin: 'https://www.linkedin.com/in/curtiswarcup/',
+  email: 'boshieucommingsoon@gmail.com',
+  github: 'https://github.com/bos-hieu',
+  // twitter: 'https://twitter.com/curtiswarcup',
+  // facebook: 'https://www.facebook.com/curtis.wwwwww',
+  youtube: 'https://www.youtube.com/@HieuLeTrung94',
+  linkedin: 'https://www.linkedin.com/in/trung-hieu-le',
   locale: 'en-US',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.
     // supports plausible, simpleAnalytics, umami or googleAnalytics
-    plausibleDataDomain: 'https://cwarcup.com/', // e.g. tailwind-nextjs-starter-blog.vercel.app
+    plausibleDataDomain: 'https://boshieu.vercel.app', // e.g. tailwind-nextjs-starter-blog.vercel.app
     simpleAnalytics: false, // true or false
     umamiWebsiteId: '', // e.g. 123e4567-e89b-12d3-a456-426614174000
     googleAnalyticsId: process.env.NEXT_PUBLIC_GOOGLE_ANALYTIC_ID, // e.g. UA-000000-2 or G-XXXXXXX

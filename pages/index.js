@@ -31,6 +31,7 @@ export default function Home({ posts }) {
           <span className="font-poppins title-font text-3xl font-bold">Recent Posts</span>
         </div>
 
+        {/*
         <div className="grid gap-5 sm:mt-6 sm:pt-10 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-5">
           {!posts.length && 'No posts found.'}
           {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {
@@ -62,6 +63,8 @@ export default function Home({ posts }) {
             </Link>
           </div>
         )}
+        */}
+          <div>Coming soon</div>
       </div>
       <Analytics />
     </>

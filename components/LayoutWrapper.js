@@ -35,8 +35,9 @@ const LayoutWrapper = ({ children }) => {
     <>
       <header className={classes} ref={ref}>
         <div className="mx-auto flex max-w-3xl items-center justify-between bg-cardBg bg-opacity-5 px-4 sm:px-6 xl:max-w-5xl xl:px-0">
-          <Link href="/" aria-label="Curtis Warcup">
+          <Link href="/" aria-label="Bos Hieu">
             <div className="mr-3">
+              {/*BOS HIEU*/}
               <Logo />
             </div>
           </Link>

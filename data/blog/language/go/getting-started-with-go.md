@@ -552,8 +552,8 @@ func main() {
 	var curtis3 person
 
 
-	fmt.Println(curtis1) // {Curtis Warcup}
-	fmt.Println(curtis2) // {Curtis Warcup}
+	fmt.Println(curtis1) // {Bos Hieu}
+	fmt.Println(curtis2) // {Bos Hieu}
 	fmt.Println(curtis3) // { }
 }
 ```
@@ -576,7 +576,7 @@ func main() {
 	var curtis person
 	curtis.firstName = "Curtis"
 	curtis.lastName = "Warcup"
-	fmt.Println(curtis) // {Curtis Warcup}
+	fmt.Println(curtis) // {Bos Hieu}
 }
 ```
 

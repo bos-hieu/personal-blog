@@ -28,7 +28,7 @@ Once the setup is complete, go to `C:\users\your username\qmk_firmware`. Do this
 
 I recommend opening the file in Finder as well and double checking my board is compatible with QMK. This can be done by opening the `qmk_firmware` folder, going into `keyboards` and you should see your keyboard name listed here.
 
-![qmk compatibility](https://github.com/Cwarcup/How-To-QMK-macOS/blob/main/images/compat.png?raw=true)
+![qmk compatibility](https://github.com/bos-hieu/How-To-QMK-macOS/blob/main/images/compat.png?raw=true)
 
 Now back to terminal. Once you are in the `qmk_firmware` directory, enter this into terminal but **change the keyboard name, model and layout** (ANSI or ISO). You can double check you are in this directory by seeing what is before the `%` character. It should look like `<your user name on device> qmk_firmware %`.
 
@@ -253,7 +253,7 @@ Add the following on the last line in the `rules.mk` file you copied to the fold
 VIA_ENABLE = yes
 ```
 
-![rules](https://github.com/Cwarcup/How-To-QMK-macOS/blob/main/images/rules.png?raw=true)
+![rules](https://github.com/bos-hieu/How-To-QMK-macOS/blob/main/images/rules.png?raw=true)
 
 ## Compile the Keymap
 
@@ -273,7 +273,7 @@ Launch QMK Toolbox.
 
 Drag your newly created "gmmk_pro_ansi_noobs.bin" into the input area beside the "open" button. This is the path to your ""gmmk_pro_ansi_noobs.bin" file.
 
-![qmk mac](https://github.com/Cwarcup/How-To-QMK-macOS/blob/main/images/qmkmac.png?raw=true)
+![qmk mac](https://github.com/bos-hieu/How-To-QMK-macOS/blob/main/images/qmkmac.png?raw=true)
 
 Hold spacebar+b on your GMMK Pro while plugging in the usb cable, this should put it into the bootloader mode. If that did not work, you can also try to hold ESC (top left corner) while plugging in the usb cable. You should see a message in the QMK Toolbox that indicates that your board is in STM DFU Bootloader Mode.
 
