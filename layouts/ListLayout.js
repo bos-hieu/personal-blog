@@ -88,9 +88,5 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
   //   </>
   // )
 
-  return (
-      <>
-        Coming soon
-      </>
-  )
+  return <>Coming soon</>
 }

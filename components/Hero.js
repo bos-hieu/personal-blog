@@ -38,10 +38,12 @@ export default function Hero() {
   return (
     <div className="mb-5 max-w-2xl">
       <h1 className="text-4xl font-bold tracking-tight text-gray-800 dark:text-zinc-100 sm:text-5xl">
-          Web developer, technology geek, and coding enthusiast
+        Web developer, technology geek, and coding enthusiast
       </h1>
       <p className="mt-6 text-base text-gray-600 dark:text-gray-400">
-          I have been working at Autonomous Inc for five years. I started as a Backend developer then move to Frontend developer and now I'm working as a Full Stack developer. My work mainly focuses on building and developing the autonomous.ai site.
+        I have been working at Autonomous Inc for five years. I started as a Backend developer then
+        move to Frontend developer and now I'm working as a Full Stack developer. My work mainly
+        focuses on building and developing the autonomous.ai site.
       </p>
       <div className="mt-6 flex gap-6">
         <SocialLink

@@ -62,7 +62,7 @@ const LayoutWrapper = ({ children }) => {
                         <Menu.Button className="inline-flex justify-center rounded-md bg-transparent font-bold text-gray-100 hover:text-primary-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
                           Other
                           <ChevronDownIcon
-                            className="ml-2 -mr-1 h-5 w-5 text-violet-200 hover:text-violet-100"
+                            className="-mr-1 ml-2 h-5 w-5 text-violet-200 hover:text-violet-100"
                             aria-hidden="true"
                           />
                         </Menu.Button>

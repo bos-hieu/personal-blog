@@ -64,7 +64,7 @@ export default function Home({ posts }) {
           </div>
         )}
         */}
-          <div>Coming soon</div>
+        <div>Coming soon</div>
       </div>
       <Analytics />
     </>
