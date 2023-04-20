@@ -7,8 +7,9 @@ const headerNavLinks = [
     type: 'dropdown',
     title: 'Other',
     links: [
-      { href: '/tags', title: 'Tags' },
+      // { href: '/tags', title: 'Tags' },
       { href: '/tools', title: 'Tools' },
+      { href: '/reading-list', title: 'Reading List' },
     ],
   },
 ]
