@@ -1,5 +1,5 @@
 const siteMetadata = {
-  title: 'Trung Hieu Le\'s Portfolio',
+  title: "Trung Hieu Le's Portfolio",
   author: 'Trung Hieu Le',
   headerTitle: 'Trung Hieu Le - Backend Developer',
   description:
@@ -22,7 +22,7 @@ const siteMetadata = {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.
     // supports plausible, simpleAnalytics, umami or googleAnalytics
-    plausibleDataDomain: 'https://boshieu.vercel.app', // e.g. tailwind-nextjs-starter-blog.vercel.app
+    plausibleDataDomain: 'https://trunghieu.vercel.app', // e.g. tailwind-nextjs-starter-blog.vercel.app
     simpleAnalytics: false, // true or false
     umamiWebsiteId: '', // e.g. 123e4567-e89b-12d3-a456-426614174000
     googleAnalyticsId: process.env.NEXT_PUBLIC_GOOGLE_ANALYTIC_ID, // e.g. UA-000000-2 or G-XXXXXXX
