@@ -27,6 +27,14 @@ const readingListData = [
     href: 'https://quizlet.com/_d5kk04?x=1qqt&i=4o0fxt',
     title: "Bos Hieu's Vocabulary",
   },
+  {
+    href: 'https://medusajs.com/',
+    title: 'Medusa - an open-source headless commerce engine',
+  },
+  {
+    href: 'https://www.youtube.com/watch?v=gyMwXuJrbJQ',
+    title: 'Learn Blockchain, Solidity, and Full Stack Web3 Development with JavaScript',
+  }
 ]
 
 export default readingListData
