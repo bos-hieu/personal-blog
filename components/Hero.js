@@ -41,9 +41,7 @@ export default function Hero() {
         Web developer, technology geek, and coding enthusiast
       </h1>
       <p className="mt-6 text-base text-gray-600 dark:text-gray-400">
-        I have been working at Autonomous Inc for five years. I started as a Backend developer then
-        move to Frontend developer and now I'm working as a Full Stack developer. My work mainly
-        focuses on building and developing the autonomous.ai site.
+          Coding enthusiast experienced in web development.
       </p>
       <div className="mt-6 flex gap-6">
         <SocialLink
@@ -57,15 +55,15 @@ export default function Hero() {
           icon={IoLogoLinkedin}
         />
         <CopyToClipboard
-          text={{ contact: 'boshieucommingsoon@gmail.com', type: 'Email' }}
+          text={{ contact: 'letrunghieu37@gmail.com', type: 'Email' }}
           aria-label="Send me an email"
           icon={IoMail}
         />
-        {/*<CopyToClipboard*/}
-        {/*  text={{ contact: '+1 (604) 374-4652', type: 'Phone number' }}*/}
-        {/*  aria-label="Give me a call"*/}
-        {/*  icon={IoCall}*/}
-        {/*/>*/}
+        <CopyToClipboard
+          text={{ contact: '+1 (306) 880-6809', type: 'Phone number' }}
+          aria-label="Give me a call"
+          icon={IoCall}
+        />
       </div>
     </div>
   )

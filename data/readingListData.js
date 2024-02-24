@@ -34,7 +34,7 @@ const readingListData = [
   {
     href: 'https://www.youtube.com/watch?v=gyMwXuJrbJQ',
     title: 'Learn Blockchain, Solidity, and Full Stack Web3 Development with JavaScript',
-  }
+  },
 ]
 
 export default readingListData
