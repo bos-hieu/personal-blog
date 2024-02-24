@@ -1,4 +1,4 @@
-# boshieu.vercel.app by Bos Hieu
+# trunghieu.vercel.app by Trung Hieu
 
 This repository is the home to my personal [website](https://trunghieu.vercel.app). This website is intended for personal use, and functions as a method of storing/organizing notes and projects.
 

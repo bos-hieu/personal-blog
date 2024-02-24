@@ -38,7 +38,7 @@ const LayoutWrapper = ({ children }) => {
           <Link href="/" aria-label="Trung Hieu">
             <div className="mr-3">
               ~/trung-hieu
-              {/*<Logo /> Bos Hieu*/}
+              {/*<Logo /> Trung Hieu*/}
             </div>
           </Link>
           <div className="flex items-center text-base leading-5">

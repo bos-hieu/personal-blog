@@ -25,7 +25,7 @@ const readingListData = [
   },
   {
     href: 'https://quizlet.com/_d5kk04?x=1qqt&i=4o0fxt',
-    title: "Bos Hieu's Vocabulary",
+    title: "Trung Hieu's Vocabulary",
   },
   {
     href: 'https://medusajs.com/',

@@ -30,7 +30,7 @@ export default function About() {
         <title>{`About - ${author}`}</title>
         <meta
           name="description"
-          content="Hi, I'm Bos Hieu. I'm a software engineer and a lifelong learner. I'm passionate about building great software and sharing what I learn along the way."
+          content="Hi, I'm Trung Hieu. I'm a software engineer and a lifelong learner. I'm passionate about building great software and sharing what I learn along the way."
         />
       </Head>
       <Container className="mt-10">
@@ -39,7 +39,7 @@ export default function About() {
             <div className="max-w-xs px-2.5 lg:max-w-none">
               <Image
                 src={portraitImage}
-                alt="portrait of Bos Hieu"
+                alt="portrait of Trung Hieu"
                 sizes="(min-width: 1024px) 32rem, 20rem"
                 className="aspect-square rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
               />
@@ -47,7 +47,7 @@ export default function About() {
           </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              I’m Bos Hieu. I live in sunny Di An, Binh Duong.
+              Trung Hieu - Coding Enthusiast
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               {/*<p>*/}
