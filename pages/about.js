@@ -50,13 +50,33 @@ export default function About() {
               Trung Hieu - Coding Enthusiast
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
-              <p>I'm Trung Hieu! I've been with Autonomous Inc, a US-based ecommerce company specializing in office products, for nearly 8 years—evolving from a Web Developer to a Backend Developer. My primary focus involves crafting and enhancing the autonomous.ai site, and I have a keen interest in integrating diverse payment gateways like Google Pay, Apple Pay, Amazon Pay, Credit Card processors, and Cryptocurrency.</p>
+              <p>
+                I'm Trung Hieu! I've been with Autonomous Inc, a US-based ecommerce company
+                specializing in office products, for nearly 8 years—evolving from a Web Developer to
+                a Backend Developer. My primary focus involves crafting and enhancing the
+                autonomous.ai site, and I have a keen interest in integrating diverse payment
+                gateways like Google Pay, Apple Pay, Amazon Pay, Credit Card processors, and
+                Cryptocurrency.
+              </p>
 
-              <p>As a programming geek, I'm always on the lookout for new things to learn alongside my main job. Therefore, I've returned to school to continue my lifelong learning journey. Currently, I'm a full-time student pursuing a postgraduate certificate in Cloud Computing and Blockchain at Saskatchewan Polytechnic.</p>
+              <p>
+                As a programming geek, I'm always on the lookout for new things to learn alongside
+                my main job. Therefore, I've returned to school to continue my lifelong learning
+                journey. Currently, I'm a full-time student pursuing a postgraduate certificate in
+                Cloud Computing and Blockchain at Saskatchewan Polytechnic.
+              </p>
 
-              <p>Between 2018 and 2021, I co-founded and served as the technical lead for TripX, a car self-driver rental marketplace startup in Vietnam. In my spare time, I also contributed to some impactful open-source projects on <a href="https://github.com/bos-hieu">GitHub</a>.</p>
+              <p>
+                Between 2018 and 2021, I co-founded and served as the technical lead for TripX, a
+                car self-driver rental marketplace startup in Vietnam. In my spare time, I also
+                contributed to some impactful open-source projects on{' '}
+                <a href="https://github.com/bos-hieu">GitHub</a>.
+              </p>
 
-              <p>Beyond coding, I'm a huge football fan, especially of CR7, who has been a significant influence in my life.</p>
+              <p>
+                Beyond coding, I'm a huge football fan, especially of CR7, who has been a
+                significant influence in my life.
+              </p>
             </div>
           </div>
           <div className="lg:pl-20">
