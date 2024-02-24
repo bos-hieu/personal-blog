@@ -41,10 +41,7 @@ export default function Hero() {
         Hi, I'm Trung Hieu
       </h1>
       <p className="mt-6 text-base text-gray-600 dark:text-gray-400">
-        Currently, I'm enrolled full-time in the Cloud Computing and Blockchain program at
-        Saskatchewan Polytechnic. Alongside my studies, I've been part of Autonomous Inc for almost
-        8 years, serving as a Backend Developer. Based in the US, Autonomous Inc specializes in
-        office products.
+          I'm currently studying full-time in the Cloud Computing and Blockchain program at Saskatchewan Polytechnic. Alongside my studies, I've worked at Autonomous Inc for almost 8 years as a Backend Developer. Autonomous Inc, based in the US, is known for its office products, especially ergonomic tools for gamers and streamers.
       </p>
       <div className="mt-6 flex gap-6">
         <SocialLink
