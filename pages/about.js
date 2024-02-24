@@ -50,30 +50,13 @@ export default function About() {
               Trung Hieu - Coding Enthusiast
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
-              {/*<p>*/}
-              {/*  I've always loved taking apart things, figuring out how they work, and putting them*/}
-              {/*  back together (or not, sorry Mom & Dad). I've been a lifelong learner, and I'm*/}
-              {/*  passionate about building great websites and sharing what I learn along the way.*/}
-              {/*</p>*/}
-              {/*<p>*/}
-              {/*  During my time at the University of British Columbia, I studied Kinesiology (the*/}
-              {/*  study of human movement) while I worked towards applying to medical school. After an*/}
-              {/*  unsuccessful application cycle, I decided to take a year off and work at Apple as an*/}
-              {/*  iPhone repair technician. This was an exciting time since Apple was offering their*/}
-              {/*  iPhone battery replacement program for $29, and I was able to help hundreds of*/}
-              {/*  customers save hundreds of dollars. I also got to work with some of the most*/}
-              {/*  talented people I've ever met, and I learned a lot about customer service and how to*/}
-              {/*  work with a team.*/}
-              {/*</p>*/}
-              {/*<p>*/}
-              {/*  I fell in love with the fast-paced environment of Apple and moved into a role as a*/}
-              {/*  Genius where I learnt how to handle complex technical issues and navigate difficult*/}
-              {/*  customer interactions. I quickly moved into a middle management role as a Lead and*/}
-              {/*  was responsible for all the daily operations of the store. I was able to learn a lot*/}
-              {/*  about how to manage a team, manage a budget, prioritize effectively and deal with*/}
-              {/*  ambiguity.*/}
-              {/*</p>*/}
-              <p>Comming soon</p>
+              <p>I'm Trung Hieu! I've been with Autonomous Inc, a US-based ecommerce company specializing in office products, for nearly 8 years—evolving from a Web Developer to a Backend Developer. My primary focus involves crafting and enhancing the autonomous.ai site, and I have a keen interest in integrating diverse payment gateways like Google Pay, Apple Pay, Amazon Pay, Credit Card processors, and Cryptocurrency.</p>
+
+              <p>As a programming geek, I'm always on the lookout for new things to learn alongside my main job. Therefore, I've returned to school to continue my lifelong learning journey. Currently, I'm a full-time student pursuing a postgraduate certificate in Cloud Computing and Blockchain at Saskatchewan Polytechnic.</p>
+
+              <p>Between 2018 and 2021, I co-founded and served as the technical lead for TripX, a car self-driver rental marketplace startup in Vietnam. In my spare time, I also contributed to some impactful open-source projects on <a href="https://github.com/bos-hieu">GitHub</a>.</p>
+
+              <p>Beyond coding, I'm a huge football fan, especially of CR7, who has been a significant influence in my life.</p>
             </div>
           </div>
           <div className="lg:pl-20">
