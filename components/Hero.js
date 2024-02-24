@@ -41,7 +41,7 @@ export default function Hero() {
         Web developer, technology geek, and coding enthusiast
       </h1>
       <p className="mt-6 text-base text-gray-600 dark:text-gray-400">
-          Coding enthusiast experienced in web development.
+        Coding enthusiast experienced in web development.
       </p>
       <div className="mt-6 flex gap-6">
         <SocialLink

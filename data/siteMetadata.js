@@ -1,17 +1,17 @@
 const siteMetadata = {
-  title: 'boshieu - Bos Hieu',
-  author: 'Bos Hieu',
-  headerTitle: 'Bos Hieu - Backend Developer',
+  title: 'Trung Hieu Le\'s Portfolio',
+  author: 'Trung Hieu Le',
+  headerTitle: 'Trung Hieu Le - Backend Developer',
   description:
-    'Personal blog and web development notes created by Bos Hieu. Also contains projects and personal interests.',
+    'Personal blog and web development notes created by Trung Hieu Le. Also contains projects and personal interests.',
   language: 'en-us',
   theme: 'dark', // system, dark or light
-  siteUrl: 'https://boshieu.vercel.app',
+  siteUrl: 'https://trunghieu.vercel.app',
   siteRepo: 'https://github.com/bos-hieu/personal-blog',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.jpeg',
   socialBanner: '/static/images/twitter-card.png',
-  email: 'boshieucommingsoon@gmail.com',
+  email: 'letrunghieu37@gmail.com',
   github: 'https://github.com/bos-hieu',
   // twitter: 'https://twitter.com/curtiswarcup',
   // facebook: 'https://www.facebook.com/curtis.wwwwww',
