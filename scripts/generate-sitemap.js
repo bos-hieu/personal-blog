@@ -63,7 +63,7 @@ const siteMetadata = require('../data/siteMetadata')
 
     const formatted = prettier.format(sitemap, {
         ...prettierConfig,
-        parser: 'xml',
+        parser: 'html',
     })
 
     // eslint-disable-next-line no-sync
