@@ -1,0 +1,195 @@
+---
+title: 'E-commerce Order Purchasing Smart Contract'
+date: '2024-04-23'
+tags: ['solidity', 'trunghieu', 'smart-contract', 'blockchain', 'e-commerce', 'order-purchasing', 'refund', 'cancel-order', 'place-order', 'get-products', 'pseudocode', 'typescript', 'react-js']
+images: '/static/images/individualBlogPostImages/ecommerce-order-purchasing-smart-contract.png'
+draft: False
+summary: This smart contract is an enhanced version of a traditional e-commerce order purchase contract. The major purpose of the smart contract is to avoid fraudulent transactions resulting from traditional credit card purchases. The second purpose is to eliminate the need for payment processors, which validate and transport transactions between customers and retailers. As a result, retailers may focus on product development rather than incurring losses from fraudulent transactions or paying fees to payment processors to ensure the payment process operates properly.
+---
+
+# E-commerce Order Purchasing Smart Contract
+
+## Purposes of the smart contract <a href="#y7v865qrzrig" id="y7v865qrzrig"></a>
+
+This smart contract is an enhanced version of a traditional e-commerce order purchase contract. The major purpose of the smart contract is to avoid fraudulent transactions resulting from traditional credit card purchases. The second purpose is to eliminate the need for payment processors, which validate and transport transactions between customers and retailers. As a result, retailers may focus on product development rather than incurring losses from fraudulent transactions or paying fees to payment processors to ensure the payment process operates properly.
+
+## Parties will participate in the smart contract <a href="#id-6jl3a7akbs8y" id="id-6jl3a7akbs8y"></a>
+
+* Retailer: the agent produces the products for sale.
+* Customer: someone who needs to purchase a product for a certain purpose.
+
+## Functionalities of the smart contract <a href="#reg1ir7efp02" id="reg1ir7efp02"></a>
+
+1. [Get a list of the retailer’s products](e-commerce-order-purchasing-smart-contract.md#auwar3jsk9a).\
+We assumed that the retailer had already created products, so all we needed to do was list them.
+2. [Place an order for the product that the customer desires](e-commerce-order-purchasing-smart-contract.md#tr5vr45kkfgh).
+3. [The customer cancels a placed order.](e-commerce-order-purchasing-smart-contract.md#xsdtavqaa9p9)
+4. [Issue a refund to the customer](e-commerce-order-purchasing-smart-contract.md#f6oyc2xf6uld).
+
+We can determine whether a refund is partial or full based on the amount.
+
+## Pseudo code of functionality <a href="#bcgfna3rvjfe" id="bcgfna3rvjfe"></a>
+
+Before describing the pseudo code for each function, we define two structures that will be utilized in several functions. The common functions such as _getProductFromListProducts_, _generateOrderId_, and _getOrder_ will be defined according to the programming language. Therefore, the pseudo code for these functions will not be declared in this document.
+
+```cpp
+CONTRACT: EcommercePurchasing
+BEGIN
+  # The order status enum represents the status of an order.
+  ENUM OrderStatus {
+    PaymentPending,
+    PaymentFailed,
+    New,
+    Canceled,
+    PartialRefunded
+  }
+
+  # The order structure represents an order.
+  STRUCT Order {
+    STRING id;
+    STRING product_id;
+    DOUBLE amount;
+    STRING customer_address;
+    UINT status;
+    DOUBLE refunded_amount;
+  }
+
+  # The product structure represents a product.
+  STRUCT Product {
+    STRING id;
+    STRING name;
+    STRING description;
+    STRING image;
+    DOUBLE price;
+  }
+
+  # The listProducts is an array of Product with a fixed size of 3.
+  DECLARE CONSTANT Product[3] listProducts;
+END
+```
+
+### Get a list of the retailer’s products <a href="#auwar3jsk9a" id="auwar3jsk9a"></a>
+
+```cpp
+Function: getProducts
+ RETURNS Product[3]
+ BEGIN
+   RETURN listProducts;
+ END
+```
+
+### Place an order for the product that the customer desires <a href="#tr5vr45kkfgh" id="tr5vr45kkfgh"></a>
+
+```cpp
+Function: placeOrder
+    PARAMS (STRING product_id, DOUBLE amount)
+    BEGIN
+      # Step 1: Check if the product is valid.
+      Product product = getProductFromListProducts(product_id);
+      if product is not found THEN
+        PRINT "Product is invalid";
+        EXIT;
+      ENDIF
+
+      # Step 2: Check if the customer has enough balance.
+      SET customer_address = owner.address
+      if customer balance is less than amount THEN
+        PRINT "Not enough balance";
+        EXIT;
+      ENDIF
+
+      # Step 3: Create an order.
+      Order order = NEW Order();
+      order.id = generateOrderId();
+      order.product_id = product_id;
+      order.amount = amount;
+      order.customer_address = customer_address;
+      order.status = OrderStatus.PaymentPending;
+      order.refunded_amount = 0;
+
+      # Step 4: Issue a transaction from customer to retailer.
+      IF transfer transaction is failed THEN
+        order.status = OrderStatus.PaymentFailed;
+        PRINT "Transaction failed";
+      ELSE
+        order.status = OrderStatus.New;
+        PRINT "You have successfully purchased an order with id" +      order.id;
+      ENDIF
+    END
+```
+
+### The customer cancels a placed order <a href="#xsdtavqaa9p9" id="xsdtavqaa9p9"></a>
+
+```cpp
+Function: cancelOrder
+    PARAMS (STRING order_id)
+    BEGIN
+      # Step 1: Get Order info from order id.
+      Order order = getOrder(order_id);
+
+      # Step 2: Check if the order is already canceled.
+      IF order.status == OrderStatus.Canceled THEN
+        PRINT "This order is already canceled";
+        EXIT;
+
+      # Step 3: Proceed to cancel the order.
+      ELSE IF order.status == OrderStatus.New
+           OR order.status == OrderStatus.PartialRefunded THEN
+
+        # Step 3.1: Calculate the refund amount.
+        DOUBLE refund_amount = order.amount - order.refunded_amount;
+
+        # Step 3.2: Check if the refund amount is 0 then update the order status to canceled.
+        IF refund_amount == 0 THEN
+          order.status = OrderStatus.Canceled;
+          PRINT "You successfully canceled your order";
+          EXIT;
+
+        # Step 3.3: Issue a refund and update the order status to canceled.
+        ELSE
+          IF issueRefund(order_id, refund_amount) THEN
+            order.status = OrderStatus.Canceled;
+            PRINT "You successfully canceled your order";
+          ELSE
+            PRINT "Error occurred while refunding";
+          ENDIF
+        ENDIF
+      ELSE
+        PRINT "The order status is invalid";
+      ENDIF
+    END
+```
+
+### Issue a refund to the customer <a href="#f6oyc2xf6uld" id="f6oyc2xf6uld"></a>
+
+```cpp
+Function: issueRefund
+    PARAMS (STRING order_id, DOUBLE refund_amount)
+    BEGIN
+      # Step 1: Get order info from order id.
+      Order order = getOrder(order_id);
+
+      # Step 2: Calculate max refund amount.
+      DOUBLE max_refund_amount = order.amount - order.refunded_amount;
+
+      # Step 3: Compare max refund amount with refund amount
+      IF refund_amount > max_refund_amount THEN
+        PRINT "Refund amount is greater than " + max_refund_amount;
+        EXIT;
+
+      ELSE
+        # Step 4: Issue a refund transaction.
+        IF refund transaction is failed THEN
+          PRINT "Transaction failed";
+        ELSE
+          PRINT "You successfully refunded your payment";
+        ENDIF
+      ENDIF
+    END
+```
+
+## References <a href="#nn5w1qjib2qy" id="nn5w1qjib2qy"></a>
+
+_Just a moment.._. (n.d.). Just a moment...[ https://ca.indeed.com/career-advice/career-development/what-is-pseudocode](https://ca.indeed.com/career-advice/career-development/what-is-pseudocode)
+
+_Pseudocode guidelines_. (n.d.). courses.cs.washington.edu.[ https://courses.cs.washington.edu/courses/cse326/02wi/pseudocode.htm](https://courses.cs.washington.edu/courses/cse326/02wi/pseudocode.htm)
