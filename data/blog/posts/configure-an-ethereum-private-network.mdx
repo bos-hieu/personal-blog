@@ -1,0 +1,309 @@
+---
+title: 'Configure an Ethereum private network on a virtual machine'
+date: '2024-04-23'
+tags: ['Ethereum', 'Private Network', 'Virtual Machine', 'Geth']
+images: '/static/images/individualBlogPostImages/gitbook/assets/0.png'
+draft: False
+summary: History of commands to configure an Ethereum private network on a virtual machine, with explanations of each step.
+---
+
+# Configure an Ethereum private network
+
+In this post, we listed the history of commands to configure an Ethereum private network on a virtual machine, with explanations of each step. We used the VirtualBox software to create a virtual machine with the Ubuntu operating system (Ubuntu 22.04.4 LTS). We installed the Geth client on the virtual machine to interact with the Ethereum network. We have set up a private network with two nodes and a bootnode. The two nodes are associated with two accounts, and the bootnode is used to connect the two nodes in the network. There are 8 steps to configure the Ethereum private network:
+
+1. [Install Ethereum Client](configure-an-ethereum-private-network.md#kk05qeyho6m4)
+2. [Create folders for configuring](configure-an-ethereum-private-network.md#gzkcupoesvwe)
+3. [Create Accounts](configure-an-ethereum-private-network.md#yjn361n1wc50)
+4. [Create Genesis Block](configure-an-ethereum-private-network.md#ocpvymhm3dzl)
+5. [Initialize Nodes](configure-an-ethereum-private-network.md#go55hr8ebzoa)
+6. [Configure a Bootnode](configure-an-ethereum-private-network.md#id-3dt3xwgrc92)
+7. [Start Nodes](configure-an-ethereum-private-network.md#a4l5ji81r2j4)
+8. [Check connectivity](configure-an-ethereum-private-network.md#mawggboqlec8)
+
+### Step 1: Install Ethereum Client <a href="#kk05qeyho6m4" id="kk05qeyho6m4"></a>
+
+In this step we will install the Ethereum client on the virtual machine. We will use the Geth client for this purpose. Open a terminal on the virtual machine to run the following commands. We will run all the commands from this step to step 6 in the same terminal.
+
+Run the following commands to install the Geth client:
+
+```bash
+sudo add-apt-repository -y ppa:ethereum/ethereum
+sudo apt-get update
+sudo apt-get install ethereum
+```
+
+The first command adds the Ethereum repository to the package manager.
+
+![](/static/images/individualBlogPostImages/gitbook/assets/0.png)
+
+The second command updates the package manager.
+
+![](/static/images/individualBlogPostImages/gitbook/assets/1.png)
+
+The third command installs the Ethereum client.
+
+![](/static/images/individualBlogPostImages/gitbook/assets/2.png)
+
+After the installation is complete, run the following command to check the version of the Geth client:
+
+![](/static/images/individualBlogPostImages/gitbook/assets/3.png)
+
+As we can see, the version of the Geth client is **1.13.14-stable**.
+
+### Step 2: Create folders for configuring <a href="#gzkcupoesvwe" id="gzkcupoesvwe"></a>
+
+In this step we will create a folder for configuring the Ethereum private network and two folders for storing the data of two nodes in the network. Run the following commands to create the folders.
+
+This command will create a folder named ethereum-private-network in the home directory of the user.
+
+```sh
+mkdir ethereum-private-network
+```
+
+These commands will create a folder named node1 in the ethereum-private-network folder.
+
+```sh
+cd ethereum-private-network
+mkdir node1 node2
+```
+
+We have created the two folders node1 and node2 in the ethereum-private-network folder.
+
+![](/static/images/individualBlogPostImages/gitbook/assets/4.png)
+
+### Step 3: Create Accounts <a href="#yjn361n1wc50" id="yjn361n1wc50"></a>
+
+In this step we will create two associated accounts with the two nodes in the network. To create an account, we need to provide a password. We will use the password for both accounts, which is **123456789**.
+
+Run the following commands to create the account for node1:
+
+```sh
+geth --datadir node1 account new
+```
+
+We created the account for node1 and the address is **0xEe91EAA7C268b4b9e5DAF226D604D03C078350d4**.
+
+![](/static/images/individualBlogPostImages/gitbook/assets/5.png)
+
+Run the following commands to create the account for node2:
+
+```sh
+geth --datadir node2 account new
+```
+
+We created the account for node2 and the address is **0x6F69CD268A27f46bF580fc4228FC77a95A486c3e**.
+
+![](/static/images/individualBlogPostImages/gitbook/assets/6.png)
+
+### Step 4: Create Genesis Block <a href="#ocpvymhm3dzl" id="ocpvymhm3dzl"></a>
+
+In this step we will create the genesis block for the private network. First we need to create a genesis.json file in the ethereum-private-network folder and then copy the following configuration to the genesis.json file:
+
+```json
+{
+    "config": {
+        "chainId": 123454321,
+        "homesteadBlock": 0,
+        "eip150Block": 0,
+        "eip155Block": 0,
+        "eip158Block": 0,
+        "byzantiumBlock": 0,
+        "constantinopleBlock": 0,
+        "petersburgBlock": 0,
+        "istanbulBlock": 0,
+        "muirGlacierBlock": 0,
+        "berlinBlock": 0,
+        "londonBlock": 0,
+        "arrowGlacierBlock": 0,
+        "grayGlacierBlock": 0,
+        "clique": {
+            "period": 5,
+            "epoch": 30000
+        }
+    },
+    "difficulty": "1",
+    "gasLimit": "800000000",
+    "extradata": "0x0000000000000000000000000000000000000000000000000000000000000000Ee91EAA7C268b4b9e5DAF226D604D03C078350d40000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "alloc": {
+        "Ee91EAA7C268b4b9e5DAF226D604D03C078350d4": {
+            "balance": "1000000000000000000"
+        },
+        "6F69CD268A27f46bF580fc4228FC77a95A486c3e": {
+            "balance": "1000000000000000000"
+        }
+    }
+}
+```
+
+In the genesis configuration, the network id is 123454321 and the consensus algorithm is Clique. The extradata field is used to specify the address of the first account in the network. It is the first account in node1 that we created in step 3. The alloc field is used to allocate 1 ether to each account we created in step 3.
+
+Create the genesis.json file and copy the configuration to the file by running the following commands:
+
+```sh
+touch genesis.json
+nano genesis.json
+cat genesis.json
+```
+
+The nano command will open the genesis.json file in the nano text editor. Copy the configuration to the file and then save and exit the editor by pressing Ctrl+X, then Y, and then Enter. The cat command will display the content of the genesis.json file.
+
+![](/static/images/individualBlogPostImages/gitbook/assets/7.png)
+
+After that, copy the genesis.json file to the node1 and node2 folders by running the following commands:
+
+```sh
+cp genesis.json node1
+cp genesis.json node2
+```
+
+The genesis.json file is copied to the node1 and node2 folders.
+
+![](/static/images/individualBlogPostImages/gitbook/assets/8.png)
+
+### Step 5: Initialize Nodes <a href="#go55hr8ebzoa" id="go55hr8ebzoa"></a>
+
+In this step we will initialize the nodes with the genesis block.Run the following commands to initialize node1:
+
+```sh
+geth --datadir node1 init genesis.json
+```
+
+We have initialized node1 with the genesis block and the configuration in the genesis.json file. Data of the node1 is stored in the node1 folder.
+
+![](/static/images/individualBlogPostImages/gitbook/assets/9.png)
+
+Run the following commands to initialize node2:
+
+```sh
+geth --datadir node2 init genesis.json
+```
+
+We have initialized node2 with the genesis block and the configuration in the genesis.json file. Data of the node2 is stored in the node2 folder.
+
+![](/static/images/individualBlogPostImages/gitbook/assets/10.png)
+
+### Step 6: Configure a Bootnode <a href="#id-3dt3xwgrc92" id="id-3dt3xwgrc92"></a>
+
+In this step we will configure a bootnode to connect the two nodes in the private network. Run the following command to create a bootnode key:
+
+```sh
+bootnode -genkey boot.key
+```
+
+Run the following command to generate a bootnode at the port 30305:
+
+```sh
+bootnode -nodekey boot.key -addr :30305
+```
+
+We have created a bootnode with the key in the boot.key file and the enode URL is displayed in the terminal. Copy the enode URL to a text file for later use.
+
+![](/static/images/individualBlogPostImages/gitbook/assets/11.png)
+
+### Step 7: Start Nodes <a href="#a4l5ji81r2j4" id="a4l5ji81r2j4"></a>
+
+In this step we will start the two nodes in the private network. To start a node, we need to create a password.txt file in each node folder. The password is **123456789** as we mentioned in step 3. We open a new terminal in the _ethereum-private-network_ folder to do this step.
+
+After that, run the following commands to create the password.txt file for node1 and node2:
+
+```sh
+echo "123456789" > node1/password.txt
+echo "123456789" > node2/password.txt
+```
+
+By cat command, we can see that the password.txt file is created in the node1 and node2 folders.
+
+![](/static/images/individualBlogPostImages/gitbook/assets/12.png)
+
+Now we need two separate terminals in the ethereum-private-network folder to start the two nodes. We can use the same terminal we just used to create the password.txt file for node1, and open a new terminal for node2.
+
+In the node1 terminal, run the following command to start node1:
+
+```sh
+geth --datadir node1 --port 30306 --bootnodes enode://7dd2cc0bd0f65c7ed9de6f3c2a9e22258782c02df8b768f3b809fa21cc1247b0c4d73f44146219ef9091ce9f878a934d13e2dbb818e807d103d947f6982d1b42@127.0.0.1:0?discport=30305 --networkid 123454321 --unlock 0xEe91EAA7C268b4b9e5DAF226D604D03C078350d4 --password node1/password.txt --authrpc.port 8551 --mine --miner.etherbase 0xEe91EAA7C268b4b9e5DAF226D604D03C078350d4
+```
+
+We started node1 at port 30306 and the RPC server at port 8551. We used the --mine flag to enable mining and the --miner.etherbase flag to specify the account that will receive the rewards for mining. We also used the --unlock flag to unlock the account with the address **0xEe91EAA7C268b4b9e5DAF226D604D03C078350d4**. The network id is 123454321 and the bootnode enode URL in the previous step is used to connect to the bootnode.
+
+![](/static/images/individualBlogPostImages/gitbook/assets/13.png)
+
+The enode URL for node1 is displayed in the terminal, with the last 6 characters **6a1cea**. As we can see, the node1 is connected to the bootnode and looking for peers to connect to.
+
+![](/static/images/individualBlogPostImages/gitbook/assets/14.png)
+
+In the node2 terminal, run the following command to start node2:
+
+```sh
+geth --datadir node2 --port 30307 --bootnodes enode://7dd2cc0bd0f65c7ed9de6f3c2a9e22258782c02df8b768f3b809fa21cc1247b0c4d73f44146219ef9091ce9f878a934d13e2dbb818e807d103d947f6982d1b42@127.0.0.1:0?discport=30305 --networkid 123454321 --unlock 0x6F69CD268A27f46bF580fc4228FC77a95A486c3e --password node2/password.txt --authrpc.port 8552
+```
+
+We started node2 at port 30307 and the RPC server at port 8552. We used the --unlock flag to unlock the account with the address **0x6F69CD268A27f46bF580fc4228FC77a95A486c3e**. The network id is 123454321 and the bootnode enode URL in the previous step is used to connect to the bootnode.
+
+![](/static/images/individualBlogPostImages/gitbook/assets/15.png)
+
+The enode URL for node2 is displayed in the terminal, with the last 6 characters **723744**.
+
+![](/static/images/individualBlogPostImages/gitbook/assets/16.png)
+
+### Step 8: Check connectivity <a href="#mawggboqlec8" id="mawggboqlec8"></a>
+
+In this step we will check the connectivity between the two nodes in the private network. Open a new terminal in the ethereum-private-network folder to do this step. At this time, we should have four terminals open, one for the bootnode, one for node1, one for node2, and one for checking the connectivity.
+
+Run the following command to attach to the node1:
+
+```sh
+geth attach node1/geth.ipc
+```
+
+The Geth JavaScript console is opened and we can run commands to interact with the node1.
+
+![](/static/images/individualBlogPostImages/gitbook/assets/17.png)
+
+Run the following command to check that the node1 is connected to the one other peer (node2):
+
+```console
+net.peerCount
+```
+
+As we can see, the peer count is 1, which means that the node1 is connected to one other peer, which is node2.
+
+![](/static/images/individualBlogPostImages/gitbook/assets/18.png)
+
+Run the following to check that the peer is really node2:
+
+```console
+admin.peers
+```
+
+As a result, we can see the enode URL of the peer, which is the enode URL of node2, with the last 6 characters **723744**.
+
+![](/static/images/individualBlogPostImages/gitbook/assets/19.png)
+
+In [step 4](configure-an-ethereum-private-network.md#ocpvymhm3dzl), we have allocated 1 ether to each account. We can check the balance of the accounts by running the following commands:
+
+```console
+eth.getBalance("0xEe91EAA7C268b4b9e5DAF226D604D03C078350d4")
+eth.getBalance("0x6F69CD268A27f46bF580fc4228FC77a95A486c3e")
+```
+
+The balance of the first account is 1000000000000000000 wei and the balance of the second account is 1000000000000000000 wei. It is 1 ether for each account.
+
+![](/static/images/individualBlogPostImages/gitbook/assets/20.png)
+
+Try to send some ether from one account to another account by running the following command:
+
+```console
+eth.sendTransaction({
+    from: eth.accounts[0],
+    to: "0x6F69CD268A27f46bF580fc4228FC77a95A486c3e",
+    value: web3.toWei(0.1, "ether")
+})
+```
+
+The transaction is sent from the first account to the second account with the value of 0.1 ether. The transaction hash is displayed in the terminal. The eth.accounts\[0] is the first account in the node1, which is **0xEe91EAA7C268b4b9e5DAF226D604D03C078350d4**.
+
+Check the balance of the accounts again, the balance of the first account is 899999999999853000 wei and the balance of the second account is 1100000000000000000 wei. We can see that the balance of the first account is reduced by 0.1 ether plus the transaction fee, and the balance of the second account is increased by 0.1 ether.
+
+We have successfully configured an Ethereum private network with two nodes and a bootnode. We have created accounts, initialized nodes, configured a bootnode, started nodes, and checked the connectivity between the nodes. We have also sent a transaction from one account to another account in the private network.
+
+Thank you for reading this document. I hope it was helpful to you. If you have any questions or comments, please feel free to contact me.
