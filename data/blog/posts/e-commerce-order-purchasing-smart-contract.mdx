@@ -9,26 +9,26 @@ summary: 'This smart contract is an enhanced version of a traditional e-commerce
 
 # E-commerce Order Purchasing Smart Contract
 
-## Purposes of the smart contract <a href="#y7v865qrzrig" id="y7v865qrzrig"></a>
+## Purposes of the smart contract
 
 This smart contract is an enhanced version of a traditional e-commerce order purchase contract. The major purpose of the smart contract is to avoid fraudulent transactions resulting from traditional credit card purchases. The second purpose is to eliminate the need for payment processors, which validate and transport transactions between customers and retailers. As a result, retailers may focus on product development rather than incurring losses from fraudulent transactions or paying fees to payment processors to ensure the payment process operates properly.
 
-## Parties will participate in the smart contract <a href="#id-6jl3a7akbs8y" id="id-6jl3a7akbs8y"></a>
+## Parties will participate in the smart contract
 
 * Retailer: the agent produces the products for sale.
 * Customer: someone who needs to purchase a product for a certain purpose.
 
-## Functionalities of the smart contract <a href="#reg1ir7efp02" id="reg1ir7efp02"></a>
+## Functionalities of the smart contract
 
-1. [Get a list of the retailer’s products](e-commerce-order-purchasing-smart-contract.md#auwar3jsk9a).\
+1. [Get a list of the retailer’s products](#get-a-list-of-the-retailers-products).
 We assumed that the retailer had already created products, so all we needed to do was list them.
-2. [Place an order for the product that the customer desires](e-commerce-order-purchasing-smart-contract.md#tr5vr45kkfgh).
-3. [The customer cancels a placed order.](e-commerce-order-purchasing-smart-contract.md#xsdtavqaa9p9)
-4. [Issue a refund to the customer](e-commerce-order-purchasing-smart-contract.md#f6oyc2xf6uld).
+2. [Place an order for the product that the customer desires](#place-an-order-for-the-product-that-the-customer-desires).
+3. [The customer cancels a placed order.](#the-customer-cancels-a-placed-order-)
+4. [Issue a refund to the customer](#issue-a-refund-to-the-customer).
 
 We can determine whether a refund is partial or full based on the amount.
 
-## Pseudo code of functionality <a href="#bcgfna3rvjfe" id="bcgfna3rvjfe"></a>
+## Pseudo code of functionality
 
 Before describing the pseudo code for each function, we define two structures that will be utilized in several functions. The common functions such as _getProductFromListProducts_, _generateOrderId_, and _getOrder_ will be defined according to the programming language. Therefore, the pseudo code for these functions will not be declared in this document.
 
@@ -68,7 +68,7 @@ BEGIN
 END
 ```
 
-### Get a list of the retailer’s products <a href="#auwar3jsk9a" id="auwar3jsk9a"></a>
+### Get a list of the retailer’s products
 
 ```cpp
 Function: getProducts
@@ -78,7 +78,7 @@ Function: getProducts
  END
 ```
 
-### Place an order for the product that the customer desires <a href="#tr5vr45kkfgh" id="tr5vr45kkfgh"></a>
+### Place an order for the product that the customer desires
 
 ```cpp
 Function: placeOrder
@@ -118,7 +118,7 @@ Function: placeOrder
     END
 ```
 
-### The customer cancels a placed order <a href="#xsdtavqaa9p9" id="xsdtavqaa9p9"></a>
+### The customer cancels a placed order
 
 ```cpp
 Function: cancelOrder
@@ -160,7 +160,7 @@ Function: cancelOrder
     END
 ```
 
-### Issue a refund to the customer <a href="#f6oyc2xf6uld" id="f6oyc2xf6uld"></a>
+### Issue a refund to the customer
 
 ```cpp
 Function: issueRefund
@@ -188,7 +188,7 @@ Function: issueRefund
     END
 ```
 
-## References <a href="#nn5w1qjib2qy" id="nn5w1qjib2qy"></a>
+## References
 
 _Just a moment.._. (n.d.). Just a moment...[ https://ca.indeed.com/career-advice/career-development/what-is-pseudocode](https://ca.indeed.com/career-advice/career-development/what-is-pseudocode)
 

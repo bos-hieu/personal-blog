@@ -11,18 +11,18 @@ summary: History of commands to configure an Ethereum private network on a virtu
 
 In this post, we listed the history of commands to configure an Ethereum private network on a virtual machine, with explanations of each step. We used the VirtualBox software to create a virtual machine with the Ubuntu operating system (Ubuntu 22.04.4 LTS). We installed the Geth client on the virtual machine to interact with the Ethereum network. We have set up a private network with two nodes and a bootnode. The two nodes are associated with two accounts, and the bootnode is used to connect the two nodes in the network. There are 8 steps to configure the Ethereum private network:
 
-1. [Install Ethereum Client](configure-an-ethereum-private-network.md#kk05qeyho6m4)
-2. [Create folders for configuring](configure-an-ethereum-private-network.md#gzkcupoesvwe)
-3. [Create Accounts](configure-an-ethereum-private-network.md#yjn361n1wc50)
-4. [Create Genesis Block](configure-an-ethereum-private-network.md#ocpvymhm3dzl)
-5. [Initialize Nodes](configure-an-ethereum-private-network.md#go55hr8ebzoa)
-6. [Configure a Bootnode](configure-an-ethereum-private-network.md#id-3dt3xwgrc92)
-7. [Start Nodes](configure-an-ethereum-private-network.md#a4l5ji81r2j4)
-8. [Check connectivity](configure-an-ethereum-private-network.md#mawggboqlec8)
+1. [Install Ethereum Client](#step-1-install-ethereum-client)
+2. [Create folders for configuring](#step-2-create-folders-for-configuring)
+3. [Create Accounts](#step-3-create-accounts)
+4. [Create Genesis Block](#step-4-create-genesis-block)
+5. [Initialize Nodes](#step-5-initialize-nodes)
+6. [Configure a Bootnode](#step-6-configure-a-bootnode)
+7. [Start Nodes](#step-7-start-nodes)
+8. [Check connectivity](#step-8-check-connectivity)
 
-### Step 1: Install Ethereum Client <a href="#kk05qeyho6m4" id="kk05qeyho6m4"></a>
+### Step 1: Install Ethereum Client
 
-In this step we will install the Ethereum client on the virtual machine. We will use the Geth client for this purpose. Open a terminal on the virtual machine to run the following commands. We will run all the commands from this step to step 6 in the same terminal.
+In this step we will install the Ethereum client on the virtual machine. We will use the Geth client for this purpose. Open a terminal on the virtual machine to run the following commands. We will run all the commands from this step to [step 6](#step-6-configure-a-bootnode) in the same terminal.
 
 Run the following commands to install the Geth client:
 
@@ -50,7 +50,7 @@ After the installation is complete, run the following command to check the versi
 
 As we can see, the version of the Geth client is **1.13.14-stable**.
 
-### Step 2: Create folders for configuring <a href="#gzkcupoesvwe" id="gzkcupoesvwe"></a>
+### Step 2: Create folders for configuring
 
 In this step we will create a folder for configuring the Ethereum private network and two folders for storing the data of two nodes in the network. Run the following commands to create the folders.
 
@@ -71,7 +71,7 @@ We have created the two folders node1 and node2 in the ethereum-private-network 
 
 ![](/static/images/individualBlogPostImages/gitbook/assets/4.png)
 
-### Step 3: Create Accounts <a href="#yjn361n1wc50" id="yjn361n1wc50"></a>
+### Step 3: Create Accounts
 
 In this step we will create two associated accounts with the two nodes in the network. To create an account, we need to provide a password. We will use the password for both accounts, which is **123456789**.
 
@@ -95,7 +95,7 @@ We created the account for node2 and the address is **0x6F69CD268A27f46bF580fc42
 
 ![](/static/images/individualBlogPostImages/gitbook/assets/6.png)
 
-### Step 4: Create Genesis Block <a href="#ocpvymhm3dzl" id="ocpvymhm3dzl"></a>
+### Step 4: Create Genesis Block
 
 In this step we will create the genesis block for the private network. First we need to create a genesis.json file in the ethereum-private-network folder and then copy the following configuration to the genesis.json file:
 
@@ -135,7 +135,7 @@ In this step we will create the genesis block for the private network. First we 
 }
 ```
 
-In the genesis configuration, the network id is 123454321 and the consensus algorithm is Clique. The extradata field is used to specify the address of the first account in the network. It is the first account in node1 that we created in step 3. The alloc field is used to allocate 1 ether to each account we created in step 3.
+In the genesis configuration, the network id is 123454321 and the consensus algorithm is Clique. The extradata field is used to specify the address of the first account in the network. It is the first account in node1 that we created in [step 3](#step-3-create-accounts). The alloc field is used to allocate 1 ether to each account we created in [step 3](#step-3-create-accounts).
 
 Create the genesis.json file and copy the configuration to the file by running the following commands:
 
@@ -182,7 +182,7 @@ We have initialized node2 with the genesis block and the configuration in the ge
 
 ![](/static/images/individualBlogPostImages/gitbook/assets/10.png)
 
-### Step 6: Configure a Bootnode <a href="#id-3dt3xwgrc92" id="id-3dt3xwgrc92"></a>
+### Step 6: Configure a Bootnode
 
 In this step we will configure a bootnode to connect the two nodes in the private network. Run the following command to create a bootnode key:
 
@@ -200,9 +200,9 @@ We have created a bootnode with the key in the boot.key file and the enode URL i
 
 ![](/static/images/individualBlogPostImages/gitbook/assets/11.png)
 
-### Step 7: Start Nodes <a href="#a4l5ji81r2j4" id="a4l5ji81r2j4"></a>
+### Step 7: Start Nodes
 
-In this step we will start the two nodes in the private network. To start a node, we need to create a password.txt file in each node folder. The password is **123456789** as we mentioned in step 3. We open a new terminal in the _ethereum-private-network_ folder to do this step.
+In this step we will start the two nodes in the private network. To start a node, we need to create a password.txt file in each node folder. The password is **123456789** as we mentioned in [step 3](#step-3-create-accounts). We open a new terminal in the _ethereum-private-network_ folder to do this step.
 
 After that, run the following commands to create the password.txt file for node1 and node2:
 
@@ -245,7 +245,7 @@ The enode URL for node2 is displayed in the terminal, with the last 6 characters
 
 ![](/static/images/individualBlogPostImages/gitbook/assets/16.png)
 
-### Step 8: Check connectivity <a href="#mawggboqlec8" id="mawggboqlec8"></a>
+### Step 8: Check connectivity
 
 In this step we will check the connectivity between the two nodes in the private network. Open a new terminal in the ethereum-private-network folder to do this step. At this time, we should have four terminals open, one for the bootnode, one for node1, one for node2, and one for checking the connectivity.
 
@@ -279,7 +279,7 @@ As a result, we can see the enode URL of the peer, which is the enode URL of nod
 
 ![](/static/images/individualBlogPostImages/gitbook/assets/19.png)
 
-In [step 4](configure-an-ethereum-private-network.md#ocpvymhm3dzl), we have allocated 1 ether to each account. We can check the balance of the accounts by running the following commands:
+In [step 4](#step-4-create-genesis-block), we have allocated 1 ether to each account. We can check the balance of the accounts by running the following commands:
 
 ```console
 eth.getBalance("0xEe91EAA7C268b4b9e5DAF226D604D03C078350d4")

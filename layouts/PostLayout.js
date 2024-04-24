@@ -220,7 +220,7 @@ function TocComponent({ toc }) {
   }
 
   return (
-    <div className="mt-5 space-y-1 text-sm">
+    <div className="mt-5 space-y-1 text-sm table-fixed">
       <p className="text-lg font-bold">Table of content</p>
       <RenderToc item={TOC} activeId={activeId} />
     </div>
