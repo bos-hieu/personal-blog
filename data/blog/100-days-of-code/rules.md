@@ -54,3 +54,4 @@ April 24th, 2024
 - [100 Days of Code Official Site](https://www.100daysofcode.com/)
 - [100 Days of Code Official Repository on GitHub](https://github.com/kallaway/100-days-of-code/)
 - [Junior 100 Days of Code](https://juniorlearnstocode.blogspot.com/2018/01/100-days-of-code.html)
+- [100 Days of Code Challenge for 2024](https://www.freecodecamp.org/news/100daysofcode-challenge-2024-discord/)
