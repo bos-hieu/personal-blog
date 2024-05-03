@@ -62,7 +62,9 @@ At the end of this lab, your architecture should look like the following example
 ## A business request for the café: Implementing a scalable and highly available environment (Challenge)
 
 ### Task 1: Inspect the VPC
+
 In this task, you will inspect the existing VPC and its components, including
+
 - Subnets
 - Route tables
 - Security groups
@@ -104,24 +106,28 @@ is destined for the internet because the instances in Private Subnet 2 do not ha
 To complete this step, do the following:
 
 - Open the Amazon VPC console.
-- Choose Route tables in the navigation pane. 
+- Choose Route tables in the navigation pane.
   --> What is a route table? A route table contains a set of rules, called routes, that are used to determine where network traffic is directed.
 - Choose the route table associated with Private Subnet 2.
 - Choose the Routes tab, and then choose Edit routes.
 - Choose Add route.
 - For Destination, enter 0.0.0.0/0. This is the CIDR block that represents all IPv4 addresses. CIDR is the acronym for Classless Inter-Domain Routing.
 - For Target, choose NAT gateway, and then choose the NAT gateway you created in the previous step.
-![img_3.png](img_3.png)
+  ![img_3.png](img_3.png)
 
 ### Task 3: Creating a bastion host instance in a public subnet
+
 A bastion host is a special-purpose computer on a network specifically designed and configured to withstand attacks.
 
 #### Step 10: Create an EC2 instance in one of the public subnets.
 
 ### Task 4: Creating a launch template
+
 A launch template is a configuration template that an Auto Scaling group uses to launch EC2 instances.
 
 #### Step 11: Create a launch template.
+
 To create a launch template, do the following:
+
 - Open the Amazon EC2 console.
 - In the navigation pane, choose Launch templates.
