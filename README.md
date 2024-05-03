@@ -1,5 +1,7 @@
 # trunghieu.vercel.app by Trung Hieu
 
+[staging](https://personal-blog-git-staging-boshieus-projects.vercel.app/)
+
 This repository is the home to my personal [website](https://trunghieu.vercel.app). This website is intended for personal use, and functions as a method of storing/organizing notes and projects.
 
 The site is forked from the incredible [Cwarcup's personal blog](https://github.com/Cwarcup/personal-blog) while I was exploring the fantastic [Tailwind-Nextjs-Starter-Blog](https://github.com/timlrx/tailwind-nextjs-starter-blog) by [Tim Lrx](https://github.com/timlrx).
