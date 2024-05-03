@@ -17,7 +17,7 @@ tags:
     'Geth',
   ]
 images: '/static/images/individualBlogPostImages/100daysofcode/challenge-accepted.jpg'
-draft: False
+draft: true
 summary: 'Log of the 100 Days Of Code Challenge'
 ---
 

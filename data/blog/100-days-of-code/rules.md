@@ -3,7 +3,7 @@ title: '100 Days of Code - Rules'
 date: '2024-04-24'
 tags: ['100DaysOfCode', 'Ethereum', 'Blockchain', 'Cloud Computing', 'Rules', '100DaysOfCodeRules']
 images: '/static/images/individualBlogPostImages/100daysofcode/challenge-accepted.jpg'
-draft: False
+draft: true
 summary: 'Rules of the 100 Days Of Code Challenge'
 ---
 
