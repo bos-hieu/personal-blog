@@ -69,7 +69,7 @@ export default function About() {
               <p>
                 Between 2018 and 2021, I co-founded and served as the technical lead for TripX, a
                 car self-driver rental marketplace startup in Vietnam. In my spare time, I also
-                contributed to some impactful open-source projects on{' '}
+                contributed to some open-source projects on{' '}
                 <a href="https://github.com/bos-hieu">GitHub</a>.
               </p>
 
