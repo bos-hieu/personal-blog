@@ -41,13 +41,13 @@ export default function Hero() {
         Hi, I'm Trung Hieu
       </h1>
       <p className="mt-6 text-base text-gray-600 dark:text-gray-400">
-        With a robust foundation in backend development and a keen eye on the future of technology,
-        I'm currently enhancing my expertise in cloud computing and blockchain at Saskatchewan
-        Polytechnic. My journey at Autonomous Inc. has been marked by significant contributions to
-        system scalability and the integration of cutting-edge payment options, including
-        cryptocurrencies and mobile payments. The culmination of these efforts was recognized
-        through a Gold Medal at the Skills Canada Saskatchewan Provincial Competition, a testament
-        to my dedication to excellence and innovation.
+        I have a strong background in backend development and am currently learning more about cloud computing
+                and blockchain at Saskatchewan Polytechnic, Canada. My journey at Autonomous Inc. has been marked by
+                significant contributions to system scalability and the integration of cutting-edge payment options,
+                including cryptocurrencies and mobile payments. My work earned me a Silver Medal at the Skills Canada
+                National Competition, showing my dedication to quality and innovation.
+
+                I am open to opportunities in these fields and look forward to contributing my skills to new projects.
       </p>
       <div className="mt-6 flex gap-6">
         <SocialLink
