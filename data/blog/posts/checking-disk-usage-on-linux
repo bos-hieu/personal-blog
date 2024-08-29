@@ -1,0 +1,43 @@
+---
+title: "Check Disk Usage on Linux"
+date: "2024-08-28"
+summary: "A guide on how to check disk usage on a Linux system using various commands."
+draft: False
+tags: ["Linux", "Disk Usage", "Commands", "Tutorial"]
+---
+
+## Checking Disk Usage on Linux
+
+To check disk usage on a Linux system, you can use several commands depending on what information you need. Here are a few common commands:
+
+### 1. Check Disk Usage of the Entire Filesystem
+
+```bash
+df -h
+```
+
+The `df` command reports file system disk space usage. The `-h` option makes the output human-readable, displaying sizes in KB, MB, or GB.
+
+### 2. Check Disk Usage of a Specific Directory
+
+```bash
+du -sh /path/to/directory
+```
+
+The `du` command estimates file space usage. The `-s` option provides a summary of the disk usage for the directory. The `-h` option makes the output human-readable.
+
+### 3. Check Disk Usage by Top Largest Files and Directories
+
+```bash
+du -ah /path/to/directory | sort -rh | head -n 10
+```
+
+This command lists the top 10 largest files and directories in the specified directory. The `-a` option includes files in the output, not just directories. The `sort` command sorts the output, and `head` limits the list to the top 10.
+
+### 4. Check Inode Usage
+
+```bash
+df -i
+```
+
+The `-i` option with `df` shows inode usage, which is helpful if you are running out of inodes (the number of files) rather than disk space.
