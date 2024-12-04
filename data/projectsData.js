@@ -2,9 +2,9 @@ const projectsData = [
   {
     title: 'English Learning Platform',
     description:
-      '• Managed and contributed hands-on to cross-functional teams (DevOps, backend, frontend) to deliver scalable and high-quality products.\n' +
-        '• Leveraged AI tools like Claude.ai and ChatGPT to streamline workflows and boost productivity.\n' +
-        '• Designed and integrated solutions using the ChatGPT API to create chatbots and generate diverse English lessons from text, web links, and YouTube.\n',
+      'Managed and contributed hands-on to cross-functional teams (DevOps, backend, frontend) to deliver scalable and high-quality products. ' +
+        'Leveraged AI tools like Claude.ai and ChatGPT to streamline workflows and boost productivity. ' +
+        'Designed and integrated solutions using the ChatGPT API to create chatbots and generate diverse English lessons from text, web links, and YouTube.',
     tools: ['DevOps', 'Go', 'ReactJS', 'Claude.ai', 'ChatGPT', 'Docker', 'GitHub Actions', 'GCP'],
     imgSrc: '/static/images/projectCards/english-learning-platform.png',
   },
