@@ -41,7 +41,7 @@ export default function Hero() {
                 Hi, I'm Trung Hieu
             </h1>
             <p className="mt-6 text-base text-gray-600 dark:text-gray-400">
-                Technical Lead | Postgraduate in Cloud Computing and Blockchain | Tech Enthusiast
+                Technical Lead | Postgraduate in Cloud Computing and Blockchain
             </p>
             <div className="mt-6 flex gap-6">
                 <SocialLink
