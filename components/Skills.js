@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { SiGo, SiGit, SiMongodb, SiMysql, SiReact, SiPython } from 'react-icons/si'
+import { SiGo, SiGit, SiMongodb, SiMysql, SiReact, SiPython, SiSolidity } from 'react-icons/si'
 
 import { motion } from 'framer-motion'
 import { showHoverAnimation, removeHoverAnimation } from '@/lib/windowAnimation'
@@ -19,9 +19,13 @@ const skills = [
     logo: SiMysql,
   },
   {
-    name: 'Git',
-    logo: SiGit,
+    name: 'Solidity',
+    logo: SiSolidity,
   },
+  // {
+  //   name: 'Git',
+  //   logo: SiGit,
+  // },
   {
     name: 'React',
     logo: SiReact,

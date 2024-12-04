@@ -4,75 +4,69 @@ import { IoLogoGithub, IoLogoLinkedin, IoMail, IoCall } from 'react-icons/io5'
 import Notification from './Notification'
 
 function SocialLink({ icon: Icon, ...props }) {
-  return (
-    <Link className="-m-1 p-1 " {...props}>
-      <Icon className="h-6 w-6 cursor-pointer fill-gray-500 transition hover:fill-gray-200" />
-    </Link>
-  )
+    return (
+        <Link className="-m-1 p-1 " {...props}>
+            <Icon className="h-6 w-6 cursor-pointer fill-gray-500 transition hover:fill-gray-200" />
+        </Link>
+    )
 }
 
 function CopyToClipboard({ icon: Icon, text, ...props }) {
-  const [show, setShow] = useState(false)
+    const [show, setShow] = useState(false)
 
-  const handleClick = () => {
-    navigator.clipboard.writeText(text.contact)
-    setShow(!show)
+    const handleClick = () => {
+        navigator.clipboard.writeText(text.contact)
+        setShow(!show)
 
-    setTimeout(() => {
-      setShow(false)
-    }, 3000)
-  }
+        setTimeout(() => {
+            setShow(false)
+        }, 3000)
+    }
 
-  return (
-    <div className="-m-1 p-1 " {...props}>
-      <Icon
-        className="h-6 w-6 cursor-pointer fill-gray-500 transition hover:fill-gray-200"
-        onClick={handleClick}
-      />
-      <Notification show={show} setShow={setShow} text={text} />
-    </div>
-  )
+    return (
+        <div className="-m-1 p-1 " {...props}>
+            <Icon
+                className="h-6 w-6 cursor-pointer fill-gray-500 transition hover:fill-gray-200"
+                onClick={handleClick}
+            />
+            <Notification show={show} setShow={setShow} text={text} />
+        </div>
+    )
 }
 
 export default function Hero() {
-  return (
-    <div className="mb-5 max-w-2xl">
-      <h1 className="text-4xl font-bold tracking-tight text-gray-800 dark:text-zinc-100 sm:text-5xl">
-        Hi, I'm Trung Hieu
-      </h1>
-      <p className="mt-6 text-base text-gray-600 dark:text-gray-400">
-        I have a strong background in backend development and am currently learning more about cloud computing
-                and blockchain at Saskatchewan Polytechnic, Canada. My journey at Autonomous Inc. has been marked by
-                significant contributions to system scalability and the integration of cutting-edge payment options,
-                including cryptocurrencies and mobile payments. My work earned me a Silver Medal at the Skills Canada
-                National Competition, showing my dedication to quality and innovation.
-
-                I am open to opportunities in these fields and look forward to contributing my skills to new projects.
-      </p>
-      <div className="mt-6 flex gap-6">
-        <SocialLink
-          href="https://github.com/bos-hieu"
-          aria-label="Check out my Github"
-          icon={IoLogoGithub}
-        />
-        <SocialLink
-          href="https://www.linkedin.com/in/trung-hieu-le/"
-          aria-label="Connect with me on LinkedIn"
-          icon={IoLogoLinkedin}
-        />
-        <CopyToClipboard
-          text={{ contact: 'letrunghieu37@gmail.com', type: 'Email' }}
-          aria-label="Send me an email"
-          icon={IoMail}
-        />
-        <CopyToClipboard
-          text={{ contact: '+1 (306) 880-6809', type: 'Phone number' }}
-          aria-label="Give me a call"
-          icon={IoCall}
-        />
-      </div>
-    </div>
-  )
+    return (
+        <div className="mb-5 max-w-2xl">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-800 dark:text-zinc-100 sm:text-5xl">
+                Hi, I'm Trung Hieu
+            </h1>
+            <p className="mt-6 text-base text-gray-600 dark:text-gray-400">
+                Technical Lead | Postgraduate in Cloud Computing and Blockchain | Tech Enthusiast
+            </p>
+            <div className="mt-6 flex gap-6">
+                <SocialLink
+                    href="https://github.com/bos-hieu"
+                    aria-label="Check out my Github"
+                    icon={IoLogoGithub}
+                />
+                <SocialLink
+                    href="https://www.linkedin.com/in/trung-hieu-le/"
+                    aria-label="Connect with me on LinkedIn"
+                    icon={IoLogoLinkedin}
+                />
+                <CopyToClipboard
+                    text={{ contact: 'letrunghieu37@gmail.com', type: 'Email' }}
+                    aria-label="Send me an email"
+                    icon={IoMail}
+                />
+                <CopyToClipboard
+                    text={{ contact: '+1 (306) 880-6809', type: 'Phone number' }}
+                    aria-label="Give me a call"
+                    icon={IoCall}
+                />
+            </div>
+        </div>
+    )
 }
 // <div className="flex flex-col w-full">
 //   <div className="pb-4 space-y-2 text-center md:space-y-5 md:text-left">
