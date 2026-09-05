@@ -1,6 +1,6 @@
 export default function PageTitle({ children }) {
   return (
-    <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
+    <h1 className="font-display text-3xl font-semibold leading-tight tracking-tight text-slate-800 dark:text-slate-100 sm:text-4xl md:text-5xl">
       {children}
     </h1>
   )

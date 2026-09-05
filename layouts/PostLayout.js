@@ -1,5 +1,4 @@
 import Link from '@/components/Link'
-import PageTitle from '@/components/PageTitle'
 import ScrollTop from '@/components/ScrollTop'
 import SectionContainer from '@/components/SectionContainer'
 import { BlogSEO } from '@/components/SEO'
@@ -8,15 +7,10 @@ import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { useEffect, useRef, useState } from 'react'
 
-const twitterShare = (slug) =>
-  `https://twitter.com/intent/tweet?url=${encodeURIComponent(
-    `${siteMetadata.siteUrl}/blog/${slug}`
-  )}`
-
-const postDateTemplate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+const postDateTemplate = { year: 'numeric', month: 'long', day: 'numeric' }
 
 export default function PostLayout({ frontMatter, authorDetails, next, prev, children, toc }) {
-  const { slug, fileName, date, title, tags, readingTime } = frontMatter
+  const { slug, date, title, tags, readingTime } = frontMatter
   return (
     <SectionContainer>
       <BlogSEO
@@ -26,146 +20,84 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
       />
       <ScrollTop />
       <article>
-        <div className="xl:divide-y  xl:divide-gray-700">
-          <header className="relative pt-6 xl:pb-6">
-            <div className="space-y-1 text-center">
-              <dl className="space-y-10">
-                <div>
-                  <dt className="sr-only">Published on</dt>
-                  <dd className="text-base font-medium leading-6 text-gray-400">
-                    <time dateTime={date}>
-                      {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
-                    </time>
-                  </dd>
-                </div>
-              </dl>
-              <div>
-                <PageTitle>{title}</PageTitle>
-              </div>
-              <div className="flex justify-center gap-5">
-                <span className="flex items-center gap-1">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                    />
-                  </svg>
-                  {readingTime.words} words
-                </span>
-                <span className="flex items-center gap-1">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  {readingTime.text}
-                </span>
-              </div>
-            </div>
-          </header>
-          <div
-            className="divide-y divide-gray-700 pb-8 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
-            style={{ gridTemplateRows: 'auto 1fr' }}
-          >
-            <dl className="pb-10 pt-6 xl:border-b xl:border-gray-700 xl:pt-11">
-              <dt className="sr-only">Authors</dt>
-              <dd>
-                <ul className="flex justify-center space-x-8 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8">
-                  {authorDetails.map((author) => (
-                    <li className="flex items-center space-x-2" key={author.name}>
-                      {author.avatar && (
-                        <Image
-                          src={author.avatar}
-                          width="38px"
-                          height="38px"
-                          alt="avatar"
-                          className="h-10 w-10 rounded-full"
-                        />
-                      )}
-                      <dl className="whitespace-nowrap text-sm font-medium leading-5">
-                        <dt className="sr-only">Name</dt>
-                        <dd className="text-gray-100">{author.name}</dd>
-                        <dt className="sr-only">Twitter</dt>
-                        <dd>
-                          {author.twitter && (
-                            <Link
-                              href={author.twitter}
-                              className="text-primary-500 hover:text-primary-400"
-                            >
-                              {author.twitter.replace('https://twitter.com/', '@')}
-                            </Link>
-                          )}
-                        </dd>
-                      </dl>
-                    </li>
-                  ))}
-                </ul>
-              </dd>
-            </dl>
-            <div className="divide-y divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
-              <div className="prose max-w-none pb-8 pt-10 dark:prose-dark">{children}</div>
-            </div>
-            <footer>
-              <div className="divide-gray-700 text-sm font-medium leading-5 xl:col-start-1 xl:row-start-2 xl:divide-y">
-                {tags && (
-                  <div className="py-4 xl:py-8">
-                    <h2 className="text-xs uppercase tracking-wide text-gray-400">Tags</h2>
-                    <div className="flex flex-wrap">
-                      {tags.map((tag) => (
-                        <Tag key={tag} text={tag} />
-                      ))}
-                    </div>
-                  </div>
+        {/* Headline block, ranged left with the text it introduces. */}
+        <header className="rule-hair max-w-3xl pb-8">
+          <p className="eyebrow mb-3">
+            <time dateTime={date}>
+              {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
+            </time>
+            <span className="mx-2">/</span>
+            {readingTime.text}
+          </p>
+          <h1 className="font-display text-3xl font-semibold leading-tight tracking-tight text-slate-800 dark:text-slate-100 sm:text-4xl md:text-5xl">
+            {title}
+          </h1>
+          <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
+            {authorDetails.map((author) => (
+              <div key={author.name} className="flex items-center gap-2">
+                {author.avatar && (
+                  <Image
+                    src={author.avatar}
+                    width="28px"
+                    height="28px"
+                    alt="avatar"
+                    className="h-7 w-7 rounded-full grayscale"
+                  />
                 )}
-                {(next || prev) && (
-                  <div className="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
+                <span className="eyebrow">{author.name}</span>
+              </div>
+            ))}
+            <div className="flex flex-wrap gap-x-3 gap-y-1">
+              {tags?.map((tag) => (
+                <Tag key={tag} text={tag} />
+              ))}
+            </div>
+          </div>
+        </header>
+
+        {/* Contents rail on the left, so the article keeps a single measure. */}
+        <div className="lg:grid lg:grid-cols-4 lg:gap-x-12">
+          <nav className="hidden lg:col-span-1 lg:block">
+            <div className="sticky top-32 pt-10">
+              <Link href="/posts" className="eyebrow link-underline">
+                &larr; All posts
+              </Link>
+              <TocComponent toc={toc} />
+            </div>
+          </nav>
+
+          <div className="lg:col-span-3">
+            <div className="prose max-w-none pb-10 pt-10 dark:prose-dark">{children}</div>
+
+            <footer className="border-t border-slate-200 pt-8 dark:border-slate-700">
+              {(prev || next) && (
+                <div className="grid grid-cols-1 gap-px bg-slate-300 dark:bg-slate-700 sm:grid-cols-2">
+                  <div className="bg-slate-50 p-5 dark:bg-slate-900">
                     {prev && (
-                      <div>
-                        <h2 className="text-xs uppercase tracking-wide text-gray-400">
-                          Previous Article
-                        </h2>
-                        <div className="text-primary-500 hover:text-primary-400">
-                          <Link href={`/blog/${prev.slug}`}>{prev.title}</Link>
-                        </div>
-                      </div>
-                    )}
-                    {next && (
-                      <div>
-                        <h2 className="text-xs uppercase tracking-wide text-gray-400">
-                          Next Article
-                        </h2>
-                        <div className="text-primary-500 hover:text-primary-400">
-                          <Link href={`/blog/${next.slug}`}>{next.title}</Link>
-                        </div>
-                      </div>
+                      <Link href={`/blog/${prev.slug}`} className="group block">
+                        <p className="eyebrow mb-2">&larr; Previous</p>
+                        <p className="font-display text-base leading-snug text-slate-800 transition-colors group-hover:text-primary-700 dark:text-slate-100 dark:group-hover:text-primary-300">
+                          {prev.title}
+                        </p>
+                      </Link>
                     )}
                   </div>
-                )}
-              </div>
-              <div className="sticky top-0 pt-4 xl:pt-8">
-                <Link href="/posts" className="text-primary-500 hover:text-primary-400">
-                  &larr; Back to the all posts
-                </Link>
-                <div className="hidden md:block">
-                  <TocComponent toc={toc} />
+                  <div className="bg-slate-50 p-5 dark:bg-slate-900 sm:text-right">
+                    {next && (
+                      <Link href={`/blog/${next.slug}`} className="group block">
+                        <p className="eyebrow mb-2">Next &rarr;</p>
+                        <p className="font-display text-base leading-snug text-slate-800 transition-colors group-hover:text-primary-700 dark:text-slate-100 dark:group-hover:text-primary-300">
+                          {next.title}
+                        </p>
+                      </Link>
+                    )}
+                  </div>
                 </div>
+              )}
+              <div className="pt-8 lg:hidden">
+                <Link href="/posts" className="eyebrow link-underline">
+                  &larr; All posts
+                </Link>
               </div>
             </footer>
           </div>
@@ -203,15 +135,17 @@ function TocComponent({ toc }) {
       <div key={i}>
         <Link href={e.url}>
           <p
-            className={`border-l-[3px] pl-2 ${
-              isActive(e) && 'border-primary-500 text-primary-600'
+            className={`border-l py-1 pl-3 text-sm leading-snug transition-colors ${
+              isActive(e)
+                ? 'border-primary-500 text-primary-700 dark:text-primary-300'
+                : 'border-slate-200 text-slate-500 hover:text-slate-800 dark:border-slate-700 dark:text-slate-400 dark:hover:text-slate-100'
             }`}
           >
             {e.value}
           </p>
         </Link>
         {isActive(e) && e.children.length > 0 && (
-          <div className="ml-4 mt-1 space-y-1">
+          <div className="ml-3">
             <RenderToc item={e.children} activeId={activeId} />
           </div>
         )}
@@ -219,9 +153,11 @@ function TocComponent({ toc }) {
     ))
   }
 
+  if (!TOC.length) return null
+
   return (
-    <div className="mt-5 table-fixed space-y-1 text-sm">
-      <p className="text-lg font-bold">Table of content</p>
+    <div className="mt-8">
+      <p className="eyebrow mb-3">Contents</p>
       <RenderToc item={TOC} activeId={activeId} />
     </div>
   )

@@ -3,86 +3,74 @@ import { useState } from 'react'
 import { IoLogoGithub, IoLogoLinkedin, IoMail, IoCall } from 'react-icons/io5'
 import Notification from './Notification'
 
+const iconClasses =
+  'h-5 w-5 cursor-pointer fill-slate-500 transition hover:fill-primary-600 dark:fill-slate-400 dark:hover:fill-primary-300'
+
 function SocialLink({ icon: Icon, ...props }) {
-    return (
-        <Link className="-m-1 p-1 " {...props}>
-            <Icon className="h-6 w-6 cursor-pointer fill-gray-500 transition hover:fill-gray-200" />
-        </Link>
-    )
+  return (
+    <Link className="-m-1 p-1" {...props}>
+      <Icon className={iconClasses} />
+    </Link>
+  )
 }
 
 function CopyToClipboard({ icon: Icon, text, ...props }) {
-    const [show, setShow] = useState(false)
+  const [show, setShow] = useState(false)
 
-    const handleClick = () => {
-        navigator.clipboard.writeText(text.contact)
-        setShow(!show)
+  const handleClick = () => {
+    navigator.clipboard.writeText(text.contact)
+    setShow(!show)
 
-        setTimeout(() => {
-            setShow(false)
-        }, 3000)
-    }
+    setTimeout(() => {
+      setShow(false)
+    }, 3000)
+  }
 
-    return (
-        <div className="-m-1 p-1 " {...props}>
-            <Icon
-                className="h-6 w-6 cursor-pointer fill-gray-500 transition hover:fill-gray-200"
-                onClick={handleClick}
-            />
-            <Notification show={show} setShow={setShow} text={text} />
-        </div>
-    )
+  return (
+    <div className="-m-1 p-1" {...props}>
+      <Icon className={iconClasses} onClick={handleClick} />
+      <Notification show={show} setShow={setShow} text={text} />
+    </div>
+  )
 }
 
+/**
+ * A slim identity band rather than a full-height hero: the name, what I do,
+ * and how to reach me, all above the fold with the lead article.
+ */
 export default function Hero() {
-    return (
-        <div className="mb-5 max-w-2xl">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-800 dark:text-zinc-100 sm:text-5xl">
-                Hi, I'm Trung Hieu
-            </h1>
-            <p className="mt-6 text-base text-gray-600 dark:text-gray-400">
-                Technical Lead | Postgraduate in Cloud Computing and Blockchain
-            </p>
-            <div className="mt-6 flex gap-6">
-                <SocialLink
-                    href="https://github.com/bos-hieu"
-                    aria-label="Check out my Github"
-                    icon={IoLogoGithub}
-                />
-                <SocialLink
-                    href="https://www.linkedin.com/in/trung-hieu-le/"
-                    aria-label="Connect with me on LinkedIn"
-                    icon={IoLogoLinkedin}
-                />
-                <CopyToClipboard
-                    text={{ contact: 'letrunghieu37@gmail.com', type: 'Email' }}
-                    aria-label="Send me an email"
-                    icon={IoMail}
-                />
-                <CopyToClipboard
-                    text={{ contact: '+1 (306) 880-6809', type: 'Phone number' }}
-                    aria-label="Give me a call"
-                    icon={IoCall}
-                />
-            </div>
-        </div>
-    )
+  return (
+    <section className="rule-hair flex flex-wrap items-end justify-between gap-x-8 gap-y-5 pb-6">
+      <div>
+        <h1 className="font-display text-3xl font-semibold leading-tight tracking-tight text-slate-800 dark:text-slate-100 sm:text-4xl">
+          Trung Hieu Le
+        </h1>
+        <p className="mt-2 text-lg text-slate-500 dark:text-slate-400">
+          Technical Lead — backend systems, cloud &amp; blockchain.
+        </p>
+      </div>
+      <div className="flex items-center gap-5 pb-1">
+        <SocialLink
+          href="https://github.com/bos-hieu"
+          aria-label="Check out my Github"
+          icon={IoLogoGithub}
+        />
+        <SocialLink
+          href="https://www.linkedin.com/in/trung-hieu-le/"
+          aria-label="Connect with me on LinkedIn"
+          icon={IoLogoLinkedin}
+        />
+        <CopyToClipboard
+          text={{ contact: 'letrunghieu37@gmail.com', type: 'Email' }}
+          aria-label="Send me an email"
+          icon={IoMail}
+        />
+        <CopyToClipboard
+          text={{ contact: '+1 (306) 880-6809', type: 'Phone number' }}
+          aria-label="Give me a call"
+          icon={IoCall}
+        />
+      </div>
+    </section>
+  )
 }
-// <div className="flex flex-col w-full">
-//   <div className="pb-4 space-y-2 text-center md:space-y-5 md:text-left">
-//     <PageTitle>Web Developer, Tech Enthusiast, and Fitness Junkie</PageTitle>
-//     <p className="pb-4 text-lg leading-7 prose text-gray-400 max-w-none">
-//       Technology enthusiast experienced in consumer electronics industry. I believe the optimal
-//       code is achieved when the user and development experience is frictionless and intuitive.{' '}
-//       <Link href={`mailto:${siteMetadata.email}`}>
-//         <a
-//           className="font-medium leading-6 "
-//           aria-label={`Email to ${siteMetadata.email}`}
-//           title={`Email to ${siteMetadata.email}`}
-//         >
-//           Get in touch &rarr;
-//         </a>
-//       </Link>
-//     </p>
-//   </div>
-// </div>

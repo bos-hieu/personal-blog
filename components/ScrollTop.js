@@ -25,10 +25,10 @@ const ScrollTop = () => {
       type="button"
       onClick={handleClick}
       style={{ opacity: show ? 1 : 0 }}
-      className="fixed right-8 bottom-8 hidden rounded-md bg-gray-800 p-2 text-gray-100 transition-opacity hover:bg-gray-700 md:inline-block"
+      className="fixed bottom-8 right-8 hidden border border-slate-200 bg-slate-100 p-2 text-slate-600 transition-all hover:border-primary-500 hover:text-primary-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:border-primary-400 dark:hover:text-primary-300 md:inline-block"
     >
       <svg
-        className="h-[22px] w-[22px]"
+        className="h-5 w-5"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -37,7 +37,7 @@ const ScrollTop = () => {
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeWidth={2}
+          strokeWidth={1.5}
           d="M5 10l7-7m0 0l7 7m-7-7v18"
         />
       </svg>

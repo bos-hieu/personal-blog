@@ -2,47 +2,42 @@ import Image from './Image'
 import Link from './Link'
 
 const ToolsCard = ({ name, description, link, id, labels }) => {
-  const imgPath = `/public/static/images/toolsImages/${id}.png`
-
   return (
-    <div
-      key={id}
-      className="group bg-day relative h-full transform rounded-lg transition duration-500 hover:scale-105 "
-    >
-      <div className="animate-tilt absolute -inset-0.5 rounded-lg bg-gradient-to-r from-primary-600 to-primary-500 opacity-10 blur transition duration-1000 group-hover:opacity-75 group-hover:duration-200"></div>
-      <a className="card-c relative grid h-full  grid-cols-[86px,_1fr] content-center justify-items-start rounded-lg bg-darkSecondary  pl-10 md:pl-2">
-        <div className="group relative rounded-lg px-2 py-4">
-          <Link href={link}>
-            <span>
-              <Image
-                alt={id}
-                src={`/static/images/toolsImages/${id}.png`}
-                className=""
-                width="68px"
-                height="68px"
-              />
-            </span>
-          </Link>
-        </div>
-        <div className="h-full px-2 py-4">
-          <h2 className="font-bold md:text-xl">
-            <Link href={link} className="text-gray-100">
-              {name}
-            </Link>
-          </h2>
-          <p className="h-auto text-sm tracking-wider text-gray-300">{description}</p>
-          <span className="my-2 inline-flex w-full items-center justify-between">
-            <span className="inline-block rounded border border-gray-700 px-2 py-1 text-xs font-medium">
-              {labels.map((tag) => (
-                <a key={tag} className="mr-3 text-xs font-medium uppercase hover:text-primary-600 ">
-                  {tag.split(' ').join('-')}
-                </a>
-              ))}
-            </span>
+    <article className="panel flex h-full gap-4 p-4 transition-colors hover:border-primary-300 dark:hover:border-primary-700">
+      <div className="shrink-0">
+        <Link href={link}>
+          <span className="block border border-slate-200 bg-white p-1 dark:border-slate-700 dark:bg-slate-900">
+            <Image
+              alt={id}
+              src={`/static/images/toolsImages/${id}.png`}
+              width="56px"
+              height="56px"
+            />
           </span>
+        </Link>
+      </div>
+      <div className="flex flex-col gap-1">
+        <h3 className="font-display text-base font-semibold">
+          <Link
+            href={link}
+            className="text-slate-800 transition-colors hover:text-primary-700 dark:text-slate-100 dark:hover:text-primary-300"
+          >
+            {name}
+          </Link>
+        </h3>
+        <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">{description}</p>
+        <div className="mt-auto flex flex-wrap gap-x-3 gap-y-1 pt-2">
+          {labels.map((tag) => (
+            <span
+              key={tag}
+              className="font-sans text-[0.65rem] uppercase tracking-caps text-slate-500 dark:text-slate-300"
+            >
+              {tag.split(' ').join('-')}
+            </span>
+          ))}
         </div>
-      </a>
-    </div>
+      </div>
+    </article>
   )
 }
 

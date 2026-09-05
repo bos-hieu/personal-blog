@@ -1,71 +1,115 @@
 import Image from './Image'
-import Link from './Link'
 import { BsGithub } from 'react-icons/bs'
 import { MdOutlineLink } from 'react-icons/md'
 
-const ProjectCard = ({ title, description, imgSrc, href, tools, deployed }) => (
-  <div className="card">
-    <div className="relative -mt-[35%] w-full shrink-0 overflow-hidden rounded-xl shadow-2xl before:absolute before:inset-0 before:z-10 before:bg-black/20 sm:-mt-0 sm:w-1/2 md:-ml-[35%] md:w-8/12">
-      <Image
-        title={title}
-        alt={title}
-        src={imgSrc}
-        width={1200}
-        height={630}
-        layout="responsive"
-        placeholder="blur"
-        objectFit="cover"
-        blurDataURL={imgSrc}
-        quality={50}
-        className="backdrop-blur-xl transition-all duration-300 lg:group-hover:scale-110"
-      />
+const linkClasses =
+  'text-slate-500 transition-colors hover:text-primary-600 dark:text-slate-400 dark:hover:text-primary-300'
+
+/**
+ * `compact` is the front-page form — thumbnail above a clamped summary, sized
+ * for a two-up grid. The full form is used on the projects page, where the
+ * whole description is worth reading.
+ */
+const ProjectCard = ({ title, description, imgSrc, href, tools, deployed, compact }) => {
+  const links = (
+    <div className="mt-auto flex items-center gap-4 pt-4">
+      {href && (
+        <a
+          title="Source Code on GitHub"
+          target="_blank"
+          rel="noopener noreferrer"
+          href={href}
+          className={linkClasses}
+        >
+          <BsGithub className="h-5 w-5" />
+        </a>
+      )}
+      {deployed && (
+        <a
+          title="Live Preview"
+          target="_blank"
+          rel="noopener noreferrer"
+          href={deployed}
+          className={linkClasses}
+        >
+          <MdOutlineLink className="h-5 w-5" />
+        </a>
+      )}
     </div>
+  )
 
-    <div className="flex flex-col justify-start gap-3">
-      <h1 className="font-bold capitalize text-neutral-200">{title}</h1>
-      <p className="truncate-2 text-sm text-neutral-400">{description}</p>
-
-      <div className="flex flex-wrap items-center gap-1">
-        {tools.map((tool, index) => {
-          return (
-            <span key={`${tool}-${index}`} className="bg-gray-900 px-2 py-1 text-xs text-gray-500">
-              {tool}
-            </span>
-          )
-        })}
-      </div>
-
-      <div className="mt-auto flex w-fit items-center gap-4 p-2">
-        {href && (
-          <Link href={href}>
-            <a
-              title="Source Code on GitHub"
-              target="_blank"
-              rel="noopener noreferrer"
-              href={href}
-              className="text-gray-500 hover:text-white"
-            >
-              <BsGithub className="h-6 w-6 transition-all hover:scale-110 active:scale-90" />
-            </a>
-          </Link>
-        )}
-
-        {deployed && (
-          <Link href={deployed}>
-            <a
-              title="Live Preview"
-              target="_blank"
-              rel="noopener noreferrer"
-              href={deployed}
-              className="text-gray-500 hover:text-white"
-            >
-              <MdOutlineLink className="h-6 w-6 transition-all hover:scale-110 active:scale-90" />
-            </a>
-          </Link>
-        )}
-      </div>
+  const toolList = (
+    <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1">
+      {tools.map((tool, index) => (
+        <span
+          key={`${tool}-${index}`}
+          className="font-sans text-[0.65rem] uppercase tracking-caps text-slate-500 dark:text-slate-400"
+        >
+          {tool}
+        </span>
+      ))}
     </div>
-  </div>
-)
+  )
+
+  if (compact) {
+    return (
+      <article className="group flex h-full flex-col">
+        {imgSrc && (
+          <div className="mb-4 overflow-hidden border border-slate-200 dark:border-slate-700">
+            <Image
+              title={title}
+              alt={title}
+              src={imgSrc}
+              width={1200}
+              height={630}
+              layout="responsive"
+              objectFit="cover"
+              quality={50}
+              className="transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+        )}
+        <h3 className="font-display text-base font-semibold leading-snug text-slate-800 dark:text-slate-100">
+          {title}
+        </h3>
+        <p className="clamp-3 mt-2 text-base leading-relaxed text-slate-600 dark:text-slate-300">
+          {description}
+        </p>
+        {toolList}
+        {(href || deployed) && links}
+      </article>
+    )
+  }
+
+  return (
+    <article className="group flex flex-col gap-6 border-b border-slate-200 pb-10 dark:border-slate-700 sm:flex-row">
+      {imgSrc && (
+        <div className="w-full shrink-0 self-start overflow-hidden border border-slate-200 dark:border-slate-700 sm:w-64">
+          <Image
+            title={title}
+            alt={title}
+            src={imgSrc}
+            width={1200}
+            height={630}
+            layout="responsive"
+            objectFit="cover"
+            quality={50}
+            className="transition-transform duration-500 group-hover:scale-105"
+          />
+        </div>
+      )}
+      <div className="flex flex-1 flex-col">
+        <h3 className="font-display text-lg font-semibold leading-snug text-slate-800 dark:text-slate-100">
+          {title}
+        </h3>
+        <p className="mt-2 text-base leading-relaxed text-slate-600 dark:text-slate-300">
+          {description}
+        </p>
+        {toolList}
+        {(href || deployed) && links}
+      </div>
+    </article>
+  )
+}
 
 export default ProjectCard

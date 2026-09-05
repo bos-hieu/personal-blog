@@ -22,25 +22,27 @@ export default function Notification({ show, setShow, text: { contact, type } })
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+            <div className="pointer-events-auto w-full max-w-sm overflow-hidden border border-slate-200 bg-white shadow-md dark:border-slate-700 dark:bg-slate-800">
               <div className="p-4">
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
                     <IoCheckmarkCircleOutline
-                      className="h-6 w-6 text-green-400"
+                      className="h-6 w-6 text-primary-500"
                       aria-hidden="true"
                     />
                   </div>
                   <div className="ml-3 w-0 flex-1 pt-0.5">
-                    <p className="text-sm font-medium text-gray-900">{type} copied!</p>
-                    <p className="mt-1 text-sm text-gray-500">
+                    <p className="font-sans text-xs uppercase tracking-caps text-slate-800 dark:text-slate-100">
+                      {type} copied!
+                    </p>
+                    <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
                       {contact} has been copied to your clipboard.
                     </p>
                   </div>
                   <div className="ml-4 flex flex-shrink-0">
                     <button
                       type="button"
-                      className="inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      className="inline-flex bg-transparent text-slate-500 hover:text-primary-600 focus:outline-none dark:text-slate-400 dark:hover:text-primary-300"
                     >
                       <span className="sr-only">Close</span>
                       <IoClose

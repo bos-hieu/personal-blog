@@ -1,73 +1,28 @@
-/* eslint-disable prettier/prettier */
-import { SiGo, SiGit, SiMongodb, SiMysql, SiReact, SiPython, SiSolidity } from 'react-icons/si'
-
-import { motion } from 'framer-motion'
-import { showHoverAnimation, removeHoverAnimation } from '@/lib/windowAnimation'
-import { FadeContainer, popUp } from '@/lib/FramerMotionVariants'
+import { SiGo, SiMongodb, SiMysql, SiReact, SiPython, SiSolidity } from 'react-icons/si'
 
 const skills = [
-  {
-    name: 'Golang',
-    logo: SiGo,
-  },
-  {
-    name: 'Mongo DB',
-    logo: SiMongodb,
-  },
-  {
-    name: 'MYSQL',
-    logo: SiMysql,
-  },
-  {
-    name: 'Solidity',
-    logo: SiSolidity,
-  },
-  // {
-  //   name: 'Git',
-  //   logo: SiGit,
-  // },
-  {
-    name: 'React',
-    logo: SiReact,
-  },
-  {
-    name: 'Python',
-    logo: SiPython,
-  },
+  { name: 'Golang', logo: SiGo },
+  { name: 'Mongo DB', logo: SiMongodb },
+  { name: 'MySQL', logo: SiMysql },
+  { name: 'Solidity', logo: SiSolidity },
+  { name: 'React', logo: SiReact },
+  { name: 'Python', logo: SiPython },
 ]
 
+/** Compact enough to sit in the sidebar rail beside the entry index. */
 const Skills = () => {
   return (
-    <>
-      <span className="font-poppins title-font text-3xl font-bold">My Top Skills</span>
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        variants={FadeContainer}
-        viewport={{ once: true }}
-        className="my-10 grid grid-cols-3 gap-4"
-      >
-        {skills.map((skill, index) => {
-          return (
-            <motion.div
-              title={skill.name}
-              variants={popUp}
-              key={skill.name}
-              onMouseMove={(e) => showHoverAnimation(e)}
-              onMouseLeave={(e) => removeHoverAnimation(e)}
-              className="dark:bg-darkPrimary group flex origin-center transform items-center justify-center gap-4 rounded-sm border border-gray-300 p-4 dark:border-neutral-700 hover:dark:bg-darkSecondary sm:justify-start md:origin-top"
-            >
-              <div className="pointer-events-none relative select-none transition group-hover:scale-110 sm:group-hover:scale-100">
-                <skill.logo className="h-8 w-8" />
-              </div>
-              <p className="pointer-events-none hidden select-none text-sm font-semibold sm:inline-flex md:text-base">
-                {skill.name}
-              </p>
-            </motion.div>
-          )
-        })}
-      </motion.div>
-    </>
+    <ul className="grid grid-cols-2 gap-x-4">
+      {skills.map((skill) => (
+        <li
+          key={skill.name}
+          className="flex items-center gap-2 border-b border-slate-200 py-2 dark:border-slate-800"
+        >
+          <skill.logo className="h-4 w-4 shrink-0 text-slate-500 dark:text-slate-400" />
+          <span className="text-sm text-slate-600 dark:text-slate-300">{skill.name}</span>
+        </li>
+      ))}
+    </ul>
   )
 }
 

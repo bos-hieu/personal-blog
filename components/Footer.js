@@ -1,23 +1,23 @@
-import Link from './Link'
 import siteMetadata from '@/data/siteMetadata'
 import SocialIcon from '@/components/social-icons'
 
 export default function Footer() {
   return (
-    <footer>
-      <div className="mt-16 flex flex-col items-center">
-        <div className="mb-3 flex space-x-4">
-          <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} />
-          <SocialIcon kind="github" href={siteMetadata.github} />
-          <SocialIcon kind="linkedin" href={siteMetadata.linkedin} />
+    <footer className="mt-20 border-t border-slate-200 pb-12 pt-8 dark:border-slate-700">
+      <div className="flex flex-col items-center">
+        <div className="mb-5 flex space-x-5">
+          <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size={5} />
+          <SocialIcon kind="github" href={siteMetadata.github} size={5} />
+          <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={5} />
         </div>
-        <div className="mb-2 flex space-x-2 text-sm text-gray-400">
-          <div>{siteMetadata.author}</div>
-          <div>{` • `}</div>
-          <div>{`© ${new Date().getFullYear()}`}</div>
-          <div>{` • `}</div>
-          <Link href="/">{siteMetadata.title}</Link>
-        </div>
+        <p className="eyebrow mb-3 flex items-center justify-center gap-3 text-center">
+          <span className="h-px w-8 bg-slate-300 dark:bg-slate-700" />
+          {siteMetadata.author}
+          <span className="h-px w-8 bg-slate-300 dark:bg-slate-700" />
+        </p>
+        <p className="text-center text-sm text-slate-500 dark:text-slate-400">
+          {`© ${new Date().getFullYear()}`}
+        </p>
       </div>
     </footer>
   )

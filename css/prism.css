@@ -1,4 +1,44 @@
 /**
+ * Code surface. Light mode uses a pale panel rather than an inky slab: a
+ * near-black block on a light page glares and costs legibility. Dark mode
+ * keeps a dark surface. Token colours are tuned to clear 4.5:1 against
+ * their own background in both themes.
+ */
+:root {
+  --code-bg: #eef0f3;
+  --code-fg: #262b31;
+  --code-muted: #5c646e;
+  --code-keyword: #7b3ba3;
+  --code-string: #256d43;
+  --code-number: #96530f;
+  --code-function: #2b539e;
+  --code-class: #1c6670;
+  --code-variable: #a13030;
+  --code-regex: #a13030;
+  --code-surface-2: #dfe3e8;
+  --code-overlay: rgba(59, 76, 122, 0.06);
+  --code-line-rule: rgba(38, 43, 49, 0.14);
+  --code-border: #dde1e6;
+}
+
+.dark {
+  --code-bg: #101317;
+  --code-fg: #dfe3e8;
+  --code-muted: #838b96;
+  --code-keyword: #cb9bec;
+  --code-string: #9ecb80;
+  --code-number: #dfa96c;
+  --code-function: #85b6f2;
+  --code-class: #6ec6cf;
+  --code-variable: #ec9aa0;
+  --code-regex: #ec9aa0;
+  --code-surface-2: #262b31;
+  --code-overlay: rgba(147, 163, 203, 0.08);
+  --code-line-rule: rgba(223, 227, 232, 0.14);
+  --code-border: #2b3037;
+}
+
+/**
  * CSS Styles for code highlighting.
  * Feel free to customize token styles 
  * by copying from a prismjs compatible theme:
@@ -7,7 +47,11 @@
 
 /* Code title styles */
 .remark-code-title {
-  @apply rounded-t bg-gray-700 px-5 py-3 font-mono text-sm font-bold text-gray-200;
+  background: var(--code-surface-2);
+  border: 1px solid var(--code-border);
+  border-bottom: 0;
+  color: var(--code-muted);
+  @apply rounded-t px-5 py-2 font-mono text-xs uppercase tracking-caps;
 }
 
 .remark-code-title + div > pre {
@@ -24,38 +68,35 @@
 }
 
 .code-line.inserted {
-  @apply bg-green-500 bg-opacity-20;
+  background: rgba(37, 109, 67, 0.14);
 }
 
 .code-line.deleted {
-  @apply bg-red-500 bg-opacity-20;
+  background: rgba(161, 48, 48, 0.14);
 }
 
 .highlight-line {
-  @apply -mx-4 border-l-4 border-primary-500 bg-gray-700 bg-opacity-50;
+  background: var(--code-overlay);
+  @apply -mx-4 border-l-4 border-primary-400;
 }
 
 .line-number::before {
-  @apply mr-4 -ml-2 inline-block w-4 text-right text-gray-400;
+  color: var(--code-muted);
+  @apply -ml-2 mr-4 inline-block w-4 text-right;
   content: attr(line);
-}
-
-.card {
-  @apply mt-[30%] flex max-w-2xl flex-col items-center gap-8 rounded-lg bg-darkSecondary p-5 shadow-md transition-all sm:mt-8 sm:flex-row sm:p-10;
 }
 
 code[class*='language-'],
 pre[class*='language-'] {
-  background: hsl(220, 13%, 18%);
-  color: hsl(220, 14%, 71%);
-  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-  font-family: 'Fira Code', 'Fira Mono', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  background: var(--code-bg);
+  color: var(--code-fg);
+  font-family: 'JetBrains Mono', 'Fira Code', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
   direction: ltr;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
-  line-height: 1.5;
+  line-height: 1.65;
   -moz-tab-size: 2;
   -o-tab-size: 2;
   tab-size: 2;
@@ -69,7 +110,7 @@ pre[class*='language-'] {
 code[class*='language-']::-moz-selection,
 code[class*='language-'] *::-moz-selection,
 pre[class*='language-'] *::-moz-selection {
-  background: hsl(220, 13%, 28%);
+  background: var(--code-surface-2);
   color: inherit;
   text-shadow: none;
 }
@@ -77,17 +118,17 @@ pre[class*='language-'] *::-moz-selection {
 code[class*='language-']::selection,
 code[class*='language-'] *::selection,
 pre[class*='language-'] *::selection {
-  background: hsl(220, 13%, 28%);
+  background: var(--code-surface-2);
   color: inherit;
   text-shadow: none;
 }
 
 /* Code blocks */
 pre[class*='language-'] {
-  padding: 1em;
+  padding: 1.15em 1.35em;
   margin: 0.5em 0;
   overflow: auto;
-  border-radius: 0.3em;
+  border-radius: 4px;
 }
 
 /* Inline code */
@@ -108,13 +149,13 @@ pre[class*='language-'] {
 .token.comment,
 .token.prolog,
 .token.cdata {
-  color: hsl(220, 10%, 40%);
+  color: var(--code-muted);
 }
 
 .token.doctype,
 .token.punctuation,
 .token.entity {
-  color: hsl(220, 14%, 71%);
+  color: var(--code-fg);
 }
 
 .token.attr-name,
@@ -123,11 +164,11 @@ pre[class*='language-'] {
 .token.constant,
 .token.number,
 .token.atrule {
-  color: hsl(29, 54%, 61%);
+  color: var(--code-number);
 }
 
 .token.keyword {
-  color: hsl(286, 60%, 67%);
+  color: var(--code-keyword);
 }
 
 .token.property,
@@ -135,7 +176,7 @@ pre[class*='language-'] {
 .token.symbol,
 .token.deleted,
 .token.important {
-  color: hsl(355, 65%, 65%);
+  color: var(--code-variable);
 }
 
 .token.selector,
@@ -146,108 +187,108 @@ pre[class*='language-'] {
 .token.regex,
 .token.attr-value,
 .token.attr-value > .token.punctuation {
-  color: hsl(95, 38%, 62%);
+  color: var(--code-string);
 }
 
 .token.variable,
 .token.operator,
 .token.function {
-  color: hsl(207, 82%, 66%);
+  color: var(--code-function);
 }
 
 .token.url {
-  color: hsl(187, 47%, 55%);
+  color: var(--code-class);
 }
 
 /* HTML overrides */
 .token.attr-value > .token.punctuation.attr-equals,
 .token.special-attr > .token.attr-value > .token.value.css {
-  color: hsl(220, 14%, 71%);
+  color: var(--code-fg);
 }
 
 /* CSS overrides */
 .language-css .token.selector {
-  color: hsl(355, 65%, 65%);
+  color: var(--code-variable);
 }
 
 .language-css .token.property {
-  color: hsl(220, 14%, 71%);
+  color: var(--code-fg);
 }
 
 .language-css .token.function,
 .language-css .token.url > .token.function {
-  color: hsl(187, 47%, 55%);
+  color: var(--code-class);
 }
 
 .language-css .token.url > .token.string.url {
-  color: hsl(95, 38%, 62%);
+  color: var(--code-string);
 }
 
 .language-css .token.important,
 .language-css .token.atrule .token.rule {
-  color: hsl(286, 60%, 67%);
+  color: var(--code-keyword);
 }
 
 /* JS overrides */
 .language-javascript .token.operator {
-  color: hsl(286, 60%, 67%);
+  color: var(--code-keyword);
 }
 
 .language-javascript
   .token.template-string
   > .token.interpolation
   > .token.interpolation-punctuation.punctuation {
-  color: hsl(5, 48%, 51%);
+  color: var(--code-regex);
 }
 
 /* JSON overrides */
 .language-json .token.operator {
-  color: hsl(220, 14%, 71%);
+  color: var(--code-fg);
 }
 
 .language-json .token.null.keyword {
-  color: hsl(29, 54%, 61%);
+  color: var(--code-number);
 }
 
 /* MD overrides */
 .language-markdown .token.url,
 .language-markdown .token.url > .token.operator,
 .language-markdown .token.url-reference.url > .token.string {
-  color: hsl(220, 14%, 71%);
+  color: var(--code-fg);
 }
 
 .language-markdown .token.url > .token.content {
-  color: hsl(207, 82%, 66%);
+  color: var(--code-function);
 }
 
 .language-markdown .token.url > .token.url,
 .language-markdown .token.url-reference.url {
-  color: hsl(187, 47%, 55%);
+  color: var(--code-class);
 }
 
 .language-markdown .token.blockquote.punctuation,
 .language-markdown .token.hr.punctuation {
-  color: hsl(220, 10%, 40%);
+  color: var(--code-muted);
   font-style: italic;
 }
 
 .language-markdown .token.code-snippet {
-  color: hsl(95, 38%, 62%);
+  color: var(--code-string);
 }
 
 .language-markdown .token.bold .token.content {
-  color: hsl(29, 54%, 61%);
+  color: var(--code-number);
 }
 
 .language-markdown .token.italic .token.content {
-  color: hsl(286, 60%, 67%);
+  color: var(--code-keyword);
 }
 
 .language-markdown .token.strike .token.content,
 .language-markdown .token.strike .token.punctuation,
 .language-markdown .token.list.punctuation,
 .language-markdown .token.title.important > .token.punctuation {
-  color: hsl(355, 65%, 65%);
+  color: var(--code-variable);
 }
 
 /* General */
@@ -276,7 +317,7 @@ pre[class*='language-'] {
 .token.token.cr:before,
 .token.token.lf:before,
 .token.token.space:before {
-  color: hsla(220, 14%, 71%, 0.15);
+  color: var(--code-line-rule);
   text-shadow: none;
 }
 
@@ -290,8 +331,8 @@ div.code-toolbar > .toolbar.toolbar > .toolbar-item {
 div.code-toolbar > .toolbar.toolbar > .toolbar-item > button,
 div.code-toolbar > .toolbar.toolbar > .toolbar-item > a,
 div.code-toolbar > .toolbar.toolbar > .toolbar-item > span {
-  background: hsl(220, 13%, 26%);
-  color: hsl(220, 9%, 55%);
+  background: var(--code-surface-2);
+  color: var(--code-muted);
   padding: 0.1em 0.4em;
   border-radius: 0.3em;
 }
@@ -302,21 +343,21 @@ div.code-toolbar > .toolbar.toolbar > .toolbar-item > a:hover,
 div.code-toolbar > .toolbar.toolbar > .toolbar-item > a:focus,
 div.code-toolbar > .toolbar.toolbar > .toolbar-item > span:hover,
 div.code-toolbar > .toolbar.toolbar > .toolbar-item > span:focus {
-  background: hsl(220, 13%, 28%);
-  color: hsl(220, 14%, 71%);
+  background: var(--code-surface-2);
+  color: var(--code-fg);
 }
 
 /* Line Highlight plugin overrides */
 /* The highlighted line itself */
 .line-highlight.line-highlight {
-  background: hsla(220, 100%, 80%, 0.04);
+  background: var(--code-overlay);
 }
 
 /* Default line numbers in Line Highlight plugin */
 .line-highlight.line-highlight:before,
 .line-highlight.line-highlight[data-end]:after {
-  background: hsl(220, 13%, 26%);
-  color: hsl(220, 14%, 71%);
+  background: var(--code-surface-2);
+  color: var(--code-fg);
   padding: 0.1em 0.6em;
   border-radius: 0.3em;
   box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.2);
@@ -326,20 +367,20 @@ div.code-toolbar > .toolbar.toolbar > .toolbar-item > span:focus {
 /* Hovering over a linkable line number (in the gutter area) */
 /* Requires Line Numbers plugin as well */
 pre[id].linkable-line-numbers.linkable-line-numbers span.line-numbers-rows > span:hover:before {
-  background-color: hsla(220, 100%, 80%, 0.04);
+  background-color: var(--code-overlay);
 }
 
 /* Line Numbers and Command Line plugins overrides */
 /* Line separating gutter from coding area */
 .line-numbers.line-numbers .line-numbers-rows,
 .command-line .command-line-prompt {
-  border-right-color: hsla(220, 14%, 71%, 0.15);
+  border-right-color: var(--code-line-rule);
 }
 
 /* Stuff in the gutter */
 .line-numbers .line-numbers-rows > span:before,
 .command-line .command-line-prompt > span:before {
-  color: hsl(220, 14%, 45%);
+  color: var(--code-muted);
 }
 
 /* Match Braces plugin overrides */
@@ -347,25 +388,25 @@ pre[id].linkable-line-numbers.linkable-line-numbers span.line-numbers-rows > spa
 .rainbow-braces .token.token.punctuation.brace-level-1,
 .rainbow-braces .token.token.punctuation.brace-level-5,
 .rainbow-braces .token.token.punctuation.brace-level-9 {
-  color: hsl(355, 65%, 65%);
+  color: var(--code-variable);
 }
 
 .rainbow-braces .token.token.punctuation.brace-level-2,
 .rainbow-braces .token.token.punctuation.brace-level-6,
 .rainbow-braces .token.token.punctuation.brace-level-10 {
-  color: hsl(95, 38%, 62%);
+  color: var(--code-string);
 }
 
 .rainbow-braces .token.token.punctuation.brace-level-3,
 .rainbow-braces .token.token.punctuation.brace-level-7,
 .rainbow-braces .token.token.punctuation.brace-level-11 {
-  color: hsl(207, 82%, 66%);
+  color: var(--code-function);
 }
 
 .rainbow-braces .token.token.punctuation.brace-level-4,
 .rainbow-braces .token.token.punctuation.brace-level-8,
 .rainbow-braces .token.token.punctuation.brace-level-12 {
-  color: hsl(286, 60%, 67%);
+  color: var(--code-keyword);
 }
 
 /* Diff Highlight plugin overrides */
@@ -413,7 +454,7 @@ pre > code.diff-highlight .token.token.inserted:not(.prefix) *::selection {
 /* Border around popup */
 .prism-previewer.prism-previewer:before,
 .prism-previewer-gradient.prism-previewer-gradient div {
-  border-color: hsl(224, 13%, 17%);
+  border-color: var(--code-surface-2);
 }
 
 /* Angle and time should remain as circles and are hence not included */
@@ -425,18 +466,18 @@ pre > code.diff-highlight .token.token.inserted:not(.prefix) *::selection {
 
 /* Triangles pointing to the code */
 .prism-previewer.prism-previewer:after {
-  border-top-color: hsl(224, 13%, 17%);
+  border-top-color: var(--code-surface-2);
 }
 
 .prism-previewer-flipped.prism-previewer-flipped.after {
-  border-bottom-color: hsl(224, 13%, 17%);
+  border-bottom-color: var(--code-surface-2);
 }
 
 /* Background colour within the popup */
 .prism-previewer-angle.prism-previewer-angle:before,
 .prism-previewer-time.prism-previewer-time:before,
 .prism-previewer-easing.prism-previewer-easing {
-  background: hsl(219, 13%, 22%);
+  background: var(--code-surface-2);
 }
 
 /* For angle, this is the positive area (eg. 90deg will display one quadrant in this colour) */

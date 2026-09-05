@@ -1,10 +1,18 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import Link from './Link'
 import headerNavLinks from '@/data/headerNavLinks'
-import { ChevronRightIcon } from '@heroicons/react/solid'
 
 const MobileNav = () => {
   const [navShow, setNavShow] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+    return () => {
+      document.body.style.overflow = 'auto'
+    }
+  }, [])
 
   const onToggleNav = () => {
     setNavShow((status) => {
@@ -18,95 +26,99 @@ const MobileNav = () => {
     })
   }
 
+  // Flatten the dropdown groups so every destination is one tap away.
+  const links = headerNavLinks.flatMap((link) => (link.type === 'dropdown' ? link.links : [link]))
+
+  const panel = (
+    /* Portalled to the body: the header sets backdrop-filter, which would
+       otherwise make it the containing block for this fixed panel and clip it
+       to the height of the header. The wrapper clips the off-canvas slide so
+       it cannot widen the page. */
+    <div
+      className={`fixed inset-0 z-50 overflow-hidden sm:hidden ${
+        navShow ? '' : 'pointer-events-none'
+      }`}
+      aria-hidden={!navShow}
+    >
+      <div
+        className={`absolute inset-y-0 right-0 w-full transform border-l border-slate-200 bg-slate-50 duration-300 ease-in-out dark:border-slate-700 dark:bg-slate-900 ${
+          navShow ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="flex items-center justify-between border-b border-slate-200 px-8 py-4 dark:border-slate-700">
+          <span className="eyebrow">Contents</span>
+          <button
+            type="button"
+            aria-label="Close Menu"
+            className="h-8 w-8 text-slate-700 dark:text-slate-100"
+            onClick={onToggleNav}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={1.5}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <nav className="px-8 py-4">
+          {links.map((link, i) => (
+            <div
+              key={`${link.href}-${i}`}
+              className="border-b border-slate-200 py-4 dark:border-slate-800"
+            >
+              <Link
+                href={link.href}
+                className="flex items-baseline justify-between font-display text-2xl text-slate-800 dark:text-slate-100"
+                onClick={onToggleNav}
+              >
+                <span>{link.title}</span>
+                <span className="eyebrow">{String(i + 1).padStart(2, '0')}</span>
+              </Link>
+            </div>
+          ))}
+        </nav>
+      </div>
+    </div>
+  )
+
   return (
     <div className="sm:hidden">
       <button
         type="button"
-        className="ml-1 mr-1 h-8 w-8 rounded py-1"
+        className="ml-2 h-8 w-8 text-slate-700 dark:text-slate-100"
         aria-label="Toggle Menu"
         onClick={onToggleNav}
       >
         {navShow ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 transform cursor-pointer select-none rounded-md duration-300 active:scale-50"
+            className="h-6 w-6 cursor-pointer select-none"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            strokeWidth={2}
+            strokeWidth={1.5}
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
         ) : (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 transform cursor-pointer select-none rounded-md duration-300 active:scale-50"
+            className="h-6 w-6 cursor-pointer select-none"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            strokeWidth={2}
+            strokeWidth={1.5}
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         )}
       </button>
-      <div
-        className={`fixed top-24 right-0 z-10 -mt-6 h-[96rem] w-full transform bg-gray-800 opacity-95 duration-300 ease-in-out ${
-          navShow ? 'translate-x-0' : 'translate-x-full'
-        }`}
-      >
-        <button
-          type="button"
-          aria-label="toggle modal"
-          className="fixed h-[16rem] w-full cursor-auto focus:outline-none"
-          onClick={onToggleNav}
-        ></button>
-        <nav className="fixed mt-8 h-full">
-          {headerNavLinks.map((link, i) => {
-            if (link.type !== 'dropdown') {
-              return (
-                <div key={`${link}-${i}`} className="flex items-center px-12 py-4">
-                  <Link
-                    href={link.href}
-                    className="mono-type text-2xl font-bold tracking-widest text-gray-100"
-                    onClick={onToggleNav}
-                  >
-                    {link.title}
-                  </Link>
-                  <Link href={link.href}>
-                    <ChevronRightIcon
-                      className="ml-2 -mr-1 h-5 w-5 text-violet-200 hover:text-violet-100"
-                      aria-hidden="true"
-                    />
-                  </Link>
-                </div>
-              )
-            }
-
-            return (
-              <div key={`${link}-${i}`}>
-                {link.links.map((item, i) => (
-                  <div key={`${item.href}-${i}`} className="flex items-center px-12 py-4">
-                    <Link
-                      href={item.href}
-                      className="mono-type text-2xl font-bold tracking-widest text-gray-100"
-                      onClick={onToggleNav}
-                    >
-                      {item.title}
-                    </Link>
-                    <Link href={item.href}>
-                      <ChevronRightIcon
-                        className="ml-2 -mr-1 h-5 w-5 text-violet-200 hover:text-violet-100"
-                        aria-hidden="true"
-                      />
-                    </Link>
-                  </div>
-                ))}
-              </div>
-            )
-          })}
-        </nav>
-      </div>
+      {mounted && createPortal(panel, document.body)}
     </div>
   )
 }
