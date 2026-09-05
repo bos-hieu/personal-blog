@@ -135,10 +135,20 @@ module.exports = {
               color: theme('colors.slate.800'),
             },
             pre: {
-              backgroundColor: theme('colors.slate.900'),
-              border: `1px solid ${theme('colors.slate.700')}`,
+              backgroundColor: 'var(--code-bg)',
+              color: 'var(--code-fg)',
+              border: '1px solid var(--code-border)',
               borderRadius: '4px',
-              fontSize: '0.9rem',
+              fontSize: '0.95rem',
+              lineHeight: '1.65',
+              padding: '1.15em 1.35em',
+            },
+            'pre code': {
+              color: 'inherit',
+              backgroundColor: 'transparent',
+              border: 'none',
+              fontSize: 'inherit',
+              padding: '0',
             },
             code: {
               fontFamily: theme('fontFamily.mono').join(', '),
@@ -213,13 +223,22 @@ module.exports = {
             h3: { color: theme('colors.slate.100') },
             'h4,h5,h6': { color: theme('colors.slate.100') },
             pre: {
-              backgroundColor: '#101317',
-              borderColor: theme('colors.slate.700'),
+              backgroundColor: 'var(--code-bg)',
+              color: 'var(--code-fg)',
+              borderColor: 'var(--code-border)',
             },
             code: {
               color: theme('colors.primary.200'),
               backgroundColor: theme('colors.slate.800'),
               borderColor: theme('colors.slate.700'),
+            },
+            // Emitted after the base rules, so the block-code reset has to be
+            // repeated here or inline-code styling paints over the block.
+            'pre code': {
+              color: 'inherit',
+              backgroundColor: 'transparent',
+              border: 'none',
+              padding: '0',
             },
             details: {
               backgroundColor: theme('colors.slate.800'),

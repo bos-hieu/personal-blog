@@ -38,10 +38,10 @@ export default function TerminalMark() {
       aria-hidden="true"
     >
       <noscript>
-        <span className="text-slate-400 dark:text-slate-500">~/</span>
+        <span className="text-slate-500 dark:text-slate-400">~/</span>
         <span className="font-medium">trung-hieu</span>
       </noscript>
-      <span className="text-slate-400 dark:text-slate-500">{typed.slice(0, 2)}</span>
+      <span className="text-slate-500 dark:text-slate-400">{typed.slice(0, 2)}</span>
       <span className="font-medium">{typed.slice(2)}</span>
       <span className="caret ml-0.5 inline-block h-[0.95em] w-[0.5em] shrink-0 translate-y-[0.1em] bg-primary-500 dark:bg-primary-400" />
     </div>

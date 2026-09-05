@@ -65,6 +65,18 @@
     }
   }
 
+  /* Copy button, themed with the code surface it sits on. */
+  .code-copy {
+    background: var(--code-surface-2);
+    border: 1px solid var(--code-border);
+    color: var(--code-muted);
+  }
+
+  .code-copy-active {
+    border-color: theme('colors.primary.400');
+    color: theme('colors.primary.500');
+  }
+
   /* Trim a summary to a fixed number of lines so grid cells stay even. */
   .clamp-2,
   .clamp-3 {

@@ -26,10 +26,8 @@ const Pre = (props) => {
         <button
           aria-label="Copy code"
           type="button"
-          className={`absolute right-2 top-2 h-8 w-8 rounded border bg-slate-800 p-1 ${
-            copied
-              ? 'border-primary-400 focus:border-primary-400 focus:outline-none'
-              : 'border-slate-600'
+          className={`code-copy absolute right-2 top-2 h-8 w-8 rounded p-1 ${
+            copied ? 'code-copy-active focus:outline-none' : ''
           }`}
           onClick={onCopy}
         >
@@ -38,7 +36,7 @@ const Pre = (props) => {
             viewBox="0 0 24 24"
             stroke="currentColor"
             fill="none"
-            className={copied ? 'text-primary-300' : 'text-slate-400'}
+            className="h-full w-full"
           >
             {copied ? (
               <>
