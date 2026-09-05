@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 930" role="img" aria-labelledby="t d">
+<title id="t">First Principles Over Tool Knowledge</title><desc id="d">A flow from Kafka to the underlying problems it solves.</desc>
+<defs><marker id="a" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#0f2747"/></marker></defs>
+<style>.box{fill:#f8fafc;stroke:#0f2747;stroke-width:4}.call{fill:#e8f0fb;stroke:#0f2747;stroke-width:4}.txt{fill:#0f2747;font:700 30px Arial,Helvetica,sans-serif;text-anchor:middle;dominant-baseline:middle}.arrow{stroke:#0f2747;stroke-width:5;marker-end:url(#a)}</style>
+<rect class="box" x="110" y="30" width="580" height="95" rx="24"/><text class="txt" x="400" y="78">Kafka</text><line class="arrow" x1="400" y1="128" x2="400" y2="175"/>
+<rect class="box" x="110" y="190" width="580" height="95" rx="24"/><text class="txt" x="400" y="238">Why does it exist?</text><line class="arrow" x1="400" y1="288" x2="400" y2="335"/>
+<rect class="box" x="80" y="350" width="640" height="95" rx="24"/><text class="txt" x="400" y="398">Asynchronous communication</text><line class="arrow" x1="400" y1="448" x2="400" y2="495"/>
+<rect class="box" x="70" y="510" width="660" height="95" rx="24"/><text class="txt" x="400" y="558">What problem does that solve?</text><line class="arrow" x1="400" y1="608" x2="400" y2="655"/>
+<rect class="box" x="55" y="670" width="690" height="120" rx="24"/><text class="txt" x="400" y="715"><tspan x="400" dy="0">Scale · Decoupling · Retries</tspan><tspan x="400" dy="38">Failure handling</tspan></text>
+<rect class="call" x="75" y="825" width="650" height="75" rx="24"/><text class="txt" x="400" y="863">Understand the problem, not just the tool.</text>
+</svg>
