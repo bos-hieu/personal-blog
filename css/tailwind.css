@@ -2,8 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper font-serif text-lg text-ink-700 antialiased dark:bg-ink-900 dark:text-paper-300;
+    /* A faint, evenly-spread grain so the page reads as paper rather than screen. */
+    background-image: radial-gradient(rgba(107, 99, 85, 0.05) 1px, transparent 1px);
+    background-size: 3px 3px;
+  }
+
+  .dark body {
+    background-image: radial-gradient(rgba(250, 246, 234, 0.035) 1px, transparent 1px);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display text-ink-800 dark:text-paper-100;
+  }
+
+  ::selection {
+    @apply bg-primary-200 text-ink-900;
+  }
+
+  .dark ::selection {
+    @apply bg-primary-800 text-paper-100;
+  }
+}
+
+@layer components {
+  /* Small-caps label used for section eyebrows, dates and nav items. */
+  .eyebrow {
+    @apply font-sans text-[0.7rem] font-medium uppercase tracking-caps text-ink-500 dark:text-paper-500;
+  }
+
+  /* Underline that behaves like a typeset rule rather than a browser default. */
+  .link-underline {
+    @apply underline decoration-paper-500 decoration-1 underline-offset-4 transition-colors hover:decoration-primary-500 dark:decoration-ink-600 dark:hover:decoration-primary-400;
+  }
+
+  /* The thin/thick pair of rules found under a printed masthead. */
+  .rule-double {
+    @apply border-b-[3px] border-double border-paper-400 dark:border-ink-600;
+  }
+
+  .rule-hair {
+    @apply border-b border-paper-400 dark:border-ink-600;
+  }
+
+  /* A bordered block of paper — used for cards, panels and callouts. */
+  .paper-panel {
+    @apply border border-paper-400 bg-paper-100 dark:border-ink-600 dark:bg-ink-800;
+  }
+
+  /* Centred ornament between sections. */
+  .ornament {
+    @apply flex items-center justify-center py-8 text-brass-500 dark:text-brass-400;
+  }
+
+  .ornament::before,
+  .ornament::after {
+    content: '';
+    @apply h-px w-16 bg-paper-400 dark:bg-ink-600;
+  }
+
+  .ornament > span {
+    @apply mx-4 h-1.5 w-1.5 rotate-45 bg-brass-500 dark:bg-brass-400;
+  }
+
+  /* Opening capital for the first paragraph of an article intro. */
+  .drop-cap::first-letter {
+    @apply float-left mr-2 font-display text-6xl font-bold leading-[0.8] text-primary-600 dark:text-primary-400;
+    padding-top: 0.1em;
+  }
 }
 
 .task-list-item::before {
@@ -15,7 +92,7 @@ html {
 }
 
 .footnotes {
-  @apply mt-12 border-t border-gray-700 pt-8;
+  @apply mt-12 border-t border-paper-400 pt-8 dark:border-ink-600;
 }
 
 .csl-entry {
@@ -33,21 +110,16 @@ input:-webkit-autofill:focus {
 }
 
 .top-n-1 {
-  top: -5px;
+  top: -1px;
 }
 
-header.isSticky .title {
-  opacity: 0;
-  transition: 0.5s;
+/* The masthead collapses to a single compact line once the page scrolls. */
+header .masthead-tagline {
+  @apply transition-all duration-300;
 }
 
-.leftNav {
-  opacity: 0;
-}
-
-.leftNav.isSticky {
-  opacity: 1;
-  transition: 0.5s;
+header.isSticky .masthead-tagline {
+  @apply pointer-events-none max-h-0 opacity-0;
 }
 
 /* https://jarv.is/notes/css-waving-hand-emoji/ */
@@ -91,11 +163,6 @@ header.isSticky .title {
   100% {
     transform: rotate(0deg);
   }
-}
-
-html,
-body {
-  overflow-x: hidden !important;
 }
 
 body {

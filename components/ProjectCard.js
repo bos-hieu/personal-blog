@@ -4,68 +4,73 @@ import { BsGithub } from 'react-icons/bs'
 import { MdOutlineLink } from 'react-icons/md'
 
 const ProjectCard = ({ title, description, imgSrc, href, tools, deployed }) => (
-  <div className="card">
-    <div className="relative -mt-[35%] w-full shrink-0 overflow-hidden rounded-xl shadow-2xl before:absolute before:inset-0 before:z-10 before:bg-black/20 sm:-mt-0 sm:w-1/2 md:-ml-[35%] md:w-8/12">
-      <Image
-        title={title}
-        alt={title}
-        src={imgSrc}
-        width={1200}
-        height={630}
-        layout="responsive"
-        placeholder="blur"
-        objectFit="cover"
-        blurDataURL={imgSrc}
-        quality={50}
-        className="backdrop-blur-xl transition-all duration-300 lg:group-hover:scale-110"
-      />
-    </div>
+  <article className="paper-panel group flex flex-col gap-6 p-5 transition-colors hover:border-primary-300 dark:hover:border-primary-700 sm:flex-row sm:p-6">
+    {imgSrc && (
+      <div className="w-full shrink-0 self-start overflow-hidden border border-paper-400 dark:border-ink-600 sm:w-56">
+        <Image
+          title={title}
+          alt={title}
+          src={imgSrc}
+          width={1200}
+          height={630}
+          layout="responsive"
+          placeholder="blur"
+          objectFit="cover"
+          blurDataURL={imgSrc}
+          quality={50}
+          className="transition-all duration-500 group-hover:scale-105"
+        />
+      </div>
+    )}
 
-    <div className="flex flex-col justify-start gap-3">
-      <h1 className="font-bold capitalize text-neutral-200">{title}</h1>
-      <p className="truncate-2 text-sm text-neutral-400">{description}</p>
+    <div className="flex flex-1 flex-col gap-3">
+      <h3 className="font-display text-lg font-bold leading-snug text-ink-800 dark:text-paper-100">
+        {title}
+      </h3>
+      <p className="font-serif text-base leading-relaxed text-ink-600 dark:text-paper-300">
+        {description}
+      </p>
 
-      <div className="flex flex-wrap items-center gap-1">
-        {tools.map((tool, index) => {
-          return (
-            <span key={`${tool}-${index}`} className="bg-gray-900 px-2 py-1 text-xs text-gray-500">
-              {tool}
-            </span>
-          )
-        })}
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+        {tools.map((tool, index) => (
+          <span
+            key={`${tool}-${index}`}
+            className="font-sans text-[0.65rem] uppercase tracking-caps text-ink-400 dark:text-paper-500"
+          >
+            {tool}
+          </span>
+        ))}
       </div>
 
-      <div className="mt-auto flex w-fit items-center gap-4 p-2">
-        {href && (
-          <Link href={href}>
+      {(href || deployed) && (
+        <div className="mt-auto flex items-center gap-4 border-t border-paper-300 pt-3 dark:border-ink-700">
+          {href && (
             <a
               title="Source Code on GitHub"
               target="_blank"
               rel="noopener noreferrer"
               href={href}
-              className="text-gray-500 hover:text-white"
+              className="text-ink-500 transition-colors hover:text-primary-600 dark:text-paper-500 dark:hover:text-primary-300"
             >
-              <BsGithub className="h-6 w-6 transition-all hover:scale-110 active:scale-90" />
+              <BsGithub className="h-5 w-5" />
             </a>
-          </Link>
-        )}
+          )}
 
-        {deployed && (
-          <Link href={deployed}>
+          {deployed && (
             <a
               title="Live Preview"
               target="_blank"
               rel="noopener noreferrer"
               href={deployed}
-              className="text-gray-500 hover:text-white"
+              className="text-ink-500 transition-colors hover:text-primary-600 dark:text-paper-500 dark:hover:text-primary-300"
             >
-              <MdOutlineLink className="h-6 w-6 transition-all hover:scale-110 active:scale-90" />
+              <MdOutlineLink className="h-5 w-5" />
             </a>
-          </Link>
-        )}
-      </div>
+          )}
+        </div>
+      )}
     </div>
-  </div>
+  </article>
 )
 
 export default ProjectCard

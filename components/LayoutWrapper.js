@@ -1,23 +1,20 @@
 import headerNavLinks from '@/data/headerNavLinks'
-import Logo from '@/data/newlogo.svg'
+import siteMetadata from '@/data/siteMetadata'
 import Link from './Link'
 import SectionContainer from './SectionContainer'
 import Footer from './Footer'
 import MobileNav from './MobileNav'
+import ThemeSwitch from './ThemeSwitch'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import { Fragment, useEffect, useRef, useState } from 'react'
 
+const navLinkClasses =
+  'eyebrow text-ink-600 transition-colors hover:text-primary-600 dark:text-paper-300 dark:hover:text-primary-300'
+
 const LayoutWrapper = ({ children }) => {
   const [stuck, setStuck] = useState(false)
   const ref = useRef()
-
-  const stuckClasses =
-    'py-2 sticky top-n-1 z-50 transition-all backdrop isSticky mx-auto border-b border-slate-300/10 mb-8 w-full'
-  const unstuckClasses =
-    'py-2 md:py-8 sticky top-n-1 z-50 transition-all backdrop mx-auto border-b border-b-0 border-slate-300/10 mb-8 w-full'
-
-  const classes = stuck ? stuckClasses : unstuckClasses
 
   useEffect(() => {
     const cachedRef = ref.current
@@ -33,40 +30,37 @@ const LayoutWrapper = ({ children }) => {
 
   return (
     <>
-      <header className={classes} ref={ref}>
-        <div className="mx-auto flex max-w-3xl items-center justify-between bg-cardBg bg-opacity-5 px-4 sm:px-6 xl:max-w-5xl xl:px-0">
-          <Link href="/" aria-label="Trung Hieu">
-            <div className="mr-3">
-              ~/trung-hieu
-              {/*<Logo /> Trung Hieu*/}
-            </div>
-          </Link>
-          <div className="flex items-center text-base leading-5">
-            <div className="hidden sm:block">
-              {headerNavLinks.map((link) => {
-                if (link.type !== 'dropdown') {
+      <header
+        className={`top-n-1 backdrop sticky z-50 mb-10 w-full border-b border-paper-400 bg-paper/90 transition-shadow dark:border-ink-600 dark:bg-ink-900/90 ${
+          stuck ? 'isSticky shadow-sm' : ''
+        }`}
+        ref={ref}
+      >
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+          {/* Masthead: wordmark over a hairline rule, in the manner of a printed title page. */}
+          <div className="flex items-center justify-between py-3">
+            <Link href="/" aria-label={siteMetadata.author}>
+              <div className="font-display text-xl font-bold tracking-tight text-ink-800 transition-colors hover:text-primary-600 dark:text-paper-100 dark:hover:text-primary-300 sm:text-2xl">
+                {siteMetadata.author}
+              </div>
+            </Link>
+            <div className="flex items-center">
+              <nav className="hidden sm:flex sm:items-center sm:gap-7">
+                {headerNavLinks.map((link) => {
+                  if (link.type !== 'dropdown') {
+                    return (
+                      <Link key={link.title} href={link.href} className={navLinkClasses}>
+                        {link.title}
+                      </Link>
+                    )
+                  }
+
                   return (
-                    <Link
-                      key={link.title}
-                      href={link.href}
-                      className="p-1 font-bold text-gray-100 hover:text-primary-400 sm:p-4"
-                    >
-                      {link.title}
-                    </Link>
-                  )
-                }
-                if (link.type === 'dropdown') {
-                  return (
-                    <Menu key={link.title} as="a" className="relative inline-block p-1 sm:p-4">
-                      <div>
-                        <Menu.Button className="inline-flex justify-center rounded-md bg-transparent font-bold text-gray-100 hover:text-primary-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-                          Other
-                          <ChevronDownIcon
-                            className="-mr-1 ml-2 h-5 w-5 text-violet-200 hover:text-violet-100"
-                            aria-hidden="true"
-                          />
-                        </Menu.Button>
-                      </div>
+                    <Menu key={link.title} as="div" className="relative inline-block">
+                      <Menu.Button className={`inline-flex items-center ${navLinkClasses}`}>
+                        {link.title}
+                        <ChevronDownIcon className="ml-1 h-4 w-4" aria-hidden="true" />
+                      </Menu.Button>
                       <Transition
                         as={Fragment}
                         enter="transition ease-out duration-100"
@@ -76,30 +70,35 @@ const LayoutWrapper = ({ children }) => {
                         leaveFrom="transform opacity-100 scale-100"
                         leaveTo="transform opacity-0 scale-95"
                       >
-                        <Menu.Items className="absolute right-0 mt-2 w-24 origin-top-right divide-y divide-gray-600 rounded-md bg-cardBg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                          {link.links.map((item, index) => (
-                            <div key={index} className="px-1 py-1">
-                              <Menu.Item>
-                                {({ active }) => (
-                                  <button
-                                    className={`${
-                                      active ? 'text-primary-400' : 'text-gray-100'
-                                    } group flex w-full justify-center  rounded-md px-2 py-2 font-bold`}
-                                  >
-                                    <Link href={item.href}>{item.title}</Link>
-                                  </button>
-                                )}
-                              </Menu.Item>
-                            </div>
+                        <Menu.Items className="absolute right-0 mt-3 w-44 origin-top-right border border-paper-400 bg-paper-50 py-1 shadow-md focus:outline-none dark:border-ink-600 dark:bg-ink-800">
+                          {link.links.map((item) => (
+                            <Menu.Item key={item.href}>
+                              {({ active }) => (
+                                <Link
+                                  href={item.href}
+                                  className={`block px-4 py-2 font-sans text-xs uppercase tracking-caps ${
+                                    active
+                                      ? 'bg-paper-200 text-primary-600 dark:bg-ink-700 dark:text-primary-300'
+                                      : 'text-ink-600 dark:text-paper-300'
+                                  }`}
+                                >
+                                  {item.title}
+                                </Link>
+                              )}
+                            </Menu.Item>
                           ))}
                         </Menu.Items>
                       </Transition>
                     </Menu>
                   )
-                }
-              })}
+                })}
+              </nav>
+              <ThemeSwitch />
+              <MobileNav />
             </div>
-            <MobileNav />
+          </div>
+          <div className="masthead-tagline hidden overflow-hidden border-t border-paper-300 py-2 dark:border-ink-700 sm:block">
+            <p className="eyebrow text-center">{siteMetadata.headerTitle}</p>
           </div>
         </div>
       </header>

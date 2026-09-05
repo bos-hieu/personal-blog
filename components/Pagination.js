@@ -5,32 +5,28 @@ export default function Pagination({ totalPages, currentPage }) {
   const nextPage = parseInt(currentPage) + 1 <= parseInt(totalPages)
 
   return (
-    <div className="space-y-2 pt-6 pb-8 md:space-y-5">
-      <nav className="flex justify-between">
-        {!prevPage && (
-          <button rel="previous" className="cursor-auto disabled:opacity-50" disabled={!prevPage}>
-            Previous
-          </button>
-        )}
-        {prevPage && (
-          <Link href={currentPage - 1 === 1 ? `/blog/` : `/blog/page/${currentPage - 1}`}>
-            <button rel="previous">Previous</button>
-          </Link>
-        )}
-        <span>
-          {currentPage} of {totalPages}
-        </span>
-        {!nextPage && (
-          <button rel="next" className="cursor-auto disabled:opacity-50" disabled={!nextPage}>
-            Next
-          </button>
-        )}
-        {nextPage && (
-          <Link href={`/blog/page/${currentPage + 1}`}>
-            <button rel="next">Next</button>
-          </Link>
-        )}
-      </nav>
-    </div>
+    <nav className="mt-10 flex items-center justify-between border-t border-paper-400 pt-6 dark:border-ink-600">
+      {prevPage ? (
+        <Link
+          href={currentPage - 1 === 1 ? `/posts` : `/blog/page/${currentPage - 1}`}
+          className="eyebrow link-underline"
+          rel="previous"
+        >
+          &larr; Previous
+        </Link>
+      ) : (
+        <span className="eyebrow opacity-40">&larr; Previous</span>
+      )}
+      <span className="eyebrow">
+        Page {currentPage} of {totalPages}
+      </span>
+      {nextPage ? (
+        <Link href={`/blog/page/${currentPage + 1}`} className="eyebrow link-underline" rel="next">
+          Next &rarr;
+        </Link>
+      ) : (
+        <span className="eyebrow opacity-40">Next &rarr;</span>
+      )}
+    </nav>
   )
 }

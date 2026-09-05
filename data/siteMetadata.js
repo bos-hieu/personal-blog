@@ -5,7 +5,7 @@ const siteMetadata = {
   description:
     'Personal blog and web development notes created by Trung Hieu Le. Also contains projects and personal interests.',
   language: 'en-us',
-  theme: 'dark', // system, dark or light
+  theme: 'light', // system, dark or light
   siteUrl: 'https://trunghieu.vercel.app',
   siteRepo: 'https://github.com/bos-hieu/personal-blog',
   siteLogo: '/static/images/logo.png',

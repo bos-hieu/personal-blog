@@ -16,7 +16,14 @@ const components = {
   twitter: Twitter,
 }
 
-const SocialIcon = ({ children, kind, href, size = 8 }) => {
+const sizeClasses = {
+  4: 'h-4 w-4',
+  5: 'h-5 w-5',
+  6: 'h-6 w-6',
+  8: 'h-8 w-8',
+}
+
+const SocialIcon = ({ children, kind, href, size = 6 }) => {
   if (!href || (kind === 'mail' && !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href)))
     return null
 
@@ -24,13 +31,13 @@ const SocialIcon = ({ children, kind, href, size = 8 }) => {
 
   return (
     <a
-      className="text-sm text-gray-500 transition hover:text-gray-600"
+      className="text-ink-500 transition-colors hover:text-primary-600 dark:text-paper-500 dark:hover:text-primary-300"
       target="_blank"
       rel="noopener noreferrer"
       href={href}
     >
       <span className="sr-only">{kind}</span>
-      <SocialSvg className={`fill-current text-gray-200 hover:text-blue-400 h-${size} w-${size}`} />
+      <SocialSvg className={`fill-current ${sizeClasses[size] || sizeClasses[6]}`} />
       {children}
     </a>
   )

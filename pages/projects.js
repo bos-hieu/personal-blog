@@ -8,27 +8,30 @@ export default function Projects() {
   return (
     <>
       <PageSEO title={`Projects - ${siteMetadata.author}`} description={siteMetadata.description} />
-      <div className="divide-y divide-gray-700">
-        <div className="space-y-2 pb-8 md:space-y-5">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            Projects
-          </h1>
-        </div>
-        <div className="container py-12">
-          <div className="mx-auto grid grid-cols-1 gap-4 md:ml-[20%] xl:ml-[24%]">
-            {projectsData.map((d) => (
-              <ProjectCard
-                key={d.title}
-                title={d.title}
-                description={d.description}
-                imgSrc={d.imgSrc}
-                href={d.href}
-                tools={d.tools}
-                deployed={d.deployed}
-              />
-            ))}
-          </div>
-        </div>
+      <div className="mb-10 border-b border-paper-400 pb-8 dark:border-ink-600">
+        <p className="eyebrow mb-3">A working catalogue</p>
+        <h1 className="font-display text-4xl font-bold tracking-tight text-ink-800 dark:text-paper-100 sm:text-5xl">
+          Projects
+        </h1>
+        <p className="mt-4 max-w-2xl font-serif text-lg italic text-ink-500 dark:text-paper-500">
+          Systems built, shipped and maintained — with the tools each one asked for.
+        </p>
+      </div>
+      <div className="grid grid-cols-1 gap-6">
+        {projectsData.map((d) => (
+          <ProjectCard
+            key={d.title}
+            title={d.title}
+            description={d.description}
+            imgSrc={d.imgSrc}
+            href={d.href}
+            tools={d.tools}
+            deployed={d.deployed}
+          />
+        ))}
+      </div>
+      <div className="ornament">
+        <span />
       </div>
       <Analytics />
     </>

@@ -1,5 +1,3 @@
-/* eslint-disable prettier/prettier */
-
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
@@ -8,6 +6,7 @@ import formatDate from '@/lib/utils/formatDate'
 import Hero from '@/components/Hero'
 import RecentProjects from '@/components/RecentProjects'
 import Skills from '@/components/Skills'
+import SectionHeading from '@/components/SectionHeading'
 import { Analytics } from '@vercel/analytics/react'
 
 const MAX_DISPLAY = 6
@@ -26,42 +25,52 @@ export default function Home({ posts }) {
       <Skills />
       <RecentProjects MAX_PROJECTS="4" />
 
-      <div className="container mx-auto divide-y divide-gray-700">
-        <div className="my-4 flex flex-col">
-          <span className="font-poppins title-font text-3xl font-bold">Recent Posts</span>
-        </div>
+      <section>
+        <SectionHeading
+          kicker="Chapter III"
+          title="From the Notebook"
+          action={
+            posts.length > MAX_DISPLAY && (
+              <Link href="/posts" className="eyebrow link-underline" aria-label="all posts">
+                All entries &rarr;
+              </Link>
+            )
+          }
+        />
 
-        <div className="grid gap-5 sm:mt-6 sm:pt-10 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-5">
-          {!posts.length && 'No posts found.'}
+        <div className="grid grid-cols-1 border-l border-t border-paper-400 dark:border-ink-600 sm:grid-cols-2">
+          {!posts.length && (
+            <p className="border-b border-r border-paper-400 p-6 italic dark:border-ink-600">
+              No posts found.
+            </p>
+          )}
           {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {
-            const { slug, date, title, summary, tags } = frontMatter
-            const firstTwoTags = tags.slice(0, 2)
+            const { slug, date, title, summary } = frontMatter
             return (
-              <div key={slug} className="relative h-full rounded-lg">
-                <Link
-                  href={`/blog/${slug}`}
-                  className="relative block h-full overflow-hidden rounded-lg bg-darkSecondary p-4"
-                >
-                  <div className="h-full">
-                    <p className="text-sm text-gray-500">
-                      <time dateTime={date}>{formatDate(date)}</time>
-                    </p>
-                    <h1 className="mt-2 mb-2 block font-bold text-gray-100">{title}</h1>
-
-                    <p className="mt-3 h-auto text-sm text-gray-300">{summary}</p>
-                  </div>
-                </Link>
-              </div>
+              <Link
+                key={slug}
+                href={`/blog/${slug}`}
+                className="group flex h-full flex-col border-b border-r border-paper-400 p-6 transition-colors hover:bg-paper-100 dark:border-ink-600 dark:hover:bg-ink-800"
+              >
+                <p className="eyebrow mb-3">
+                  <time dateTime={date}>{formatDate(date)}</time>
+                </p>
+                <h3 className="mb-2 font-display text-lg font-bold leading-snug text-ink-800 transition-colors group-hover:text-primary-700 dark:text-paper-100 dark:group-hover:text-primary-300">
+                  {title}
+                </h3>
+                <p className="font-serif text-base leading-relaxed text-ink-600 dark:text-paper-300">
+                  {summary}
+                </p>
+                <span className="eyebrow mt-4 text-primary-600 dark:text-primary-300">
+                  Read on &rarr;
+                </span>
+              </Link>
             )
           })}
         </div>
-        {posts.length > MAX_DISPLAY && (
-          <div className="mt-5 flex justify-end text-base font-medium leading-6">
-            <Link href="/posts" className="mt-5 hover:text-primary-400" aria-label="all posts">
-              All Posts &rarr;
-            </Link>
-          </div>
-        )}
+      </section>
+      <div className="ornament">
+        <span />
       </div>
       <Analytics />
     </>

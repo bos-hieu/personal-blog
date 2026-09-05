@@ -9,7 +9,7 @@ export default function AnimatedDiv({ variants, className, children, infinity, s
       variants={variants}
       className={className}
       style={style}
-      transition={{ staggerChildren: 0.5 }}
+      transition={{ staggerChildren: 0.12 }}
     >
       {children}
     </motion.div>

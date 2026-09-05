@@ -1,9 +1,8 @@
-/* eslint-disable prettier/prettier */
-import { SiGo, SiGit, SiMongodb, SiMysql, SiReact, SiPython, SiSolidity } from 'react-icons/si'
+import { SiGo, SiMongodb, SiMysql, SiReact, SiPython, SiSolidity } from 'react-icons/si'
 
 import { motion } from 'framer-motion'
-import { showHoverAnimation, removeHoverAnimation } from '@/lib/windowAnimation'
 import { FadeContainer, popUp } from '@/lib/FramerMotionVariants'
+import SectionHeading from './SectionHeading'
 
 const skills = [
   {
@@ -22,10 +21,6 @@ const skills = [
     name: 'Solidity',
     logo: SiSolidity,
   },
-  // {
-  //   name: 'Git',
-  //   logo: SiGit,
-  // },
   {
     name: 'React',
     logo: SiReact,
@@ -38,36 +33,32 @@ const skills = [
 
 const Skills = () => {
   return (
-    <>
-      <span className="font-poppins title-font text-3xl font-bold">My Top Skills</span>
+    <section className="mb-16">
+      <SectionHeading kicker="Chapter I" title="Craft & Tools" />
       <motion.div
         initial="hidden"
         whileInView="visible"
         variants={FadeContainer}
         viewport={{ once: true }}
-        className="my-10 grid grid-cols-3 gap-4"
+        className="grid grid-cols-2 border-l border-t border-paper-400 dark:border-ink-600 sm:grid-cols-3"
       >
-        {skills.map((skill, index) => {
+        {skills.map((skill) => {
           return (
             <motion.div
               title={skill.name}
               variants={popUp}
               key={skill.name}
-              onMouseMove={(e) => showHoverAnimation(e)}
-              onMouseLeave={(e) => removeHoverAnimation(e)}
-              className="dark:bg-darkPrimary group flex origin-center transform items-center justify-center gap-4 rounded-sm border border-gray-300 p-4 dark:border-neutral-700 hover:dark:bg-darkSecondary sm:justify-start md:origin-top"
+              className="group flex items-center gap-3 border-b border-r border-paper-400 p-4 transition-colors hover:bg-paper-100 dark:border-ink-600 dark:hover:bg-ink-800"
             >
-              <div className="pointer-events-none relative select-none transition group-hover:scale-110 sm:group-hover:scale-100">
-                <skill.logo className="h-8 w-8" />
-              </div>
-              <p className="pointer-events-none hidden select-none text-sm font-semibold sm:inline-flex md:text-base">
+              <skill.logo className="h-5 w-5 shrink-0 text-ink-500 transition-colors group-hover:text-primary-600 dark:text-paper-500 dark:group-hover:text-primary-300" />
+              <p className="font-sans text-xs uppercase tracking-caps text-ink-600 dark:text-paper-300">
                 {skill.name}
               </p>
             </motion.div>
           )
         })}
       </motion.div>
-    </>
+    </section>
   )
 }
 
