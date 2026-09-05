@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1040" role="img" aria-labelledby="t d">
+<title id="t">What Should Compound Over Time</title><desc id="d">Projects become decisions, mistakes, lessons, patterns, principles, and judgment.</desc>
+<defs><marker id="a" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 10L10 5L0 0z" fill="#0f2747"/></marker></defs>
+<style>.box{fill:#f8fafc;stroke:#0f2747;stroke-width:4}.txt{fill:#0f2747;font:700 31px Arial,Helvetica,sans-serif;text-anchor:middle;dominant-baseline:middle}.arrow{stroke:#0f2747;stroke-width:5;marker-end:url(#a)}</style>
+<rect class="box" x="120" y="900" width="560" height="82" rx="22"/><text class="txt" x="400" y="941">Projects</text><line class="arrow" x1="400" y1="895" x2="400" y2="845"/>
+<rect class="box" x="120" y="750" width="560" height="82" rx="22"/><text class="txt" x="400" y="791">Decisions</text><line class="arrow" x1="400" y1="745" x2="400" y2="695"/>
+<rect class="box" x="120" y="600" width="560" height="82" rx="22"/><text class="txt" x="400" y="641">Mistakes</text><line class="arrow" x1="400" y1="595" x2="400" y2="545"/>
+<rect class="box" x="120" y="450" width="560" height="82" rx="22"/><text class="txt" x="400" y="491">Lessons</text><line class="arrow" x1="400" y1="445" x2="400" y2="395"/>
+<rect class="box" x="120" y="300" width="560" height="82" rx="22"/><text class="txt" x="400" y="341">Patterns</text><line class="arrow" x1="400" y1="295" x2="400" y2="245"/>
+<rect class="box" x="120" y="150" width="560" height="82" rx="22"/><text class="txt" x="400" y="191">Principles</text><line class="arrow" x1="400" y1="145" x2="400" y2="95"/>
+<rect class="box" x="120" y="10" width="560" height="82" rx="22"/><text class="txt" x="400" y="51">Judgment</text>
+</svg>
