@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 650" role="img" aria-labelledby="t d">
+<title id="t">Engineering Pyramid</title><desc id="d">Five levels from syntax and tools to architecture and judgment.</desc>
+<style>.box{fill:#f8fafc;stroke:#0f2747;stroke-width:5}.txt{fill:#0f2747;font:700 30px Arial,Helvetica,sans-serif;text-anchor:middle;dominant-baseline:middle}</style>
+<path class="box" d="M290 35 Q400 5 510 35 L575 150 Q585 170 560 170 H240 Q215 170 225 150 Z"/><text class="txt" x="400" y="105"><tspan x="400" dy="-18">Architecture /</tspan><tspan x="400" dy="38">Judgment</tspan></text>
+<path class="box" d="M220 185 H580 Q600 185 615 215 L650 280 Q658 300 635 300 H165 Q142 300 150 280 L185 215 Q200 185 220 185 Z"/><text class="txt" x="400" y="245">Systems Thinking</text>
+<path class="box" d="M165 315 H635 Q655 315 668 340 L700 405 Q708 425 685 425 H115 Q92 425 100 405 L132 340 Q145 315 165 315 Z"/><text class="txt" x="400" y="375">Fundamentals</text>
+<path class="box" d="M110 440 H690 Q710 440 722 465 L748 525 Q756 545 732 545 H68 Q44 545 52 525 L78 465 Q90 440 110 440 Z"/><text class="txt" x="400" y="497">Languages / Frameworks</text>
+<rect class="box" x="30" y="560" width="740" height="70" rx="24"/><text class="txt" x="400" y="595">Syntax / Tools</text>
+</svg>
