@@ -54,6 +54,17 @@
     @apply border border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-800;
   }
 
+  /* Blinking block cursor after the shell-prompt wordmark. */
+  .caret {
+    animation: caret-blink 1.1s step-end infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .caret {
+      animation: none;
+    }
+  }
+
   /* Trim a summary to a fixed number of lines so grid cells stay even. */
   .clamp-2,
   .clamp-3 {
@@ -155,4 +166,15 @@ header.isSticky .masthead-tagline {
 
 body {
   position: relative;
+}
+
+@keyframes caret-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }

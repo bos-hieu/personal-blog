@@ -37,11 +37,16 @@ const LayoutWrapper = ({ children }) => {
         ref={ref}
       >
         <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
-          {/* Masthead: wordmark over a hairline rule, in the manner of a printed title page. */}
+          {/* Wordmark as a shell prompt — the full name is set in the page below. */}
           <div className="flex items-center justify-between py-3">
             <Link href="/" aria-label={siteMetadata.author}>
-              <div className="font-display text-xl font-semibold tracking-tight text-slate-800 transition-colors hover:text-primary-600 dark:text-slate-100 dark:hover:text-primary-300 sm:text-2xl">
-                {siteMetadata.author}
+              <div className="group flex items-baseline font-mono text-base text-slate-700 transition-colors hover:text-primary-600 dark:text-slate-200 dark:hover:text-primary-300 sm:text-lg">
+                <span className="text-slate-400 dark:text-slate-500">~/</span>
+                <span className="font-medium">trung-hieu</span>
+                <span
+                  className="caret ml-1 inline-block h-[0.95em] w-[0.5em] translate-y-[0.1em] bg-primary-500 dark:bg-primary-400"
+                  aria-hidden="true"
+                />
               </div>
             </Link>
             <div className="flex items-center">
