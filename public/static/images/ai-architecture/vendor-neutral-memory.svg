@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700" role="img" aria-labelledby="t d">
+<title id="t">Vendor-Neutral Engineering Memory</title><desc id="d">Our knowledge flows through a local memory layer to multiple AI coding tools.</desc>
+<style>.box{fill:#f8fafc;stroke:#0f2747;stroke-width:4}.call{fill:#e8f0fb;stroke:#0f2747;stroke-width:4}.txt{fill:#0f2747;font:700 29px Arial,Helvetica,sans-serif;text-anchor:middle;dominant-baseline:middle}.line{stroke:#0f2747;stroke-width:5;fill:none}</style>
+<rect class="box" x="100" y="35" width="600" height="105" rx="26"/><text class="txt" x="400" y="88">Our Knowledge</text>
+<path class="line" d="M400 140 V205"/>
+<rect class="call" x="100" y="205" width="600" height="105" rx="26"/><text class="txt" x="400" y="258">Local Memory Layer</text>
+<path class="line" d="M400 310 V390 M400 390 H145 V435 M400 390 H655 V435 M400 390 V435"/>
+<rect class="box" x="45" y="435" width="200" height="120" rx="24"/><text class="txt" x="145" y="495"><tspan x="145" dy="-18">Claude</tspan><tspan x="145" dy="38">Code</tspan></text>
+<rect class="box" x="300" y="435" width="200" height="120" rx="24"/><text class="txt" x="400" y="495">Codex</text>
+<rect class="box" x="555" y="435" width="200" height="120" rx="24"/><text class="txt" x="655" y="495"><tspan x="655" dy="-18">Gemini</tspan><tspan x="655" dy="38">CLI</tspan></text>
+<rect class="call" x="65" y="600" width="670" height="70" rx="22"/><text class="txt" x="400" y="635">Knowledge should outlive any single AI tool.</text>
+</svg>
