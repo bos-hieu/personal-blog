@@ -34,23 +34,22 @@ function CopyToClipboard({ icon: Icon, text, ...props }) {
   )
 }
 
+/**
+ * A slim identity band rather than a full-height hero: the name, what I do,
+ * and how to reach me, all above the fold with the lead article.
+ */
 export default function Hero() {
   return (
-    <section className="mb-16 border-b border-paper-400 pb-10 dark:border-ink-600">
-      <p className="eyebrow mb-4">Notes on backend engineering, cloud & blockchain</p>
-      <h1 className="font-display text-4xl font-bold leading-tight tracking-tight text-ink-800 dark:text-paper-100 sm:text-5xl">
-        Trung Hieu Le
-      </h1>
-      <div className="my-5 flex items-center gap-3">
-        <span className="h-px w-12 bg-primary-500 dark:bg-primary-400" />
-        <span className="h-1.5 w-1.5 rotate-45 bg-brass-500" />
-        <span className="h-px flex-1 bg-paper-400 dark:bg-ink-600" />
+    <section className="rule-hair flex flex-wrap items-end justify-between gap-x-8 gap-y-5 pb-6">
+      <div>
+        <h1 className="font-display text-3xl font-bold leading-tight tracking-tight text-ink-800 dark:text-paper-100 sm:text-4xl">
+          Trung Hieu Le
+        </h1>
+        <p className="mt-2 font-serif text-lg italic text-ink-500 dark:text-paper-500">
+          Technical Lead — backend systems, cloud &amp; blockchain.
+        </p>
       </div>
-      <p className="max-w-2xl font-serif text-xl italic leading-relaxed text-ink-600 dark:text-paper-300">
-        Technical Lead with eight years in backend development and system architecture — presently a
-        postgraduate in Cloud Computing and Blockchain, writing down what I learn along the way.
-      </p>
-      <div className="mt-7 flex items-center gap-6">
+      <div className="flex items-center gap-5 pb-1">
         <SocialLink
           href="https://github.com/bos-hieu"
           aria-label="Check out my Github"

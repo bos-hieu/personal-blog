@@ -76,6 +76,22 @@
     @apply mx-4 h-1.5 w-1.5 rotate-45 bg-brass-500 dark:bg-brass-400;
   }
 
+  /* Trim a summary to a fixed number of lines so grid cells stay even. */
+  .clamp-2,
+  .clamp-3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .clamp-2 {
+    -webkit-line-clamp: 2;
+  }
+
+  .clamp-3 {
+    -webkit-line-clamp: 3;
+  }
+
   /* Opening capital for the first paragraph of an article intro. */
   .drop-cap::first-letter {
     @apply float-left mr-2 font-display text-6xl font-bold leading-[0.8] text-primary-600 dark:text-primary-400;

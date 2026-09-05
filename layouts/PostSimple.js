@@ -11,11 +11,11 @@ export default function PostLayout({ frontMatter, next, prev, children }) {
     <SectionContainer>
       <BlogSEO url={`${siteMetadata.siteUrl}/blog/${frontMatter.slug}`} {...frontMatter} />
       <article>
-        <header className="rule-double border-t border-paper-400 py-10 text-center dark:border-ink-600">
-          <p className="eyebrow mb-4">
+        <header className="rule-hair max-w-3xl pb-8">
+          <p className="eyebrow mb-3">
             <time dateTime={date}>{formatDate(date)}</time>
           </p>
-          <h1 className="mx-auto max-w-3xl font-display text-3xl font-bold leading-tight tracking-tight text-ink-800 dark:text-paper-100 sm:text-4xl md:text-5xl">
+          <h1 className="font-display text-3xl font-bold leading-tight tracking-tight text-ink-800 dark:text-paper-100 sm:text-4xl md:text-5xl">
             {title}
           </h1>
         </header>

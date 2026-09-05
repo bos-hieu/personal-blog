@@ -7,7 +7,7 @@ import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { useEffect, useRef, useState } from 'react'
 
-const postDateTemplate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+const postDateTemplate = { year: 'numeric', month: 'long', day: 'numeric' }
 
 export default function PostLayout({ frontMatter, authorDetails, next, prev, children, toc }) {
   const { slug, date, title, tags, readingTime } = frontMatter
@@ -20,22 +20,19 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
       />
       <ScrollTop />
       <article>
-        {/* Title page: kicker, headline, byline — all centred between rules. */}
-        <header className="rule-double border-t border-paper-400 py-10 text-center dark:border-ink-600">
-          <p className="eyebrow mb-4">
+        {/* Headline block, ranged left with the text it introduces. */}
+        <header className="rule-hair max-w-3xl pb-8">
+          <p className="eyebrow mb-3">
             <time dateTime={date}>
               {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
             </time>
+            <span className="mx-2 text-brass-500">/</span>
+            {readingTime.text}
           </p>
-          <h1 className="mx-auto max-w-3xl font-display text-3xl font-bold leading-tight tracking-tight text-ink-800 dark:text-paper-100 sm:text-4xl md:text-5xl">
+          <h1 className="font-display text-3xl font-bold leading-tight tracking-tight text-ink-800 dark:text-paper-100 sm:text-4xl md:text-5xl">
             {title}
           </h1>
-          <div className="mt-6 flex items-center justify-center gap-3">
-            <span className="h-px w-10 bg-paper-400 dark:bg-ink-600" />
-            <span className="h-1.5 w-1.5 rotate-45 bg-brass-500" />
-            <span className="h-px w-10 bg-paper-400 dark:bg-ink-600" />
-          </div>
-          <div className="mt-5 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+          <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
             {authorDetails.map((author) => (
               <div key={author.name} className="flex items-center gap-2">
                 {author.avatar && (
@@ -50,67 +47,60 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                 <span className="eyebrow">{author.name}</span>
               </div>
             ))}
-            <span className="eyebrow">{readingTime.words} words</span>
-            <span className="eyebrow">{readingTime.text}</span>
+            <div className="flex flex-wrap gap-x-3 gap-y-1">
+              {tags?.map((tag) => (
+                <Tag key={tag} text={tag} />
+              ))}
+            </div>
           </div>
         </header>
 
-        <div
-          className="pb-8 xl:grid xl:grid-cols-4 xl:gap-x-10"
-          style={{ gridTemplateRows: 'auto 1fr' }}
-        >
-          <div className="prose max-w-none pb-8 pt-10 dark:prose-dark xl:col-span-3 xl:col-start-1 xl:row-span-2">
-            {children}
-          </div>
+        {/* Contents rail on the left, so the article keeps a single measure. */}
+        <div className="lg:grid lg:grid-cols-4 lg:gap-x-12">
+          <nav className="hidden lg:col-span-1 lg:block">
+            <div className="sticky top-32 pt-10">
+              <Link href="/posts" className="eyebrow link-underline">
+                &larr; All posts
+              </Link>
+              <TocComponent toc={toc} />
+            </div>
+          </nav>
 
-          <footer className="xl:col-start-4 xl:row-start-1">
-            <div className="divide-y divide-paper-400 border-t border-paper-400 text-sm dark:divide-ink-600 dark:border-ink-600 xl:border-t-0">
-              {tags && (
-                <div className="py-6">
-                  <h2 className="eyebrow mb-2">Filed under</h2>
-                  <div className="flex flex-wrap gap-x-3 gap-y-1">
-                    {tags.map((tag) => (
-                      <Tag key={tag} text={tag} />
-                    ))}
+          <div className="lg:col-span-3">
+            <div className="prose max-w-none pb-10 pt-10 dark:prose-dark">{children}</div>
+
+            <footer className="border-t border-paper-400 pt-8 dark:border-ink-600">
+              {(prev || next) && (
+                <div className="grid grid-cols-1 gap-px bg-paper-400 dark:bg-ink-600 sm:grid-cols-2">
+                  <div className="bg-paper p-5 dark:bg-ink-900">
+                    {prev && (
+                      <Link href={`/blog/${prev.slug}`} className="group block">
+                        <p className="eyebrow mb-2">&larr; Previous</p>
+                        <p className="font-display text-base leading-snug text-ink-800 transition-colors group-hover:text-primary-700 dark:text-paper-100 dark:group-hover:text-primary-300">
+                          {prev.title}
+                        </p>
+                      </Link>
+                    )}
+                  </div>
+                  <div className="bg-paper p-5 dark:bg-ink-900 sm:text-right">
+                    {next && (
+                      <Link href={`/blog/${next.slug}`} className="group block">
+                        <p className="eyebrow mb-2">Next &rarr;</p>
+                        <p className="font-display text-base leading-snug text-ink-800 transition-colors group-hover:text-primary-700 dark:text-paper-100 dark:group-hover:text-primary-300">
+                          {next.title}
+                        </p>
+                      </Link>
+                    )}
                   </div>
                 </div>
               )}
-              {(next || prev) && (
-                <div className="flex flex-col gap-6 py-6 sm:flex-row sm:justify-between xl:flex-col">
-                  {prev && (
-                    <div>
-                      <h2 className="eyebrow mb-1">Previous article</h2>
-                      <Link
-                        href={`/blog/${prev.slug}`}
-                        className="link-underline font-display text-base text-ink-800 dark:text-paper-100"
-                      >
-                        {prev.title}
-                      </Link>
-                    </div>
-                  )}
-                  {next && (
-                    <div>
-                      <h2 className="eyebrow mb-1">Next article</h2>
-                      <Link
-                        href={`/blog/${next.slug}`}
-                        className="link-underline font-display text-base text-ink-800 dark:text-paper-100"
-                      >
-                        {next.title}
-                      </Link>
-                    </div>
-                  )}
-                </div>
-              )}
-              <div className="py-6">
+              <div className="pt-8 lg:hidden">
                 <Link href="/posts" className="eyebrow link-underline">
-                  &larr; Back to all posts
+                  &larr; All posts
                 </Link>
-                <div className="hidden xl:block">
-                  <TocComponent toc={toc} />
-                </div>
               </div>
-            </div>
-          </footer>
+            </footer>
+          </div>
         </div>
       </article>
     </SectionContainer>
@@ -145,7 +135,7 @@ function TocComponent({ toc }) {
       <div key={i}>
         <Link href={e.url}>
           <p
-            className={`border-l py-1 pl-3 font-serif transition-colors ${
+            className={`border-l py-1 pl-3 font-serif text-sm leading-snug transition-colors ${
               isActive(e)
                 ? 'border-primary-500 text-primary-700 dark:text-primary-300'
                 : 'border-paper-400 text-ink-500 hover:text-ink-800 dark:border-ink-600 dark:text-paper-500 dark:hover:text-paper-200'
@@ -155,7 +145,7 @@ function TocComponent({ toc }) {
           </p>
         </Link>
         {isActive(e) && e.children.length > 0 && (
-          <div className="ml-4">
+          <div className="ml-3">
             <RenderToc item={e.children} activeId={activeId} />
           </div>
         )}
@@ -163,11 +153,13 @@ function TocComponent({ toc }) {
     ))
   }
 
+  if (!TOC.length) return null
+
   return (
-    <nav className="sticky top-32 mt-8 text-sm">
-      <p className="eyebrow mb-3">Table of contents</p>
+    <div className="mt-8">
+      <p className="eyebrow mb-3">Contents</p>
       <RenderToc item={TOC} activeId={activeId} />
-    </nav>
+    </div>
   )
 }
 

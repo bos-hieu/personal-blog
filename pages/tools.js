@@ -16,12 +16,12 @@ export default function Tools() {
   return (
     <>
       <PageSEO title={`Tools - ${siteMetadata.author}`} description={siteMetadata.description} />
-      <div className="mb-10 border-b border-paper-400 pb-8 dark:border-ink-600">
-        <p className="eyebrow mb-3">The workbench</p>
-        <h1 className="font-display text-4xl font-bold tracking-tight text-ink-800 dark:text-paper-100 sm:text-5xl">
+      <div className="rule-hair mb-10 pb-6">
+        <p className="eyebrow mb-2">The workbench</p>
+        <h1 className="font-display text-3xl font-bold tracking-tight text-ink-800 dark:text-paper-100 sm:text-4xl">
           Tools
         </h1>
-        <p className="mt-4 max-w-2xl font-serif text-lg italic text-ink-500 dark:text-paper-500">
+        <p className="mt-2 max-w-2xl font-serif text-lg italic text-ink-500 dark:text-paper-500">
           Software I keep close at hand, sorted by where it lives.
         </p>
       </div>

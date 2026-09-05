@@ -8,9 +8,9 @@ export default function AuthorLayout({ children, frontMatter }) {
   return (
     <>
       <PageSEO title={`About - ${name}`} description={`About me - ${name}`} />
-      <div className="mb-10 border-b border-paper-400 pb-8 dark:border-ink-600">
-        <p className="eyebrow mb-3">A brief biography</p>
-        <h1 className="font-display text-4xl font-bold tracking-tight text-ink-800 dark:text-paper-100 sm:text-5xl">
+      <div className="rule-hair mb-10 pb-6">
+        <p className="eyebrow mb-2">A brief biography</p>
+        <h1 className="font-display text-3xl font-bold tracking-tight text-ink-800 dark:text-paper-100 sm:text-4xl">
           About
         </h1>
       </div>
