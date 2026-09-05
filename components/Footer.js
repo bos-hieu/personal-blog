@@ -1,4 +1,3 @@
-import Link from './Link'
 import siteMetadata from '@/data/siteMetadata'
 import SocialIcon from '@/components/social-icons'
 
@@ -10,7 +9,6 @@ export default function Footer() {
           <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size={5} />
           <SocialIcon kind="github" href={siteMetadata.github} size={5} />
           <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={5} />
-          <SocialIcon kind="youtube" href={siteMetadata.youtube} size={5} />
         </div>
         <p className="eyebrow mb-3 flex items-center justify-center gap-3 text-center">
           <span className="h-px w-8 bg-slate-300 dark:bg-slate-700" />
@@ -18,10 +16,7 @@ export default function Footer() {
           <span className="h-px w-8 bg-slate-300 dark:bg-slate-700" />
         </p>
         <p className="text-center text-sm text-slate-500 dark:text-slate-400">
-          <Link href="/" className="link-underline">
-            {siteMetadata.title}
-          </Link>
-          {` — © ${new Date().getFullYear()}. Set in Baskerville & Garamond.`}
+          {`© ${new Date().getFullYear()}`}
         </p>
       </div>
     </footer>
