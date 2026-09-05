@@ -12,17 +12,7 @@ We can think about software growth as **climbing a pyramid**.
 
 At the bottom, we focus on code and tools. As we move higher, we see more of the system, the trade-offs, and the real problem.
 
-```text
-        Architecture / Judgment
-                  ▲
-           Systems Thinking
-                  ▲
-            Fundamentals
-                  ▲
-      Languages / Frameworks
-                  ▲
-            Syntax / Tools
-```
+![Engineering Pyramid](/static/images/ai-architecture/engineering-pyramid.svg)
 
 In the AI era, this matters even more.
 
@@ -30,53 +20,22 @@ AI can generate code quickly. So our job should not only be **writing code**. It
 
 ## From Coder to Architect
 
-Our thinking can change from this:
+Instead of stopping at implementation, we can move one level higher and think about the problem, constraints, options, trade-offs, and verification first.
 
-```text
-Task
- ↓
-Write code
- ↓
-Ship
-```
+![From Coder to Architect](/static/images/ai-architecture/coder-to-architect.svg)
 
-to this:
-
-```text
-Problem
- ↓
-Constraints
- ↓
-Architecture options
- ↓
-Trade-offs
- ↓
-Decision
- ↓
-AI writes code
- ↓
-Review / Test / Improve
-```
-
-That is the shift we want:
-
-> not just **coding faster**, but **thinking better**.
+> Not just **coding faster**, but **thinking better**.
 
 ## What AI Changes
 
-AI makes implementation cheaper.
-
-That means higher-level skills become more valuable:
+AI makes implementation cheaper. That makes higher-level skills more valuable:
 
 - problem framing
 - system design
 - trade-off analysis
-- reliability thinking
-- performance thinking
+- reliability and performance
 - cost awareness
 - engineering judgment
-
-So we should not aim to become just developers who use AI.
 
 We should aim to become:
 
@@ -84,132 +43,50 @@ We should aim to become:
 
 ## First Principles Over Tool Knowledge
 
-Instead of asking:
+Instead of asking only, “How do we use this tool?”, we can ask, **“Why does this tool exist?”**
 
-> “How do we use this tool?”
+![First Principles Over Tool Knowledge](/static/images/ai-architecture/first-principles.svg)
 
-We can ask:
-
-> “Why does this tool exist?”
-
-Example:
-
-```text
-Kafka
- ↓
-Why does it exist?
- ↓
-Asynchronous communication
- ↓
-What problem does that solve?
- ↓
-Scale, decoupling, retries, failure handling
-```
-
-When we understand the underlying problem, we are no longer tied to one tool.
-
-That knowledge transfers.
+When we understand the underlying problem, we are no longer tied to one tool. The knowledge transfers.
 
 ## A Better AI Workflow
 
-A weak workflow looks like this:
+AI should help us implement faster without removing the thinking and learning loop.
 
-```text
-Prompt
- ↓
-AI generates code
- ↓
-Copy and run
-```
-
-A stronger workflow looks like this:
-
-```text
-Think
- ↓
-Design
- ↓
-Ask AI
- ↓
-Review
- ↓
-Test
- ↓
-Learn
-```
+![A Better AI Workflow](/static/images/ai-architecture/better-ai-workflow.svg)
 
 This way, every task improves both the project **and** our own judgment.
 
 ## One More Problem: Memory
 
-If we learn everything through one AI tool, what happens if a better tool appears later?
+If we learn everything through one AI tool, what happens when a better tool appears later?
 
-What if we move from Claude Code to Codex or Gemini CLI?
+A **vendor-neutral engineering memory** lets our experience survive a move from Claude Code to Codex, Gemini CLI, or whatever comes next.
 
-That is why a **vendor-neutral engineering memory** is valuable.
+![Vendor-Neutral Engineering Memory](/static/images/ai-architecture/vendor-neutral-memory.svg)
 
-```text
-         Our Knowledge
-               │
-         Local Memory Layer
-               │
-   ┌───────────┼───────────┐
-   │           │           │
-Claude Code   Codex    Gemini CLI
-```
+The useful things to preserve are simple:
 
-The goal is simple:
+- decisions
+- lessons
+- trade-offs
+- reusable principles
 
-- keep decisions
-- keep lessons
-- keep trade-offs
-- keep reusable principles
-
-But do **not** lock them inside one model or one tool.
+The important rule is: **do not lock engineering experience inside one model or tool.**
 
 ## What Should Compound Over Time
 
 Not prompts. Not chat history. Not one specific coding agent.
 
-What should compound is this:
+![What Should Compound Over Time](/static/images/ai-architecture/compound-over-time.svg)
 
-```text
-Projects
- ↓
-Decisions
- ↓
-Mistakes
- ↓
-Lessons
- ↓
-Patterns
- ↓
-Principles
- ↓
-Judgment
-```
-
-That is the real long-term asset.
+That accumulated judgment is the real long-term asset.
 
 ## Final Thought
 
-We should still code and understand implementation deeply.
+We should still code and understand implementation deeply. But growth should not mean only writing better functions.
 
-But growth should not mean only writing better functions.
-
-We can think of it as moving upward:
-
-```text
-Code
- ↓
-Software
- ↓
-Systems
- ↓
-Architecture
- ↓
-Judgment
-```
+![Engineering Journey](/static/images/ai-architecture/engineering-journey.svg)
 
 AI helps us move faster.
 
