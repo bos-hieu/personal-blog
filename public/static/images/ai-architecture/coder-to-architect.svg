@@ -1,15 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1180" role="img" aria-labelledby="t d">
-<title id="t">From Coder to Architect</title><desc id="d">A traditional coding loop compared with an architecture loop.</desc>
-<defs><marker id="a" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0f2747"/></marker></defs>
-<style>.card{fill:#f8fafc;stroke:#0f2747;stroke-width:4}.head{fill:#e8f0fb;stroke:#0f2747;stroke-width:4}.txt{fill:#0f2747;font:700 30px Arial,Helvetica,sans-serif;text-anchor:middle;dominant-baseline:middle}.small{font-size:27px}.arrow{stroke:#0f2747;stroke-width:5;marker-end:url(#a)}</style>
-<rect class="head" x="85" y="25" width="630" height="78" rx="24"/><text class="txt" x="400" y="64">Traditional Loop</text>
-<rect class="card" x="125" y="135" width="550" height="82" rx="22"/><text class="txt" x="400" y="176">Task</text><line class="arrow" x1="400" y1="220" x2="400" y2="260"/>
-<rect class="card" x="125" y="275" width="550" height="82" rx="22"/><text class="txt" x="400" y="316">Write Code</text><line class="arrow" x1="400" y1="360" x2="400" y2="400"/>
-<rect class="card" x="125" y="415" width="550" height="82" rx="22"/><text class="txt" x="400" y="456">Ship</text>
-<rect class="head" x="85" y="555" width="630" height="78" rx="24"/><text class="txt" x="400" y="594">Architecture Loop</text>
-<g><rect class="card" x="125" y="665" width="550" height="72" rx="20"/><text class="txt small" x="400" y="701">Problem</text><line class="arrow" x1="400" y1="740" x2="400" y2="770"/>
-<rect class="card" x="125" y="785" width="550" height="72" rx="20"/><text class="txt small" x="400" y="821">Constraints</text><line class="arrow" x1="400" y1="860" x2="400" y2="890"/>
-<rect class="card" x="125" y="905" width="550" height="72" rx="20"/><text class="txt small" x="400" y="941">Architecture Options</text><line class="arrow" x1="400" y1="980" x2="400" y2="1010"/>
-<rect class="card" x="125" y="1025" width="550" height="72" rx="20"/><text class="txt small" x="400" y="1061">Trade-offs → Decision → AI Writes Code</text><line class="arrow" x1="400" y1="1100" x2="400" y2="1125"/>
-<rect class="card" x="125" y="1138" width="550" height="72" rx="20" transform="translate(0,-55)"/><text class="txt small" x="400" y="1119">Review / Test / Improve</text></g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1080" role="img" aria-labelledby="t d">
+<title id="t">From Coder to Architect</title><desc id="d">A simple coding loop compared with a higher-level architecture loop.</desc>
+<defs><marker id="a" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#0f2747"/></marker></defs>
+<style>.card{fill:#f8fafc;stroke:#0f2747;stroke-width:4}.head{fill:#e8f0fb;stroke:#0f2747;stroke-width:4}.txt{fill:#0f2747;font:700 31px Arial,Helvetica,sans-serif;text-anchor:middle;dominant-baseline:middle}.sub{font-size:27px}.arrow{stroke:#0f2747;stroke-width:5;marker-end:url(#a)}</style>
+<rect class="head" x="90" y="25" width="620" height="80" rx="24"/><text class="txt" x="400" y="65">Traditional Loop</text>
+<rect class="card" x="125" y="140" width="550" height="82" rx="22"/><text class="txt" x="400" y="181">Task</text><line class="arrow" x1="400" y1="225" x2="400" y2="265"/>
+<rect class="card" x="125" y="280" width="550" height="82" rx="22"/><text class="txt" x="400" y="321">Write Code</text><line class="arrow" x1="400" y1="365" x2="400" y2="405"/>
+<rect class="card" x="125" y="420" width="550" height="82" rx="22"/><text class="txt" x="400" y="461">Ship</text>
+<rect class="head" x="90" y="560" width="620" height="80" rx="24"/><text class="txt" x="400" y="600">Architecture Loop</text>
+<rect class="card" x="110" y="675" width="580" height="88" rx="22"/><text class="txt sub" x="400" y="719">Problem + Constraints</text><line class="arrow" x1="400" y1="766" x2="400" y2="805"/>
+<rect class="card" x="110" y="820" width="580" height="88" rx="22"/><text class="txt sub" x="400" y="864">Options + Trade-offs</text><line class="arrow" x1="400" y1="911" x2="400" y2="950"/>
+<rect class="card" x="110" y="965" width="580" height="88" rx="22"/><text class="txt sub" x="400" y="1009">Decision + AI Implementation</text>
+<text class="txt sub" x="400" y="1060">Review · Test · Improve</text>
 </svg>
