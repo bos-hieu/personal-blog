@@ -5,6 +5,7 @@ import SectionContainer from './SectionContainer'
 import Footer from './Footer'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
+import TerminalMark from './TerminalMark'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import { Fragment, useEffect, useRef, useState } from 'react'
@@ -40,14 +41,7 @@ const LayoutWrapper = ({ children }) => {
           {/* Wordmark as a shell prompt — the full name is set in the page below. */}
           <div className="flex items-center justify-between py-3">
             <Link href="/" aria-label={siteMetadata.author}>
-              <div className="group flex items-baseline font-mono text-base text-slate-700 transition-colors hover:text-primary-600 dark:text-slate-200 dark:hover:text-primary-300 sm:text-lg">
-                <span className="text-slate-400 dark:text-slate-500">~/</span>
-                <span className="font-medium">trung-hieu</span>
-                <span
-                  className="caret ml-1 inline-block h-[0.95em] w-[0.5em] translate-y-[0.1em] bg-primary-500 dark:bg-primary-400"
-                  aria-hidden="true"
-                />
-              </div>
+              <TerminalMark />
             </Link>
             <div className="flex items-center">
               <nav className="hidden sm:flex sm:items-center sm:gap-7">
