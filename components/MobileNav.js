@@ -24,7 +24,7 @@ const MobileNav = () => {
     <div className="sm:hidden">
       <button
         type="button"
-        className="ml-2 h-8 w-8 text-ink-700 dark:text-paper-200"
+        className="ml-2 h-8 w-8 text-slate-700 dark:text-slate-100"
         aria-label="Toggle Menu"
         onClick={onToggleNav}
       >
@@ -58,16 +58,16 @@ const MobileNav = () => {
         aria-hidden={!navShow}
       >
         <div
-          className={`absolute inset-y-0 right-0 w-full transform border-l border-paper-400 bg-paper duration-300 ease-in-out dark:border-ink-600 dark:bg-ink-900 ${
+          className={`absolute inset-y-0 right-0 w-full transform border-l border-slate-200 bg-slate-50 duration-300 ease-in-out dark:border-slate-700 dark:bg-slate-900 ${
             navShow ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
-          <div className="flex items-center justify-between border-b border-paper-400 px-8 py-4 dark:border-ink-600">
+          <div className="flex items-center justify-between border-b border-slate-200 px-8 py-4 dark:border-slate-700">
             <span className="eyebrow">Contents</span>
             <button
               type="button"
               aria-label="Close Menu"
-              className="h-8 w-8 text-ink-700 dark:text-paper-200"
+              className="h-8 w-8 text-slate-700 dark:text-slate-100"
               onClick={onToggleNav}
             >
               <svg
@@ -86,15 +86,15 @@ const MobileNav = () => {
             {links.map((link, i) => (
               <div
                 key={`${link.href}-${i}`}
-                className="border-b border-paper-300 py-4 dark:border-ink-700"
+                className="border-b border-slate-200 py-4 dark:border-slate-800"
               >
                 <Link
                   href={link.href}
-                  className="flex items-baseline justify-between font-display text-2xl text-ink-800 dark:text-paper-100"
+                  className="flex items-baseline justify-between font-display text-2xl text-slate-800 dark:text-slate-100"
                   onClick={onToggleNav}
                 >
                   <span>{link.title}</span>
-                  <span className="eyebrow text-brass-500">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="eyebrow">{String(i + 1).padStart(2, '0')}</span>
                 </Link>
               </div>
             ))}

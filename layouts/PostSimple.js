@@ -15,14 +15,14 @@ export default function PostLayout({ frontMatter, next, prev, children }) {
           <p className="eyebrow mb-3">
             <time dateTime={date}>{formatDate(date)}</time>
           </p>
-          <h1 className="font-display text-3xl font-bold leading-tight tracking-tight text-ink-800 dark:text-paper-100 sm:text-4xl md:text-5xl">
+          <h1 className="font-display text-3xl font-semibold leading-tight tracking-tight text-slate-800 dark:text-slate-100 sm:text-4xl md:text-5xl">
             {title}
           </h1>
         </header>
 
         <div className="prose max-w-none pb-8 pt-10 dark:prose-dark">{children}</div>
 
-        <footer className="border-t border-paper-400 pt-6 dark:border-ink-600">
+        <footer className="border-t border-slate-200 pt-6 dark:border-slate-700">
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-between">
             {prev && (
               <Link href={`/blog/${prev.slug}`} className="eyebrow link-underline">

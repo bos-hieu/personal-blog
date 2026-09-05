@@ -4,7 +4,7 @@ import { IoLogoGithub, IoLogoLinkedin, IoMail, IoCall } from 'react-icons/io5'
 import Notification from './Notification'
 
 const iconClasses =
-  'h-5 w-5 cursor-pointer fill-ink-500 transition hover:fill-primary-600 dark:fill-paper-500 dark:hover:fill-primary-300'
+  'h-5 w-5 cursor-pointer fill-slate-500 transition hover:fill-primary-600 dark:fill-slate-400 dark:hover:fill-primary-300'
 
 function SocialLink({ icon: Icon, ...props }) {
   return (
@@ -42,10 +42,10 @@ export default function Hero() {
   return (
     <section className="rule-hair flex flex-wrap items-end justify-between gap-x-8 gap-y-5 pb-6">
       <div>
-        <h1 className="font-display text-3xl font-bold leading-tight tracking-tight text-ink-800 dark:text-paper-100 sm:text-4xl">
+        <h1 className="font-display text-3xl font-semibold leading-tight tracking-tight text-slate-800 dark:text-slate-100 sm:text-4xl">
           Trung Hieu Le
         </h1>
-        <p className="mt-2 font-serif text-lg italic text-ink-500 dark:text-paper-500">
+        <p className="mt-2 text-lg text-slate-500 dark:text-slate-400">
           Technical Lead — backend systems, cloud &amp; blockchain.
         </p>
       </div>

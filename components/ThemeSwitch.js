@@ -15,7 +15,7 @@ const ThemeSwitch = () => {
       aria-label="Toggle Dark Mode"
       title={isDark ? 'Day edition' : 'Evening edition'}
       type="button"
-      className="ml-6 flex h-8 w-8 items-center justify-center border border-paper-400 text-ink-600 transition-colors hover:border-primary-500 hover:text-primary-600 dark:border-ink-600 dark:text-paper-300 dark:hover:border-primary-400 dark:hover:text-primary-300 sm:ml-8"
+      className="ml-6 flex h-8 w-8 items-center justify-center border border-slate-200 text-slate-600 transition-colors hover:border-primary-500 hover:text-primary-600 dark:border-slate-700 dark:text-slate-300 dark:hover:border-primary-400 dark:hover:text-primary-300 sm:ml-8"
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
     >
       <svg

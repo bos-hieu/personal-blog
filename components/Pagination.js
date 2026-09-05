@@ -5,7 +5,7 @@ export default function Pagination({ totalPages, currentPage }) {
   const nextPage = parseInt(currentPage) + 1 <= parseInt(totalPages)
 
   return (
-    <nav className="mt-10 flex items-center justify-between border-t border-paper-400 pt-6 dark:border-ink-600">
+    <nav className="mt-10 flex items-center justify-between border-t border-slate-200 pt-6 dark:border-slate-700">
       {prevPage ? (
         <Link
           href={currentPage - 1 === 1 ? `/posts` : `/blog/page/${currentPage - 1}`}

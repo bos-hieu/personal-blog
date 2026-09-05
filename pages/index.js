@@ -23,7 +23,9 @@ export async function getStaticProps() {
 
 function RailHeading({ children }) {
   return (
-    <h2 className="eyebrow mb-3 border-b border-paper-400 pb-2 dark:border-ink-600">{children}</h2>
+    <h2 className="eyebrow mb-3 border-b border-slate-200 pb-2 dark:border-slate-700">
+      {children}
+    </h2>
   )
 }
 
@@ -42,22 +44,25 @@ export default function Home({ posts }) {
       {lead && (
         <article className="rule-double py-10">
           <p className="eyebrow mb-3">
-            Latest entry <span className="mx-2 text-brass-500">/</span>
+            Latest entry <span className="mx-2">/</span>
             <time dateTime={lead.date}>{formatDate(lead.date)}</time>
           </p>
-          <h2 className="max-w-3xl font-display text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+          <h2 className="max-w-3xl font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
             <Link
               href={`/blog/${lead.slug}`}
-              className="text-ink-800 transition-colors hover:text-primary-700 dark:text-paper-100 dark:hover:text-primary-300"
+              className="text-slate-800 transition-colors hover:text-primary-700 dark:text-slate-100 dark:hover:text-primary-300"
             >
               {lead.title}
             </Link>
           </h2>
-          <p className="mt-4 max-w-3xl font-serif text-xl leading-relaxed text-ink-600 dark:text-paper-300">
+          <p className="mt-4 max-w-3xl text-xl leading-relaxed text-slate-600 dark:text-slate-300">
             {lead.summary}
           </p>
           <div className="mt-5 flex flex-wrap items-baseline gap-x-6 gap-y-2">
-            <Link href={`/blog/${lead.slug}`} className="eyebrow link-underline text-primary-600">
+            <Link
+              href={`/blog/${lead.slug}`}
+              className="eyebrow link-underline text-primary-600 dark:text-primary-300"
+            >
               Read the article &rarr;
             </Link>
             <div className="flex flex-wrap gap-x-3 gap-y-1">
@@ -72,15 +77,13 @@ export default function Home({ posts }) {
       {/* Index column with a sidebar rail, in the manner of a printed front page. */}
       <div className="grid grid-cols-1 gap-x-12 gap-y-12 pt-10 lg:grid-cols-3">
         <div className="lg:col-span-2">
-          <h2 className="eyebrow mb-1 border-b border-paper-400 pb-2 dark:border-ink-600">
+          <h2 className="eyebrow mb-1 border-b border-slate-200 pb-2 dark:border-slate-700">
             More from the notebook
           </h2>
           {!entries.length && (
-            <p className="py-6 font-serif italic text-ink-500 dark:text-paper-500">
-              Nothing else published yet.
-            </p>
+            <p className="py-6 text-slate-500 dark:text-slate-400">Nothing else published yet.</p>
           )}
-          <ul className="divide-y divide-paper-300 dark:divide-ink-700">
+          <ul className="divide-y divide-slate-200 dark:divide-slate-800">
             {entries.map((frontMatter) => {
               const { slug, date, title, summary } = frontMatter
               return (
@@ -89,10 +92,10 @@ export default function Home({ posts }) {
                     <p className="eyebrow mb-1">
                       <time dateTime={date}>{formatDate(date)}</time>
                     </p>
-                    <h3 className="font-display text-lg font-bold leading-snug text-ink-800 transition-colors group-hover:text-primary-700 dark:text-paper-100 dark:group-hover:text-primary-300">
+                    <h3 className="font-display text-lg font-semibold leading-snug text-slate-800 transition-colors group-hover:text-primary-700 dark:text-slate-100 dark:group-hover:text-primary-300">
                       {title}
                     </h3>
-                    <p className="clamp-2 mt-1 font-serif leading-relaxed text-ink-600 dark:text-paper-300">
+                    <p className="clamp-2 mt-1 leading-relaxed text-slate-600 dark:text-slate-300">
                       {summary}
                     </p>
                   </Link>
@@ -100,7 +103,7 @@ export default function Home({ posts }) {
               )
             })}
           </ul>
-          <div className="border-t border-paper-300 pt-5 dark:border-ink-700">
+          <div className="border-t border-slate-200 pt-5 dark:border-slate-800">
             <Link href="/posts" className="eyebrow link-underline" aria-label="all posts">
               The full archive &rarr;
             </Link>
@@ -110,15 +113,15 @@ export default function Home({ posts }) {
         <aside className="space-y-10 lg:col-span-1">
           <section>
             <RailHeading>About the author</RailHeading>
-            <div className="border border-paper-400 bg-paper-50 p-2 dark:border-ink-600 dark:bg-ink-800">
+            <div className="border border-slate-200 bg-white p-2 dark:border-slate-700 dark:bg-slate-800">
               <NextImage
                 src={portraitImage}
                 alt="portrait of Trung Hieu"
                 sizes="(min-width: 1024px) 16rem, 100vw"
-                className="aspect-[3/2] object-cover sepia-[.3]"
+                className="aspect-[3/2] object-cover grayscale-[.15]"
               />
             </div>
-            <p className="mt-4 font-serif leading-relaxed text-ink-600 dark:text-paper-300">
+            <p className="mt-4 leading-relaxed text-slate-600 dark:text-slate-300">
               Eight years of backend development, system architecture and team leadership —
               currently a postgraduate in cloud computing and blockchain, writing down what I learn.
             </p>
@@ -135,9 +138,9 @@ export default function Home({ posts }) {
       </div>
 
       {/* Work, set as its own band so it reads apart from the writing. */}
-      <section className="mt-16 border-t border-paper-400 pt-8 dark:border-ink-600">
+      <section className="mt-16 border-t border-slate-200 pt-8 dark:border-slate-700">
         <div className="mb-8 flex flex-wrap items-baseline justify-between gap-2">
-          <h2 className="font-display text-2xl font-bold tracking-tight text-ink-800 dark:text-paper-100">
+          <h2 className="font-display text-2xl font-semibold tracking-tight text-slate-800 dark:text-slate-100">
             Selected work
           </h2>
           <Link href="/projects" className="eyebrow link-underline" aria-label="all projects">

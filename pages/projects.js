@@ -10,10 +10,10 @@ export default function Projects() {
       <PageSEO title={`Projects - ${siteMetadata.author}`} description={siteMetadata.description} />
       <div className="rule-hair mb-10 pb-6">
         <p className="eyebrow mb-2">A working catalogue</p>
-        <h1 className="font-display text-3xl font-bold tracking-tight text-ink-800 dark:text-paper-100 sm:text-4xl">
+        <h1 className="font-display text-3xl font-semibold tracking-tight text-slate-800 dark:text-slate-100 sm:text-4xl">
           Projects
         </h1>
-        <p className="mt-2 max-w-2xl font-serif text-lg italic text-ink-500 dark:text-paper-500">
+        <p className="mt-2 max-w-2xl text-lg text-slate-500 dark:text-slate-400">
           Systems built, shipped and maintained — with the tools each one asked for.
         </p>
       </div>
@@ -29,9 +29,6 @@ export default function Projects() {
             deployed={d.deployed}
           />
         ))}
-      </div>
-      <div className="ornament">
-        <span />
       </div>
       <Analytics />
     </>

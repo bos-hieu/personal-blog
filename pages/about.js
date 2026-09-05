@@ -9,12 +9,12 @@ import portraitImage from '../public/static/images/avatar.jpeg'
 
 function SocialLink({ href, children, icon: Icon }) {
   return (
-    <li className="border-b border-paper-300 dark:border-ink-700">
+    <li className="border-b border-slate-200 dark:border-slate-800">
       <Link
         href={href}
-        className="group flex items-center py-3 font-sans text-xs uppercase tracking-caps text-ink-600 transition-colors hover:text-primary-600 dark:text-paper-300 dark:hover:text-primary-300"
+        className="group flex items-center py-3 font-sans text-xs uppercase tracking-caps text-slate-600 transition-colors hover:text-primary-600 dark:text-slate-300 dark:hover:text-primary-300"
       >
-        <Icon className="h-4 w-4 flex-none fill-ink-400 transition group-hover:fill-primary-600 dark:fill-paper-500 dark:group-hover:fill-primary-300" />
+        <Icon className="h-4 w-4 flex-none fill-slate-500 transition group-hover:fill-primary-600 dark:fill-slate-400 dark:group-hover:fill-primary-300" />
         <span className="ml-4">{children}</span>
       </Link>
     </li>
@@ -35,10 +35,10 @@ export default function About() {
 
       <div className="rule-hair mb-10 pb-6">
         <p className="eyebrow mb-2">A brief biography</p>
-        <h1 className="font-display text-3xl font-bold tracking-tight text-ink-800 dark:text-paper-100 sm:text-4xl">
+        <h1 className="font-display text-3xl font-semibold tracking-tight text-slate-800 dark:text-slate-100 sm:text-4xl">
           Trung Hieu Le
         </h1>
-        <p className="mt-2 max-w-2xl font-serif text-lg italic text-ink-500 dark:text-paper-500">
+        <p className="mt-2 max-w-2xl text-lg text-slate-500 dark:text-slate-400">
           Technical Lead — backend systems, architecture, and the occasional smart contract.
         </p>
       </div>
@@ -46,17 +46,17 @@ export default function About() {
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
         <div className="order-first lg:order-last">
           {/* Portrait mounted like a plate in a printed volume. */}
-          <figure className="border border-paper-400 bg-paper-50 p-2 dark:border-ink-600 dark:bg-ink-800">
+          <figure className="border border-slate-200 bg-white p-2 dark:border-slate-700 dark:bg-slate-800">
             <Image
               src={portraitImage}
               alt="portrait of Trung Hieu"
               sizes="(min-width: 1024px) 20rem, 16rem"
-              className="aspect-square object-cover sepia-[.3]"
+              className="aspect-square object-cover grayscale-[.15]"
             />
             <figcaption className="eyebrow pb-1 pt-3 text-center">Trung Hieu Le</figcaption>
           </figure>
 
-          <ul className="mt-8 border-t border-paper-400 dark:border-ink-600">
+          <ul className="mt-8 border-t border-slate-200 dark:border-slate-700">
             <SocialLink href={github} icon={GitHubIcon}>
               Follow on GitHub
             </SocialLink>
@@ -69,8 +69,8 @@ export default function About() {
           </ul>
         </div>
 
-        <div className="space-y-6 font-serif text-lg leading-relaxed text-ink-700 dark:text-paper-300 lg:col-span-2">
-          <p className="drop-cap">
+        <div className="space-y-6 text-lg leading-relaxed text-slate-700 dark:text-slate-300 lg:col-span-2">
+          <p>
             I&rsquo;m Trung Hieu, a seasoned Technical Lead with over eight years of hands-on
             experience in backend development, system architecture, and team leadership. During my
             tenure at Autonomous Inc., a US-based e-commerce company specializing in office
@@ -108,15 +108,12 @@ export default function About() {
             studies, I&rsquo;m a passionate football fan, deeply inspired by CR7&rsquo;s resilience
             and drive.
           </p>
-          <blockquote className="border-l-2 border-primary-500 pl-5 italic text-ink-600 dark:text-paper-300">
+          <blockquote className="border-l-2 border-primary-500 pl-5 text-slate-600 dark:text-slate-300">
             Whether leading teams, writing clean code, or embracing new challenges, I thrive at the
             intersection of leadership and hands-on technical expertise — always striving to deliver
             impactful and scalable solutions.
           </blockquote>
         </div>
-      </div>
-      <div className="ornament">
-        <span />
       </div>
       <Analytics />
     </>

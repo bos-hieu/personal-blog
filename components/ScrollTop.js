@@ -25,7 +25,7 @@ const ScrollTop = () => {
       type="button"
       onClick={handleClick}
       style={{ opacity: show ? 1 : 0 }}
-      className="fixed bottom-8 right-8 hidden border border-paper-400 bg-paper-100 p-2 text-ink-600 transition-all hover:border-primary-500 hover:text-primary-600 dark:border-ink-600 dark:bg-ink-800 dark:text-paper-300 dark:hover:border-primary-400 dark:hover:text-primary-300 md:inline-block"
+      className="fixed bottom-8 right-8 hidden border border-slate-200 bg-slate-100 p-2 text-slate-600 transition-all hover:border-primary-500 hover:text-primary-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:border-primary-400 dark:hover:text-primary-300 md:inline-block"
     >
       <svg
         className="h-5 w-5"

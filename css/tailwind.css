@@ -8,14 +8,7 @@
   }
 
   body {
-    @apply bg-paper font-serif text-lg text-ink-700 antialiased dark:bg-ink-900 dark:text-paper-300;
-    /* A faint, evenly-spread grain so the page reads as paper rather than screen. */
-    background-image: radial-gradient(rgba(107, 99, 85, 0.05) 1px, transparent 1px);
-    background-size: 3px 3px;
-  }
-
-  .dark body {
-    background-image: radial-gradient(rgba(250, 246, 234, 0.035) 1px, transparent 1px);
+    @apply bg-slate-50 font-sans text-[1.0625rem] leading-relaxed text-slate-700 antialiased dark:bg-slate-900 dark:text-slate-300;
   }
 
   h1,
@@ -24,56 +17,41 @@
   h4,
   h5,
   h6 {
-    @apply font-display text-ink-800 dark:text-paper-100;
+    @apply font-display font-semibold text-slate-800 dark:text-slate-100;
+    letter-spacing: -0.015em;
   }
 
   ::selection {
-    @apply bg-primary-200 text-ink-900;
+    @apply bg-primary-100 text-slate-900;
   }
 
   .dark ::selection {
-    @apply bg-primary-800 text-paper-100;
+    @apply bg-primary-800 text-slate-100;
   }
 }
 
 @layer components {
-  /* Small-caps label used for section eyebrows, dates and nav items. */
+  /* Tracked, uppercase label for kickers, dates and nav items. */
   .eyebrow {
-    @apply font-sans text-[0.7rem] font-medium uppercase tracking-caps text-ink-500 dark:text-paper-500;
+    @apply text-[0.7rem] font-medium uppercase tracking-caps text-slate-500 dark:text-slate-400;
   }
 
-  /* Underline that behaves like a typeset rule rather than a browser default. */
+  /* Underline that sits clear of the descenders. */
   .link-underline {
-    @apply underline decoration-paper-500 decoration-1 underline-offset-4 transition-colors hover:decoration-primary-500 dark:decoration-ink-600 dark:hover:decoration-primary-400;
+    @apply underline decoration-slate-300 decoration-1 underline-offset-4 transition-colors hover:decoration-primary-500 dark:decoration-slate-600 dark:hover:decoration-primary-400;
   }
 
-  /* The thin/thick pair of rules found under a printed masthead. */
-  .rule-double {
-    @apply border-b-[3px] border-double border-paper-400 dark:border-ink-600;
-  }
-
+  /* Section dividers: a hairline, and a heavier one for the lead. */
   .rule-hair {
-    @apply border-b border-paper-400 dark:border-ink-600;
+    @apply border-b border-slate-200 dark:border-slate-700;
   }
 
-  /* A bordered block of paper — used for cards, panels and callouts. */
-  .paper-panel {
-    @apply border border-paper-400 bg-paper-100 dark:border-ink-600 dark:bg-ink-800;
+  .rule-double {
+    @apply border-b-2 border-slate-300 dark:border-slate-700;
   }
 
-  /* Centred ornament between sections. */
-  .ornament {
-    @apply flex items-center justify-center py-8 text-brass-500 dark:text-brass-400;
-  }
-
-  .ornament::before,
-  .ornament::after {
-    content: '';
-    @apply h-px w-16 bg-paper-400 dark:bg-ink-600;
-  }
-
-  .ornament > span {
-    @apply mx-4 h-1.5 w-1.5 rotate-45 bg-brass-500 dark:bg-brass-400;
+  .panel {
+    @apply border border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-800;
   }
 
   /* Trim a summary to a fixed number of lines so grid cells stay even. */
@@ -91,12 +69,6 @@
   .clamp-3 {
     -webkit-line-clamp: 3;
   }
-
-  /* Opening capital for the first paragraph of an article intro. */
-  .drop-cap::first-letter {
-    @apply float-left mr-2 font-display text-6xl font-bold leading-[0.8] text-primary-600 dark:text-primary-400;
-    padding-top: 0.1em;
-  }
 }
 
 .task-list-item::before {
@@ -108,7 +80,7 @@
 }
 
 .footnotes {
-  @apply mt-12 border-t border-paper-400 pt-8 dark:border-ink-600;
+  @apply mt-12 border-t border-slate-200 pt-8 dark:border-slate-700;
 }
 
 .csl-entry {
@@ -129,7 +101,7 @@ input:-webkit-autofill:focus {
   top: -1px;
 }
 
-/* The masthead collapses to a single compact line once the page scrolls. */
+/* The header collapses to a single compact line once the page scrolls. */
 header .masthead-tagline {
   @apply transition-all duration-300;
 }

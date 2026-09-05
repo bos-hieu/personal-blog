@@ -2,7 +2,7 @@ import Image from './Image'
 import Link from './Link'
 
 const Card = ({ title, description, imgSrc, href }) => (
-  <article className="paper-panel group h-full transition-colors hover:border-primary-300 dark:hover:border-primary-700">
+  <article className="panel group h-full transition-colors hover:border-primary-300 dark:hover:border-primary-700">
     {imgSrc &&
       (href ? (
         <Link href={href} aria-label={`Link to ${title}`}>
@@ -24,7 +24,7 @@ const Card = ({ title, description, imgSrc, href }) => (
         />
       ))}
     <div className="p-6">
-      <h2 className="mb-3 font-display text-xl font-bold leading-snug text-ink-800 dark:text-paper-100">
+      <h2 className="mb-3 font-display text-xl font-semibold leading-snug text-slate-800 dark:text-slate-100">
         {href ? (
           <Link href={href} aria-label={`Link to ${title}`}>
             {title}
@@ -33,9 +33,7 @@ const Card = ({ title, description, imgSrc, href }) => (
           title
         )}
       </h2>
-      <p className="mb-4 font-serif leading-relaxed text-ink-600 dark:text-paper-300">
-        {description}
-      </p>
+      <p className="mb-4 leading-relaxed text-slate-600 dark:text-slate-300">{description}</p>
       {href && (
         <Link href={href} className="eyebrow link-underline" aria-label={`Link to ${title}`}>
           Learn more &rarr;

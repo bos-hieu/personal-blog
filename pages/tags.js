@@ -18,22 +18,22 @@ export default function Tags({ tags }) {
       <PageSEO title={`Tags - ${siteMetadata.author}`} description="Things I blog about" />
       <div className="rule-hair mb-10 pb-6">
         <p className="eyebrow mb-2">The index</p>
-        <h1 className="font-display text-3xl font-bold tracking-tight text-ink-800 dark:text-paper-100 sm:text-4xl">
+        <h1 className="font-display text-3xl font-semibold tracking-tight text-slate-800 dark:text-slate-100 sm:text-4xl">
           Tags
         </h1>
       </div>
       <ul className="columns-1 gap-10 sm:columns-2">
         {Object.keys(tags).length === 0 && (
-          <li className="font-serif italic text-ink-500 dark:text-paper-500">No tags found.</li>
+          <li className="text-slate-500 dark:text-slate-400">No tags found.</li>
         )}
         {sortedTags.map((t) => (
           <li
             key={t}
-            className="mb-2 break-inside-avoid border-b border-paper-300 dark:border-ink-700"
+            className="mb-2 break-inside-avoid border-b border-slate-200 dark:border-slate-800"
           >
             <Link
               href={`/tags/${kebabCase(t)}`}
-              className="flex items-baseline justify-between py-2 font-serif text-ink-700 transition-colors hover:text-primary-700 dark:text-paper-300 dark:hover:text-primary-300"
+              className="flex items-baseline justify-between py-2 text-slate-700 transition-colors hover:text-primary-700 dark:text-slate-300 dark:hover:text-primary-300"
             >
               <span>{t}</span>
               <span className="eyebrow">{tags[t]}</span>
@@ -41,9 +41,6 @@ export default function Tags({ tags }) {
           </li>
         ))}
       </ul>
-      <div className="ornament">
-        <span />
-      </div>
       <Analytics />
     </>
   )

@@ -26,10 +26,10 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
             <time dateTime={date}>
               {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
             </time>
-            <span className="mx-2 text-brass-500">/</span>
+            <span className="mx-2">/</span>
             {readingTime.text}
           </p>
-          <h1 className="font-display text-3xl font-bold leading-tight tracking-tight text-ink-800 dark:text-paper-100 sm:text-4xl md:text-5xl">
+          <h1 className="font-display text-3xl font-semibold leading-tight tracking-tight text-slate-800 dark:text-slate-100 sm:text-4xl md:text-5xl">
             {title}
           </h1>
           <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
@@ -69,24 +69,24 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
           <div className="lg:col-span-3">
             <div className="prose max-w-none pb-10 pt-10 dark:prose-dark">{children}</div>
 
-            <footer className="border-t border-paper-400 pt-8 dark:border-ink-600">
+            <footer className="border-t border-slate-200 pt-8 dark:border-slate-700">
               {(prev || next) && (
-                <div className="grid grid-cols-1 gap-px bg-paper-400 dark:bg-ink-600 sm:grid-cols-2">
-                  <div className="bg-paper p-5 dark:bg-ink-900">
+                <div className="grid grid-cols-1 gap-px bg-slate-300 dark:bg-slate-700 sm:grid-cols-2">
+                  <div className="bg-slate-50 p-5 dark:bg-slate-900">
                     {prev && (
                       <Link href={`/blog/${prev.slug}`} className="group block">
                         <p className="eyebrow mb-2">&larr; Previous</p>
-                        <p className="font-display text-base leading-snug text-ink-800 transition-colors group-hover:text-primary-700 dark:text-paper-100 dark:group-hover:text-primary-300">
+                        <p className="font-display text-base leading-snug text-slate-800 transition-colors group-hover:text-primary-700 dark:text-slate-100 dark:group-hover:text-primary-300">
                           {prev.title}
                         </p>
                       </Link>
                     )}
                   </div>
-                  <div className="bg-paper p-5 dark:bg-ink-900 sm:text-right">
+                  <div className="bg-slate-50 p-5 dark:bg-slate-900 sm:text-right">
                     {next && (
                       <Link href={`/blog/${next.slug}`} className="group block">
                         <p className="eyebrow mb-2">Next &rarr;</p>
-                        <p className="font-display text-base leading-snug text-ink-800 transition-colors group-hover:text-primary-700 dark:text-paper-100 dark:group-hover:text-primary-300">
+                        <p className="font-display text-base leading-snug text-slate-800 transition-colors group-hover:text-primary-700 dark:text-slate-100 dark:group-hover:text-primary-300">
                           {next.title}
                         </p>
                       </Link>
@@ -135,10 +135,10 @@ function TocComponent({ toc }) {
       <div key={i}>
         <Link href={e.url}>
           <p
-            className={`border-l py-1 pl-3 font-serif text-sm leading-snug transition-colors ${
+            className={`border-l py-1 pl-3 text-sm leading-snug transition-colors ${
               isActive(e)
                 ? 'border-primary-500 text-primary-700 dark:text-primary-300'
-                : 'border-paper-400 text-ink-500 hover:text-ink-800 dark:border-ink-600 dark:text-paper-500 dark:hover:text-paper-200'
+                : 'border-slate-200 text-slate-500 hover:text-slate-800 dark:border-slate-700 dark:text-slate-400 dark:hover:text-slate-100'
             }`}
           >
             {e.value}

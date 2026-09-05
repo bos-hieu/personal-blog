@@ -10,22 +10,22 @@ export default function AuthorLayout({ children, frontMatter }) {
       <PageSEO title={`About - ${name}`} description={`About me - ${name}`} />
       <div className="rule-hair mb-10 pb-6">
         <p className="eyebrow mb-2">A brief biography</p>
-        <h1 className="font-display text-3xl font-bold tracking-tight text-ink-800 dark:text-paper-100 sm:text-4xl">
+        <h1 className="font-display text-3xl font-semibold tracking-tight text-slate-800 dark:text-slate-100 sm:text-4xl">
           About
         </h1>
       </div>
       <div className="items-start gap-10 xl:grid xl:grid-cols-3">
-        <div className="flex flex-col items-center border-b border-paper-400 pb-8 dark:border-ink-600 xl:border-b-0 xl:pb-0">
-          <div className="border border-paper-400 p-2 dark:border-ink-600">
+        <div className="flex flex-col items-center border-b border-slate-200 pb-8 dark:border-slate-700 xl:border-b-0 xl:pb-0">
+          <div className="border border-slate-200 p-2 dark:border-slate-700">
             <Image
               src={avatar}
               alt="avatar"
               width="192px"
               height="192px"
-              className="h-48 w-48 object-cover sepia-[.25]"
+              className="h-48 w-48 object-cover grayscale-[.15]"
             />
           </div>
-          <h2 className="pt-5 font-display text-xl font-bold text-ink-800 dark:text-paper-100">
+          <h2 className="pt-5 font-display text-xl font-semibold text-slate-800 dark:text-slate-100">
             {name}
           </h2>
           <p className="eyebrow mt-2 text-center">{occupation}</p>

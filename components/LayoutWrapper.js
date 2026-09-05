@@ -10,7 +10,7 @@ import { ChevronDownIcon } from '@heroicons/react/solid'
 import { Fragment, useEffect, useRef, useState } from 'react'
 
 const navLinkClasses =
-  'eyebrow text-ink-600 transition-colors hover:text-primary-600 dark:text-paper-300 dark:hover:text-primary-300'
+  'eyebrow text-slate-600 transition-colors hover:text-primary-600 dark:text-slate-300 dark:hover:text-primary-300'
 
 const LayoutWrapper = ({ children }) => {
   const [stuck, setStuck] = useState(false)
@@ -31,7 +31,7 @@ const LayoutWrapper = ({ children }) => {
   return (
     <>
       <header
-        className={`top-n-1 backdrop sticky z-50 mb-10 w-full border-b border-paper-400 bg-paper/90 transition-shadow dark:border-ink-600 dark:bg-ink-900/90 ${
+        className={`top-n-1 backdrop sticky z-50 mb-10 w-full border-b border-slate-200 bg-slate-50/90 transition-shadow dark:border-slate-700 dark:bg-slate-900/90 ${
           stuck ? 'isSticky shadow-sm' : ''
         }`}
         ref={ref}
@@ -40,7 +40,7 @@ const LayoutWrapper = ({ children }) => {
           {/* Masthead: wordmark over a hairline rule, in the manner of a printed title page. */}
           <div className="flex items-center justify-between py-3">
             <Link href="/" aria-label={siteMetadata.author}>
-              <div className="font-display text-xl font-bold tracking-tight text-ink-800 transition-colors hover:text-primary-600 dark:text-paper-100 dark:hover:text-primary-300 sm:text-2xl">
+              <div className="font-display text-xl font-semibold tracking-tight text-slate-800 transition-colors hover:text-primary-600 dark:text-slate-100 dark:hover:text-primary-300 sm:text-2xl">
                 {siteMetadata.author}
               </div>
             </Link>
@@ -70,7 +70,7 @@ const LayoutWrapper = ({ children }) => {
                         leaveFrom="transform opacity-100 scale-100"
                         leaveTo="transform opacity-0 scale-95"
                       >
-                        <Menu.Items className="absolute right-0 mt-3 w-44 origin-top-right border border-paper-400 bg-paper-50 py-1 shadow-md focus:outline-none dark:border-ink-600 dark:bg-ink-800">
+                        <Menu.Items className="absolute right-0 mt-3 w-44 origin-top-right border border-slate-200 bg-white py-1 shadow-md focus:outline-none dark:border-slate-700 dark:bg-slate-800">
                           {link.links.map((item) => (
                             <Menu.Item key={item.href}>
                               {({ active }) => (
@@ -78,8 +78,8 @@ const LayoutWrapper = ({ children }) => {
                                   href={item.href}
                                   className={`block px-4 py-2 font-sans text-xs uppercase tracking-caps ${
                                     active
-                                      ? 'bg-paper-200 text-primary-600 dark:bg-ink-700 dark:text-primary-300'
-                                      : 'text-ink-600 dark:text-paper-300'
+                                      ? 'bg-slate-100 text-primary-600 dark:bg-slate-700 dark:text-primary-300'
+                                      : 'text-slate-600 dark:text-slate-300'
                                   }`}
                                 >
                                   {item.title}
@@ -97,7 +97,7 @@ const LayoutWrapper = ({ children }) => {
               <MobileNav />
             </div>
           </div>
-          <div className="masthead-tagline hidden overflow-hidden border-t border-paper-300 py-2 dark:border-ink-700 sm:block">
+          <div className="masthead-tagline hidden overflow-hidden border-t border-slate-200 py-2 dark:border-slate-800 sm:block">
             <p className="eyebrow text-center">{siteMetadata.headerTitle}</p>
           </div>
         </div>

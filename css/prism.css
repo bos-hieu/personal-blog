@@ -7,7 +7,7 @@
 
 /* Code title styles */
 .remark-code-title {
-  @apply rounded-t border border-b-0 border-ink-700 bg-ink-800 px-5 py-2 font-mono text-xs uppercase tracking-caps text-paper-400;
+  @apply rounded-t border border-b-0 border-slate-700 bg-slate-800 px-5 py-2 font-mono text-xs uppercase tracking-caps text-slate-400;
 }
 
 .remark-code-title + div > pre {
@@ -32,20 +32,20 @@
 }
 
 .highlight-line {
-  @apply -mx-4 border-l-4 border-primary-500 bg-ink-700 bg-opacity-50;
+  @apply -mx-4 border-l-4 border-primary-400 bg-slate-700 bg-opacity-50;
 }
 
 .line-number::before {
-  @apply -ml-2 mr-4 inline-block w-4 text-right text-ink-400;
+  @apply -ml-2 mr-4 inline-block w-4 text-right text-slate-500;
   content: attr(line);
 }
 
 code[class*='language-'],
 pre[class*='language-'] {
-  background: #100e0b;
-  color: #d3cdc0;
+  background: #101317;
+  color: #cfd4da;
   text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-  font-family: 'IBM Plex Mono', 'Fira Code', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  font-family: 'JetBrains Mono', 'Fira Code', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
   direction: ltr;
   text-align: left;
   white-space: pre;
@@ -65,7 +65,7 @@ pre[class*='language-'] {
 code[class*='language-']::-moz-selection,
 code[class*='language-'] *::-moz-selection,
 pre[class*='language-'] *::-moz-selection {
-  background: #3a342a;
+  background: #2b3037;
   color: inherit;
   text-shadow: none;
 }
@@ -73,7 +73,7 @@ pre[class*='language-'] *::-moz-selection {
 code[class*='language-']::selection,
 code[class*='language-'] *::selection,
 pre[class*='language-'] *::selection {
-  background: #3a342a;
+  background: #2b3037;
   color: inherit;
   text-shadow: none;
 }
@@ -110,7 +110,7 @@ pre[class*='language-'] {
 .token.doctype,
 .token.punctuation,
 .token.entity {
-  color: #d3cdc0;
+  color: #cfd4da;
 }
 
 .token.attr-name,
@@ -158,7 +158,7 @@ pre[class*='language-'] {
 /* HTML overrides */
 .token.attr-value > .token.punctuation.attr-equals,
 .token.special-attr > .token.attr-value > .token.value.css {
-  color: #d3cdc0;
+  color: #cfd4da;
 }
 
 /* CSS overrides */
@@ -167,7 +167,7 @@ pre[class*='language-'] {
 }
 
 .language-css .token.property {
-  color: #d3cdc0;
+  color: #cfd4da;
 }
 
 .language-css .token.function,
@@ -198,7 +198,7 @@ pre[class*='language-'] {
 
 /* JSON overrides */
 .language-json .token.operator {
-  color: #d3cdc0;
+  color: #cfd4da;
 }
 
 .language-json .token.null.keyword {
@@ -209,7 +209,7 @@ pre[class*='language-'] {
 .language-markdown .token.url,
 .language-markdown .token.url > .token.operator,
 .language-markdown .token.url-reference.url > .token.string {
-  color: #d3cdc0;
+  color: #cfd4da;
 }
 
 .language-markdown .token.url > .token.content {
@@ -298,8 +298,8 @@ div.code-toolbar > .toolbar.toolbar > .toolbar-item > a:hover,
 div.code-toolbar > .toolbar.toolbar > .toolbar-item > a:focus,
 div.code-toolbar > .toolbar.toolbar > .toolbar-item > span:hover,
 div.code-toolbar > .toolbar.toolbar > .toolbar-item > span:focus {
-  background: #3a342a;
-  color: #d3cdc0;
+  background: #2b3037;
+  color: #cfd4da;
 }
 
 /* Line Highlight plugin overrides */
@@ -312,7 +312,7 @@ div.code-toolbar > .toolbar.toolbar > .toolbar-item > span:focus {
 .line-highlight.line-highlight:before,
 .line-highlight.line-highlight[data-end]:after {
   background: hsl(220, 13%, 26%);
-  color: #d3cdc0;
+  color: #cfd4da;
   padding: 0.1em 0.6em;
   border-radius: 0.3em;
   box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.2);
